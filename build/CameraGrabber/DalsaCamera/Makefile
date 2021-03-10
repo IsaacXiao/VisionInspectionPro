@@ -67,10 +67,10 @@ RM = E:/Programming/CMake/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:/WorkSpace/VsCode-Cpp/Test/Inspection/src
+CMAKE_SOURCE_DIR = D:/WorkSpace/Repository/VisionInspectionPro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:/WorkSpace/VsCode-Cpp/Test/Inspection/build
+CMAKE_BINARY_DIR = D:/WorkSpace/Repository/VisionInspectionPro/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CameraGrabber/DalsaCamera//CMakeFiles/progress.marks
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles 0
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/Repository/VisionInspectionPro/build/CMakeFiles D:/WorkSpace/Repository/VisionInspectionPro/build/CameraGrabber/DalsaCamera//CMakeFiles/progress.marks
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/Repository/VisionInspectionPro/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/clean
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/preinstall
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/preinstall
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/rule:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/rule
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/rule
 .PHONY : CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ DalsaCamera: CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/rule
 
 # fast build rule for target.
 DalsaCamera/fast:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build
 .PHONY : DalsaCamera/fast
 
 DalsaCamera.obj: DalsaCamera.cpp.obj
@@ -150,7 +150,7 @@ DalsaCamera.obj: DalsaCamera.cpp.obj
 
 # target to build an object file
 DalsaCamera.cpp.obj:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaCamera.cpp.obj
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaCamera.cpp.obj
 .PHONY : DalsaCamera.cpp.obj
 
 DalsaCamera.i: DalsaCamera.cpp.i
@@ -159,7 +159,7 @@ DalsaCamera.i: DalsaCamera.cpp.i
 
 # target to preprocess a source file
 DalsaCamera.cpp.i:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaCamera.cpp.i
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaCamera.cpp.i
 .PHONY : DalsaCamera.cpp.i
 
 DalsaCamera.s: DalsaCamera.cpp.s
@@ -168,7 +168,7 @@ DalsaCamera.s: DalsaCamera.cpp.s
 
 # target to generate assembly for a file
 DalsaCamera.cpp.s:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaCamera.cpp.s
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaCamera.cpp.s
 .PHONY : DalsaCamera.cpp.s
 
 DalsaDll.obj: DalsaDll.cpp.obj
@@ -177,7 +177,7 @@ DalsaDll.obj: DalsaDll.cpp.obj
 
 # target to build an object file
 DalsaDll.cpp.obj:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaDll.cpp.obj
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaDll.cpp.obj
 .PHONY : DalsaDll.cpp.obj
 
 DalsaDll.i: DalsaDll.cpp.i
@@ -186,7 +186,7 @@ DalsaDll.i: DalsaDll.cpp.i
 
 # target to preprocess a source file
 DalsaDll.cpp.i:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaDll.cpp.i
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaDll.cpp.i
 .PHONY : DalsaDll.cpp.i
 
 DalsaDll.s: DalsaDll.cpp.s
@@ -195,7 +195,7 @@ DalsaDll.s: DalsaDll.cpp.s
 
 # target to generate assembly for a file
 DalsaDll.cpp.s:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaDll.cpp.s
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/build.make CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir/DalsaDll.cpp.s
 .PHONY : DalsaDll.cpp.s
 
 # Help Target
@@ -224,6 +224,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

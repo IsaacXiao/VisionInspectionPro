@@ -1,4 +1,4 @@
-# Install script for directory: D:/WorkSpace/VsCode-Cpp/Test/Inspection/src/Export/DbExport
+# Install script for directory: D:/WorkSpace/Repository/VisionInspectionPro/src/Export/DbExport
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

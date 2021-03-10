@@ -1,4 +1,4 @@
-# Install script for directory: D:/WorkSpace/VsCode-Cpp/Test/Inspection/src/CameraGrabber/DalsaCamera
+# Install script for directory: D:/WorkSpace/Repository/VisionInspectionPro/src/CameraGrabber/DalsaCamera
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

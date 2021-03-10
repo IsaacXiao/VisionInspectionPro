@@ -67,10 +67,10 @@ RM = E:/Programming/CMake/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:/WorkSpace/VsCode-Cpp/Test/Inspection/src
+CMAKE_SOURCE_DIR = D:/WorkSpace/Repository/VisionInspectionPro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:/WorkSpace/VsCode-Cpp/Test/Inspection/build
+CMAKE_BINARY_DIR = D:/WorkSpace/Repository/VisionInspectionPro/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Export/DbExport//CMakeFiles/progress.marks
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles 0
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/Repository/VisionInspectionPro/build/CMakeFiles D:/WorkSpace/Repository/VisionInspectionPro/build/Export/DbExport//CMakeFiles/progress.marks
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/Repository/VisionInspectionPro/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/clean
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/preinstall
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/preinstall
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Export/DbExport/CMakeFiles/DbExport.dir/rule:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/CMakeFiles/DbExport.dir/rule
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Export/DbExport/CMakeFiles/DbExport.dir/rule
 .PHONY : Export/DbExport/CMakeFiles/DbExport.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ DbExport: Export/DbExport/CMakeFiles/DbExport.dir/rule
 
 # fast build rule for target.
 DbExport/fast:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/build
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/build
 .PHONY : DbExport/fast
 
 DbDll.obj: DbDll.cpp.obj
@@ -150,7 +150,7 @@ DbDll.obj: DbDll.cpp.obj
 
 # target to build an object file
 DbDll.cpp.obj:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbDll.cpp.obj
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbDll.cpp.obj
 .PHONY : DbDll.cpp.obj
 
 DbDll.i: DbDll.cpp.i
@@ -159,7 +159,7 @@ DbDll.i: DbDll.cpp.i
 
 # target to preprocess a source file
 DbDll.cpp.i:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbDll.cpp.i
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbDll.cpp.i
 .PHONY : DbDll.cpp.i
 
 DbDll.s: DbDll.cpp.s
@@ -168,7 +168,7 @@ DbDll.s: DbDll.cpp.s
 
 # target to generate assembly for a file
 DbDll.cpp.s:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbDll.cpp.s
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbDll.cpp.s
 .PHONY : DbDll.cpp.s
 
 DbExport.obj: DbExport.cpp.obj
@@ -177,7 +177,7 @@ DbExport.obj: DbExport.cpp.obj
 
 # target to build an object file
 DbExport.cpp.obj:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbExport.cpp.obj
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbExport.cpp.obj
 .PHONY : DbExport.cpp.obj
 
 DbExport.i: DbExport.cpp.i
@@ -186,7 +186,7 @@ DbExport.i: DbExport.cpp.i
 
 # target to preprocess a source file
 DbExport.cpp.i:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbExport.cpp.i
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbExport.cpp.i
 .PHONY : DbExport.cpp.i
 
 DbExport.s: DbExport.cpp.s
@@ -195,7 +195,7 @@ DbExport.s: DbExport.cpp.s
 
 # target to generate assembly for a file
 DbExport.cpp.s:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbExport.cpp.s
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f Export/DbExport/CMakeFiles/DbExport.dir/build.make Export/DbExport/CMakeFiles/DbExport.dir/DbExport.cpp.s
 .PHONY : DbExport.cpp.s
 
 # Help Target
@@ -224,6 +224,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

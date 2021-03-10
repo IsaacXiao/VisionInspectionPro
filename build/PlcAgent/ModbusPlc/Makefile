@@ -67,10 +67,10 @@ RM = E:/Programming/CMake/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:/WorkSpace/VsCode-Cpp/Test/Inspection/src
+CMAKE_SOURCE_DIR = D:/WorkSpace/Repository/VisionInspectionPro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:/WorkSpace/VsCode-Cpp/Test/Inspection/build
+CMAKE_BINARY_DIR = D:/WorkSpace/Repository/VisionInspectionPro/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/PlcAgent/ModbusPlc//CMakeFiles/progress.marks
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles 0
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/Repository/VisionInspectionPro/build/CMakeFiles D:/WorkSpace/Repository/VisionInspectionPro/build/PlcAgent/ModbusPlc//CMakeFiles/progress.marks
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:/WorkSpace/Repository/VisionInspectionPro/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/clean
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/preinstall
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/preinstall
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/rule:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/rule
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/rule
 .PHONY : PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ ModbusPlc: PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/rule
 
 # fast build rule for target.
 ModbusPlc/fast:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build
 .PHONY : ModbusPlc/fast
 
 ModbusDll.obj: ModbusDll.cpp.obj
@@ -150,7 +150,7 @@ ModbusDll.obj: ModbusDll.cpp.obj
 
 # target to build an object file
 ModbusDll.cpp.obj:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusDll.cpp.obj
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusDll.cpp.obj
 .PHONY : ModbusDll.cpp.obj
 
 ModbusDll.i: ModbusDll.cpp.i
@@ -159,7 +159,7 @@ ModbusDll.i: ModbusDll.cpp.i
 
 # target to preprocess a source file
 ModbusDll.cpp.i:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusDll.cpp.i
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusDll.cpp.i
 .PHONY : ModbusDll.cpp.i
 
 ModbusDll.s: ModbusDll.cpp.s
@@ -168,7 +168,7 @@ ModbusDll.s: ModbusDll.cpp.s
 
 # target to generate assembly for a file
 ModbusDll.cpp.s:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusDll.cpp.s
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusDll.cpp.s
 .PHONY : ModbusDll.cpp.s
 
 ModbusPlc.obj: ModbusPlc.cpp.obj
@@ -177,7 +177,7 @@ ModbusPlc.obj: ModbusPlc.cpp.obj
 
 # target to build an object file
 ModbusPlc.cpp.obj:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusPlc.cpp.obj
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusPlc.cpp.obj
 .PHONY : ModbusPlc.cpp.obj
 
 ModbusPlc.i: ModbusPlc.cpp.i
@@ -186,7 +186,7 @@ ModbusPlc.i: ModbusPlc.cpp.i
 
 # target to preprocess a source file
 ModbusPlc.cpp.i:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusPlc.cpp.i
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusPlc.cpp.i
 .PHONY : ModbusPlc.cpp.i
 
 ModbusPlc.s: ModbusPlc.cpp.s
@@ -195,7 +195,7 @@ ModbusPlc.s: ModbusPlc.cpp.s
 
 # target to generate assembly for a file
 ModbusPlc.cpp.s:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusPlc.cpp.s
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(MAKE) $(MAKESILENT) -f PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/build.make PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir/ModbusPlc.cpp.s
 .PHONY : ModbusPlc.cpp.s
 
 # Help Target
@@ -224,6 +224,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd D:/WorkSpace/VsCode-Cpp/Test/Inspection/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd D:/WorkSpace/Repository/VisionInspectionPro/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

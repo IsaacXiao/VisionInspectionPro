@@ -1,4 +1,4 @@
-# Install script for directory: D:/WorkSpace/VsCode-Cpp/Test/Inspection/src/PlcAgent/ModbusPlc
+# Install script for directory: D:/WorkSpace/Repository/VisionInspectionPro/src/PlcAgent/ModbusPlc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
