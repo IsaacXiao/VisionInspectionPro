@@ -1,0 +1,8 @@
+/3rd_lib
+CMakeFiles
+/build/CameraGrabber/DalsaCamera/*.cmake
+/build/CameraGrabber/DalsaCamera/Makefile
+/build/Export/DbExport/*.cmake
+/build/Export/DbExport/Makefile
+Makefile
+cmake_install.cmake
