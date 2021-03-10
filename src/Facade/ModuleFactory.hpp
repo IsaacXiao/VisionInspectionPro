@@ -1,0 +1,115 @@
+#ifndef MODULE_FACTORY_HPP
+#define MODULE_FACTORY_HPP
+
+#include "CommonInclude/TypeDefine.h"
+#include "CommonInclude/PlatFormHead.h"
+#include <memory>
+#include "CommonInclude/Memory.hpp"
+#include "CommonInclude/InspectException.h"
+#include "Logger/BroadCastLogger.hpp"
+#include <algorithm>
+#include <utility>
+#include <map>
+
+
+template<typename ModulePtrT, typename ModuleGroupT = EmptyClass>
+class ModuleFactory
+{
+    typedef std::shared_ptr<DllManager> DllManagerPtr;
+    typedef Dim2ArrayWrapper<char> Char2Array;
+    typedef ModulePtrT (*pCreate)( const char* name_ptr, const char* config_path );
+    //typedef bool (*pCheck)( const char* config_path );	
+    typedef short (*pNumber)();
+    typedef void (*pNames)( char** names_ptr );
+    typedef void (*pRemove)( ModulePtrT ptr );	
+private:
+    STRING path_;
+    ModuleGroupT module_group_;
+    VECTOR<STRING> names_;	
+    VECTOR<STRING> loaded_in_use_;
+    std::map<STRING,DllManagerPtr> dll_;
+
+    //TODO:做成lambda
+    DllManagerPtr GetModuleByName( const STRING& name )
+    {
+        auto module_name = std::find( names_.begin(), names_.end(), name );
+        if ( module_name == names_.end() )
+        {
+            throw CfgException( name + " does not exsit in dll!" );
+        }
+        return dll_[*module_name];  	
+	}
+
+    auto CfgLocation(DllManagerPtr dm) const 
+    {
+		const STRING path( dm->FileName() );
+		auto no_ext_name = path.substr( 0, path.find_last_of( "." ) );
+		const STRING cfg_fullname = no_ext_name + ".cfg";
+		if( FileExist( cfg_fullname ) )
+			return cfg_fullname;
+        else
+            throw CfgException( cfg_fullname + " cfg does not exist!" );
+    }
+public:
+    ModuleFactory( const STRING& path ) : path_( path ){}
+    ~ModuleFactory()
+    {
+
+    }
+
+    void Init()
+    {
+		names_.clear();
+        loaded_in_use_.clear();
+        dll_.clear();
+
+        try
+        {
+            VECTOR<STRING> dll_full_path_name;
+           	//每个模块在创建之前先把相应的文件夹下所有DLL全路径名保存
+		    BrowseFiles( path_, "." + DllExt(), dll_full_path_name );
+
+            for( unsigned int i = 0; i < dll_full_path_name.size(); ++i )
+            {
+                DllManagerPtr dm( std::make_shared<DllManager>( dll_full_path_name[i]) );
+                //这个dll里有几个class	
+                auto number_fn = (pNumber)dm->GetFunc( "Number" );
+                short number = number_fn();
+                //这几个class的名字
+                auto names_fn = ( pNames )dm->GetFunc( "Names" ); 			
+                Char2Array names( number, 256 );
+                names_fn( names.Ptr() ); 
+                
+                for( int j = 0 ; j < number; ++j )
+                {
+                    names_.emplace_back( names[ j ] );
+                    dll_.insert( std::make_pair( names[ j ], dm ) );				
+                }
+            }
+        }
+        catch(const InspectException& e) 
+        {
+            Logger::Record("main.exe",LOG_LEVEL::DEAD,e.what()),throw e;
+        }
+	}
+
+    ModulePtrT Create( const STRING& name )
+    {
+        DllManagerPtr dm = GetModuleByName(name);
+        auto create_fn = ( pCreate )dm->GetFunc( "Create" );
+        return create_fn( name.c_str(), CfgLocation(dm).c_str() );
+    }	
+
+    auto ModuleGroup()
+    {
+		return &module_group_;
+	}
+
+    const VECTOR<STRING>& Loaded_In_Use() const 
+	{
+		return loaded_in_use_;
+	}	
+};
+
+
+#endif

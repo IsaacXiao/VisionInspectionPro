@@ -1,0 +1,15 @@
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles/edit_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles/main.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CMakeFiles/rebuild_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Include/Configure/TinyXml/CMakeFiles/edit_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Include/Configure/TinyXml/CMakeFiles/tinyxml.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Include/Configure/TinyXml/CMakeFiles/rebuild_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CameraGrabber/DalsaCamera/CMakeFiles/DalsaCamera.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CameraGrabber/DalsaCamera/CMakeFiles/edit_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/CameraGrabber/DalsaCamera/CMakeFiles/rebuild_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/PlcAgent/ModbusPlc/CMakeFiles/ModbusPlc.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/PlcAgent/ModbusPlc/CMakeFiles/edit_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/PlcAgent/ModbusPlc/CMakeFiles/rebuild_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Export/DbExport/CMakeFiles/DbExport.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Export/DbExport/CMakeFiles/edit_cache.dir
+D:/WorkSpace/VsCode-Cpp/Test/Inspection/build/Export/DbExport/CMakeFiles/rebuild_cache.dir
