@@ -2,11 +2,13 @@
 #include "Logger/BroadCastLogger.hpp"
 #include "Facade/Facade.h"
 
+#include "Mediator/Mediator.hpp"
+
 int main()
 {
-    GlobalLogger::Record("main.exe",LOG_LEVEL::TRACK,"this is a maomaochong");
     Facade facade;
-    facade.Run(); 
+    facade.Run();
+    Mediator<EmptyClass> mediator; 
 
     return 0;
 }
