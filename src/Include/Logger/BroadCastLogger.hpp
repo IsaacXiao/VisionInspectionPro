@@ -57,6 +57,6 @@ public:
 	}
 };
 
-using Logger = BroadCastLogger<Console_Logger,UI_Logger,Text_Logger>;
+using GlobalLogger = BroadCastLogger<Console_Logger,UI_Logger,Text_Logger>;
 
 #endif

@@ -89,7 +89,7 @@ public:
         }
         catch(const InspectException& e) 
         {
-            Logger::Record("main.exe",LOG_LEVEL::DEAD,e.what()),throw e;
+            GlobalLogger::Record("main.exe",LOG_LEVEL::DEAD,e.what()),throw e;
         }
 	}
 

@@ -4,7 +4,7 @@
 
 int main()
 {
-    Logger::Record("main.exe",LOG_LEVEL::TRACK,"this is a maomaochong");
+    GlobalLogger::Record("main.exe",LOG_LEVEL::TRACK,"this is a maomaochong");
     Facade facade;
     facade.Run(); 
 
