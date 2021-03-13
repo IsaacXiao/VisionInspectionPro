@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+    <Text Include="Include\Configure\TinyXml\CMakeLists.txt">
+      <Filter>Include\Configure\TinyXml</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Facade\Facade.cpp">
+      <Filter>Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="Facade\FrameBuilder.cpp">
+      <Filter>Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\PlatForm\Windows\WindowsCore.cpp">
+      <Filter>Include\Platform\Windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Facade">
+      <UniqueIdentifier>{2e5d7127-52f6-4238-b21e-2d2c5db1cb9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{15c28aa4-f289-4970-89b9-138b24a7b776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\CommonInclude">
+      <UniqueIdentifier>{5f85c053-67a2-4777-bf7d-1a514b89e11e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Configure">
+      <UniqueIdentifier>{7767dd8b-7964-4f14-9402-27ffc712a1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Configure\TinyXml">
+      <UniqueIdentifier>{befbc7cb-d6db-4f84-9199-86c3e8d9ecbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Logger">
+      <UniqueIdentifier>{b54bd2ce-e3ca-4b3d-825e-508356043100}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Platform">
+      <UniqueIdentifier>{700eb77b-0560-4d04-bb9e-df413defad70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Platform\Windows">
+      <UniqueIdentifier>{ec12835b-43a7-4139-ab6b-a80a8a5cbf29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Platform\Linux">
+      <UniqueIdentifier>{33cb8935-02cf-448c-80e8-10e5dd5f9fb6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Facade\ModuleFactory.hpp">
+      <Filter>Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="Facade\Facade.h">
+      <Filter>Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="Facade\FrameBuilder.h">
+      <Filter>Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CommonInclude\utility.hpp">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CommonInclude\InspectException.h">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CommonInclude\Memory.hpp">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CommonInclude\PlatFormHead.h">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CommonInclude\TypeDefine.h">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Configure\TinyXml\tinyxml.h">
+      <Filter>Include\Configure\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Configure\TinyXml\XmlParserShareHeader.h">
+      <Filter>Include\Configure\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Configure\Configure.hpp">
+      <Filter>Include\Configure</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Logger\UI_Logger.h">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Logger\BroadCastLogger.hpp">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Logger\Console_Logger.h">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Logger\Text_Logger.h">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PlatForm\Windows\WindowsCore.h">
+      <Filter>Include\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PlatForm\Linux\LinuxCore.h">
+      <Filter>Include\Platform\Linux</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

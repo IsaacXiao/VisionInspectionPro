@@ -29,13 +29,12 @@ private:
     VECTOR<STRING> loaded_in_use_;
     std::map<STRING,DllManagerPtr> dll_;
 
-    //TODO:做成lambda
     DllManagerPtr GetModuleByName( const STRING& name )
     {
         auto module_name = std::find( names_.begin(), names_.end(), name );
         if ( module_name == names_.end() )
         {
-            throw CfgException( name + " does not exsit in dll!" );
+            throw CfgException( name + " does not exist in dll, config error!" );
         }
         return dll_[*module_name];  	
 	}
@@ -91,13 +90,30 @@ public:
         {
             GlobalLogger::Record("main.exe",LOG_LEVEL::DEAD,e.what()),throw e;
         }
+		catch (...)
+		{
+			auto msg = "Unknown Error when init Dll";
+			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, msg),throw msg;
+		}
 	}
 
     ModulePtrT Create( const STRING& name )
     {
-        DllManagerPtr dm = GetModuleByName(name);
-        auto create_fn = ( pCreate )dm->GetFunc( "Create" );
-        return create_fn( name.c_str(), CfgLocation(dm).c_str() );
+		try
+		{
+			DllManagerPtr dm = GetModuleByName(name);
+			auto create_fn = (pCreate)dm->GetFunc("Create");
+			return create_fn(name.c_str(), CfgLocation(dm).c_str());
+		}
+		catch (const InspectException& e)
+		{
+			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, e.what()), throw e;
+		}
+		catch (...)
+		{
+			auto msg = "Unknown Error when Create Module";
+			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, msg), throw msg;
+		}
     }	
 
     auto ModuleGroup()

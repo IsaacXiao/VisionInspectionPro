@@ -21,6 +21,7 @@ class Facade
 private:
     //FrameBuilder builder_;
     Configure<FRAMWORK_PART::MAIN> main_cfg_{GetModuleDirectory()+PathSeparator()+"Main.cfg"};
+	//m表示module
 	CameraGrabberFactory m_camera_grabber_;
 	PlcAgentFactory m_plc_agent_;
     //TODO: 用tuple来管理几大模块
@@ -28,7 +29,7 @@ public:
     Facade();
     ~Facade();
     PlcAgentPtr PlcAgent(){ return m_plc_agent_.Create( main_cfg_.Param()["PlcAgent"] ); }
-    CameraGrabberPtr CameraGrabber(){ return m_camera_grabber_.Create( main_cfg_.Param()["PlcAgent"] ); } 
+    CameraGrabberPtr CameraGrabber(){ return m_camera_grabber_.Create( main_cfg_.Param()["CameraGrabber"] ); } 
     void Run();
 };
 

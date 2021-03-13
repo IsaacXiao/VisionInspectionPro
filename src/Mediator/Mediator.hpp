@@ -34,7 +34,7 @@ public:
         //获取图片用主线程存储
         //卡界面了再用线程来存储
         //先拿到图了再说
-        img_stash_.Push(camera_grabber_->GetImage());
+        //img_stash_.Push(camera_grabber_->GetImage());
         //3个函数分3路输出
         //DisplayImage
         //InspectImage

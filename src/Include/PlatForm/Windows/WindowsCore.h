@@ -20,6 +20,9 @@ typedef HINSTANCE DLL_HANDLE;
 #define FILE_NAME_MAX_LENGTH 256;
 typedef HMODULE   MODULE_HANDLE;
 
+#pragma warning(disable : 4996)
+
+
 #include "CommonInclude/InspectException.h"
 
 void BrowseFiles( const STRING& ext, vector<STRING>& full_paths );
@@ -36,7 +39,7 @@ time_t StrToTime( char * szTime,STRING time_format = "%4d-%2d-%2d %2d:%2d:%2d");
 
 bool SetSysTime( time_t t );
 
-[[gnu::always_inline]] inline bool IsDirExist(STRING szDirectory)
+/*[[gnu::always_inline]]*/ inline bool IsDirExist(STRING szDirectory)
 {
 	DWORD dwAttr=GetFileAttributesA(szDirectory.c_str());
 	if(0xFFFFFFFF==dwAttr)
@@ -44,7 +47,7 @@ bool SetSysTime( time_t t );
 	return (FILE_ATTRIBUTE_DIRECTORY&dwAttr)!=0;
 }
 
-[[gnu::always_inline]] inline bool CreateDir( const STRING& path )
+inline auto CreateDir( const STRING& path )
 {
 	Sleep( 100 );
 	return CreateDirectoryA( path.c_str(), NULL );
@@ -73,14 +76,14 @@ inline void Time2Str( time_t t, STRING& str_time, STRING time_format = "%Y-%m-%d
 
 std::basic_string<WCHAR> GetModuleDirectoryW();
 
-inline bool RemoveDir( const STRING& path )
+inline auto RemoveDir( const STRING& path )
 {
 	Sleep( 100 );
 	int result = RemoveDirectoryA( path.c_str() );	
 	return result;
 }
 
-inline bool RemoveFile( const STRING& path )
+inline auto RemoveFile( const STRING& path )
 {
 	Sleep( 100 );
 	return DeleteFileA( path.c_str() );
@@ -89,6 +92,7 @@ inline bool RemoveFile( const STRING& path )
 inline DLL_HANDLE LoadDll( const STRING& file_name )
 {
 	return LoadLibraryA( file_name.c_str() );
+	//return LoadLibraryW(file_name.c_str());
 }
 
 inline void FreeDll( DLL_HANDLE handle )
@@ -139,7 +143,7 @@ inline bool FileExist( const STRING& file_path )
 	return INVALID_HANDLE_VALUE != FindFirstFileA( file_path.c_str(), &find_file_data );
 }
 
-inline bool FileCopy( const STRING& desc_file_path, const STRING& res_file_name )
+inline auto FileCopy( const STRING& desc_file_path, const STRING& res_file_name )
 {
 	return CopyFileA( desc_file_path.c_str(), res_file_name.c_str(), true );
 }
@@ -161,24 +165,25 @@ inline void ThreadSleep( int ms )
 	Sleep( ms );
 }
 
-[[gnu::always_inline]] inline auto ErrMsg()
+/*[[gnu::always_inline]]*/ inline std::string ErrMsg()
 {
-	const char* lpMsgBuf{"no error"};
+	 char lpMsgBuf[100];
 	FormatMessageA(
         FORMAT_MESSAGE_ALLOCATE_BUFFER | 
         FORMAT_MESSAGE_FROM_SYSTEM,
         NULL,
         GetLastError(),
         MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-        const_cast<char*>(lpMsgBuf),
+        (lpMsgBuf),
         0, NULL );
-	return lpMsgBuf;
+	return std::string(lpMsgBuf);
 }
+
 
 struct DllManager
 {
 	DllManager( const STRING& file_name ) : file_name_( file_name )
-	{		
+	{
 		handle_ = LoadDll( file_name );
 		if ( NULL == handle_ )
 		{

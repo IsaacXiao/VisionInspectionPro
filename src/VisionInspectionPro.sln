@@ -1,0 +1,131 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main.vcxproj", "{DEACB14C-F750-45DF-B6DE-458CB215E34E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{10B68A1F-2084-4FB3-A408-EA3FCE20E31E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlcAgent", "PlcAgent", "{F0C06F88-ED1F-4FBE-A691-C679870FB7B6}"
+	ProjectSection(SolutionItems) = preProject
+		PlcAgent\IPlcAgent.h = PlcAgent\IPlcAgent.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Export", "Export", "{59664386-E0E8-4997-90DE-8AD77641BFD5}"
+	ProjectSection(SolutionItems) = preProject
+		Export\IExport.h = Export\IExport.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbExport", "DbExport", "{4230F0D7-3CB3-4A83-8887-5FA828072A02}"
+	ProjectSection(SolutionItems) = preProject
+		Export\DbExport\CMakeLists.txt = Export\DbExport\CMakeLists.txt
+		Export\DbExport\DbDll.cpp = Export\DbExport\DbDll.cpp
+		Export\DbExport\DbDll.h = Export\DbExport\DbDll.h
+		Export\DbExport\DbExport.cpp = Export\DbExport\DbExport.cpp
+		Export\DbExport\DbExport.h = Export\DbExport\DbExport.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CameraGrabber", "CameraGrabber", "{99AEE226-B745-4DE3-BF5D-525A02B5F474}"
+	ProjectSection(SolutionItems) = preProject
+		CameraGrabber\ICameraGrabber.h = CameraGrabber\ICameraGrabber.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AlgProcessor", "AlgProcessor", "{F3C72E35-D1FF-48DC-A4AB-B3A7B1A55BB5}"
+	ProjectSection(SolutionItems) = preProject
+		AlgProcessor\IAlgProcessor.h = AlgProcessor\IAlgProcessor.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mediator", "Mediator", "{A098C74E-98D5-42CA-B0BB-E8DF9420F1F3}"
+	ProjectSection(SolutionItems) = preProject
+		Mediator\Mediator.hpp = Mediator\Mediator.hpp
+		Mediator\ThreadSafe_Queue.hpp = Mediator\ThreadSafe_Queue.hpp
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModbusPlc", "PlcAgent\ModbusPlc\ModbusPlc.vcxproj", "{FABFA05A-AAA3-360F-A035-E182D30FECB9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DMKCamera", "CameraGrabber\DMKCamera\DMKCamera.vcxproj", "{6013E271-7AA5-49E2-93BA-D5DFBF61F544}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraTest", "UI\CameraTest\CameraTest.vcxproj", "{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		MinSizeRel|x64 = MinSizeRel|x64
+		MinSizeRel|x86 = MinSizeRel|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		RelWithDebInfo|x64 = RelWithDebInfo|x64
+		RelWithDebInfo|x86 = RelWithDebInfo|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Debug|x64.ActiveCfg = Debug|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Debug|x64.Build.0 = Debug|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Debug|x86.ActiveCfg = Debug|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Debug|x86.Build.0 = Debug|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.MinSizeRel|x64.ActiveCfg = Release|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.MinSizeRel|x64.Build.0 = Release|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.MinSizeRel|x86.ActiveCfg = Release|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.MinSizeRel|x86.Build.0 = Release|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Release|x64.ActiveCfg = Release|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Release|x64.Build.0 = Release|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Release|x86.ActiveCfg = Release|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.Release|x86.Build.0 = Release|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{DEACB14C-F750-45DF-B6DE-458CB215E34E}.RelWithDebInfo|x86.Build.0 = Release|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.Debug|x64.ActiveCfg = Debug|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.Debug|x86.ActiveCfg = Debug|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.Debug|x86.Build.0 = Debug|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.MinSizeRel|x64.ActiveCfg = MinSizeRel|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.MinSizeRel|x86.ActiveCfg = MinSizeRel|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.MinSizeRel|x86.Build.0 = MinSizeRel|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.Release|x64.ActiveCfg = Release|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.Release|x86.ActiveCfg = Release|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.Release|x86.Build.0 = Release|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.RelWithDebInfo|x86.ActiveCfg = RelWithDebInfo|Win32
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9}.RelWithDebInfo|x86.Build.0 = RelWithDebInfo|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Debug|x64.ActiveCfg = Debug|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Debug|x64.Build.0 = Debug|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Debug|x86.ActiveCfg = Debug|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Debug|x86.Build.0 = Debug|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.MinSizeRel|x64.ActiveCfg = Release|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.MinSizeRel|x64.Build.0 = Release|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.MinSizeRel|x86.ActiveCfg = Release|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.MinSizeRel|x86.Build.0 = Release|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Release|x64.ActiveCfg = Release|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Release|x64.Build.0 = Release|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Release|x86.ActiveCfg = Release|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.Release|x86.Build.0 = Release|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544}.RelWithDebInfo|x86.Build.0 = Release|Win32
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.Debug|x64.ActiveCfg = Debug|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.Debug|x64.Build.0 = Debug|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.Debug|x86.ActiveCfg = Debug|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.MinSizeRel|x64.ActiveCfg = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.MinSizeRel|x64.Build.0 = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.MinSizeRel|x86.ActiveCfg = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.MinSizeRel|x86.Build.0 = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.Release|x64.ActiveCfg = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.Release|x64.Build.0 = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.Release|x86.ActiveCfg = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.RelWithDebInfo|x86.ActiveCfg = Release|x64
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE}.RelWithDebInfo|x86.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4230F0D7-3CB3-4A83-8887-5FA828072A02} = {59664386-E0E8-4997-90DE-8AD77641BFD5}
+		{FABFA05A-AAA3-360F-A035-E182D30FECB9} = {F0C06F88-ED1F-4FBE-A691-C679870FB7B6}
+		{6013E271-7AA5-49E2-93BA-D5DFBF61F544} = {99AEE226-B745-4DE3-BF5D-525A02B5F474}
+		{27CDD82A-7E5A-3FA4-AC8D-8DCDF983C4FE} = {10B68A1F-2084-4FB3-A408-EA3FCE20E31E}
+	EndGlobalSection
+EndGlobal

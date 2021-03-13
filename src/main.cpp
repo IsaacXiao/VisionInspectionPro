@@ -1,4 +1,4 @@
-#include "CommonInclude/TypeDefine.h"
+﻿#include "CommonInclude/TypeDefine.h"
 #include "Logger/BroadCastLogger.hpp"
 #include "Facade/Facade.h"
 
@@ -8,7 +8,7 @@ int main()
 {
     Facade facade;
     facade.Run();
-    Mediator<EmptyClass> mediator; 
+    Mediator<EmptyClass> mediator;
 
     return 0;
 }

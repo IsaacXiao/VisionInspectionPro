@@ -5,6 +5,7 @@
 #include <iterator>
 #include <iostream>
 #include <type_traits>
+#include <sstream>
 
 inline bool RegCheck(std::string &&exp, const std::regex& reg) noexcept
 {
@@ -23,6 +24,13 @@ template<typename E>
 constexpr typename std::underlying_type<E>::type EnumToInt(E enumerator) noexcept
 {
 	return static_cast<typename std::underlying_type<E>::type>(enumerator);
+}
+
+inline bool StrToBool(const std::string & str)
+{
+	bool ret{false};
+	istringstream(str) >> boolalpha >> ret;
+	return ret;
 }
 
 #endif

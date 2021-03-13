@@ -17,12 +17,12 @@ std::basic_string<WCHAR> GetModuleDirectoryW()
 
 void BrowseFiles( const STRING& ext, vector<STRING>& full_paths ) 
 {	
-	struct _finddata_t	file;
-	long				handle;
+	struct __finddata64_t	file;
+	long long				handle;
 	const int			MAX_PATH_SIZE = 256;	
 	char				path[MAX_PATH_SIZE];
 
-	handle = (long)_findfirst( "*", &file );
+	handle = (long long)_findfirst64( "*", &file );
 	if( handle == -1 )
 		return;
 	do
@@ -50,13 +50,13 @@ void BrowseFiles( const STRING& ext, vector<STRING>& full_paths )
 			strcat( path, file.name );				
 			full_paths.push_back( path ); 					
 		}
-	}while( !_findnext( handle, &file ) );	
+	}while( !_findnext64( handle, &file ) );
 	_findclose(handle);
 }
 
 void BrowseFiles( const STRING& dir, const STRING& ext, vector<STRING>& full_paths ) 
 {
-	_chdir( dir.c_str() );
+	auto res = _chdir( dir.c_str() );
 	BrowseFiles( ext, full_paths );
 	_chdir( ".." );
 	if ( 0 == full_paths.size() )

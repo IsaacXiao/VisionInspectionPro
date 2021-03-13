@@ -10,6 +10,7 @@ private:
 public:
     ICameraGrabber(/* args */){}
     virtual ~ICameraGrabber(){}
+	virtual void InitCamera() = 0;
 };
 
 

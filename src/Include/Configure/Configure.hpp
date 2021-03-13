@@ -9,7 +9,7 @@
 #include <iterator>
 #include <map>
 #include <type_traits>
-#include <utility>
+#include "CommonInclude/Memory.hpp"
 #include "CommonInclude/InspectException.h"
 
 class XmlManager final
@@ -19,17 +19,17 @@ class XmlManager final
 public:
 	
 	XmlManager( const STRING& file_name ) : file_name_( file_name )
-	{			
-		assert( false != doc_.LoadFile(file_name_.c_str()) );
-		assert( nullptr != doc_.RootElement( ) );	
+	{
+		doc_ = new TiXmlDocument(file_name_);
+		doc_->LoadFile(file_name_);
 	}
+	~XmlManager() { DeletePtr(doc_);  }
 
 	auto GetData() ->std::map<STRING,STRING>&
 	{
-		auto parent_nodes = GetNodes( Root(), "Properties" );
+		auto parent_nodes = GetNodes( doc_->RootElement(), "Properties" );
 		for( unsigned int i = 0 ; i < parent_nodes.size(); ++i )
 		{
-
 			auto sub_nodes = GetNodes( parent_nodes[i], "Property" );
 			for( unsigned int j = 0; j < sub_nodes.size(); ++j )
 			{
@@ -39,14 +39,9 @@ public:
 		}
 		return data_;
 	}
-	TiXmlDocument & XmlFile( ) { return doc_; }
-	void Save() { doc_.SaveFile( file_name_ ); }
+	auto XmlFile( ) { return doc_; }
+	void Save() { doc_->SaveFile( file_name_ ); }
 private:
-	inline const TiXmlNode* Root() const
-	{ 
-		return doc_.RootElement();
-	}
-
 	//TODO: 把下面2个函数改成全局的非成员函数
 	VECTOR<TiXmlNode*> GetNodes( const TiXmlNode* parent, STRING && flag )
 	{
@@ -82,7 +77,7 @@ private:
 		return attr_map;
 	}
 
-	TiXmlDocument doc_; 
+	TiXmlDocument* doc_; 
 	std::string file_name_; 
 	std::map<STRING,STRING> data_;
 };
@@ -95,7 +90,8 @@ private:
 	DataHolder dataholder_;
 	std::map<STRING,STRING> cfg_;
 public:
-	Configure( const STRING& cfg_location ):dataholder_(cfg_location){}
+	Configure( const STRING& cfg_location )
+		:dataholder_(cfg_location){}
 	~Configure(){}
 
 	//TODO:把下面2个函数做成下标操作符可读性更好

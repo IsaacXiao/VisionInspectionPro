@@ -44,12 +44,12 @@ public:
 		STRING && info = "DateTime:" + cur_time + "-----------------------\nwho: " + who
 			+ " Level: " + level_[EnumToInt(which_level)] + " Desc: " + msg + "\n";
 
-		static Configure<FRAMWORK_PART::LOGGER> cfg_{GetModuleDirectory()+PathSeparator()+"Logger.cfg"};
-		
-		bool ui_show, text_show, simple_show;
-		istringstream(cfg_.Param()["Ui_Logger"]) >> boolalpha >> ui_show;
-		istringstream(cfg_.Param()["Text_Logger"]) >> boolalpha >> text_show;
-		istringstream(cfg_.Param()["Simple_Logger"]) >> boolalpha >> simple_show;
+		static auto where = GetModuleDirectory() + PathSeparator() + "Logger.cfg";
+		static Configure<FRAMWORK_PART::LOGGER> cfg_{ where };
+
+		bool ui_show = StrToBool(cfg_.Param()["Ui_Logger"]);
+		bool text_show = StrToBool(cfg_.Param()["Text_Logger"]);
+		bool simple_show = StrToBool(cfg_.Param()["Simple_Logger"]);
 
 		UI_LoggerT::Record( which_level, info, ui_show );
 		Text_LoggerT::Record( which_level, info, text_show );

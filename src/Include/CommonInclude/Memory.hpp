@@ -28,12 +28,6 @@ inline void DeletePtr(PtrT ptr)
 }
 
 
-////
-////C风格的二维数组外包类.
-////这对客户的资源管理带来了很大的便利性.
-////其提供了隐式类型转换操作.
-////
-//用对象管理资源
 template<typename T>
 struct Dim2ArrayWrapper
 {

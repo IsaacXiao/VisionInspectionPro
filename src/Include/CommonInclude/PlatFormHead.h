@@ -2,7 +2,7 @@
 #define PLATFORM_HEAD_H
 
 
-#ifdef WIN32
+#ifdef _WIN64 //|| WIN32 
 #include "PlatForm/Windows/WindowsCore.h"
 #else
 #include "PlatForm/Linux/LinuxCore.h"
