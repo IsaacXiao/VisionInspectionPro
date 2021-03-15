@@ -12,12 +12,3 @@ Facade::Facade():
 Facade::~Facade()
 {
 }
-
-void Facade::Run()
-{
-    //PlcAgentPtr plc_agent = PlcAgent();
-    //std::cout << plc_agent->ShotTriggered() << endl;
-	GlobalLogger::Record("Main", LOG_LEVEL::TRACK, "VisionInspection Begin");
-	auto camera_grabber = CameraGrabber();
-	camera_grabber->InitCamera();
-}

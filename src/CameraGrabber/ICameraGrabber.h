@@ -10,7 +10,7 @@ private:
 public:
     ICameraGrabber(/* args */){}
     virtual ~ICameraGrabber(){}
-	virtual void InitCamera() = 0;
+	virtual void DisplayImg(HWND where, UINT width, UINT height) = 0;
 };
 
 

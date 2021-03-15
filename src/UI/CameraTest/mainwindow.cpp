@@ -25,7 +25,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_StartButton_clicked()
 {
 	Facade facade;
-	facade.Run();
+	facade.Run((HWND)ui->DisplayLabel->winId(), ui->DisplayLabel->width(), ui->DisplayLabel->height());
 }
 
 void MainWindow::on_EndButton_clicked()

@@ -90,11 +90,6 @@ public:
         {
             GlobalLogger::Record("main.exe",LOG_LEVEL::DEAD,e.what()),throw e;
         }
-		catch (...)
-		{
-			auto msg = "Unknown Error when init Dll";
-			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, msg),throw msg;
-		}
 	}
 
     ModulePtrT Create( const STRING& name )
@@ -108,11 +103,6 @@ public:
 		catch (const InspectException& e)
 		{
 			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, e.what()), throw e;
-		}
-		catch (...)
-		{
-			auto msg = "Unknown Error when Create Module";
-			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, msg), throw msg;
 		}
     }	
 

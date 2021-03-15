@@ -10,6 +10,8 @@
 
 #include "CommonInclude/Memory.hpp"
 
+#include <windows.h>
+
 class DMKCamera : public ICameraGrabber
 {
 private:
@@ -22,7 +24,8 @@ public:
 	{
 		return "DMKCamera";
 	}
-	virtual void InitCamera() override;
+	void InitCamera();
+	void DisplayImg(HWND where,UINT width,UINT height) override;
 };
 
 #endif

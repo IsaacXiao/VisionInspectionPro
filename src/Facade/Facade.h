@@ -14,6 +14,8 @@
 //#include "FrameBuilder.h"
 //在程序停止运行的时候清理Dll里所有资源
 
+#include <windows.h>
+
 class Facade
 {
     using CameraGrabberFactory = ModuleFactory<CameraGrabberPtr>;
@@ -30,7 +32,22 @@ public:
     ~Facade();
     PlcAgentPtr PlcAgent(){ return m_plc_agent_.Create( main_cfg_.Param()["PlcAgent"] ); }
     CameraGrabberPtr CameraGrabber(){ return m_camera_grabber_.Create( main_cfg_.Param()["CameraGrabber"] ); } 
-    void Run();
+
+	//template<typename T, typename... Ts>
+	//void Run(Ts&&... params)
+	//{
+	//	//PlcAgentPtr plc_agent = PlcAgent();
+	//	//std::cout << plc_agent->ShotTriggered() << endl;
+	//	GlobalLogger::Record("Main", LOG_LEVEL::TRACK, "VisionInspection Begin");
+	//	auto camera_grabber = CameraGrabber();
+	//	camera_grabber->InitCamera();
+	//}
+	
+	void Run(HWND where, UINT width, UINT height)
+	{
+		auto camera_grabber = CameraGrabber();
+		camera_grabber->DisplayImg(where,width,height);
+	}
 };
 
 
