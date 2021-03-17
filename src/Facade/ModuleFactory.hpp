@@ -56,7 +56,8 @@ public:
 
     }
 
-    void Init()
+	//每个模块在创建之前先把相应的文件夹下所有全路径名DLL保存
+    void Load()
     {
 		names_.clear();
         loaded_in_use_.clear();
@@ -65,7 +66,6 @@ public:
         try
         {
             VECTOR<STRING> dll_full_path_name;
-           	//每个模块在创建之前先把相应的文件夹下所有DLL全路径名保存
 		    BrowseFiles( path_, "." + DllExt(), dll_full_path_name );
 
             for( unsigned int i = 0; i < dll_full_path_name.size(); ++i )

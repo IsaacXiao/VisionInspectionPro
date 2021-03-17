@@ -11,19 +11,27 @@
 #include <type_traits>
 #include "CommonInclude/Memory.hpp"
 #include "CommonInclude/InspectException.h"
+#include "CommonInclude/TypeDefine.h"
+#include <memory>
+
+template<>
+struct PointType<TiXmlDocument>
+{
+	typedef std::unique_ptr<TiXmlDocument> Ptr;
+};
 
 class XmlManager final
 {
 	XmlManager(const XmlManager&) = delete;
 	XmlManager & operator = (const XmlManager&) = delete;
+
+	using XmlDocPtr = PointType<TiXmlDocument>::Ptr;
 public:
-	
 	XmlManager( const STRING& file_name ) : file_name_( file_name )
 	{
-		doc_ = new TiXmlDocument(file_name_);
+		doc_ = std::make_unique<TiXmlDocument>(file_name_);
 		doc_->LoadFile(file_name_);
 	}
-	~XmlManager() { DeletePtr(doc_);  }
 
 	auto GetData() ->std::map<STRING,STRING>&
 	{
@@ -39,7 +47,7 @@ public:
 		}
 		return data_;
 	}
-	auto XmlFile( ) { return doc_; }
+	//auto XmlFile( ) { return doc_; }
 	void Save() { doc_->SaveFile( file_name_ ); }
 private:
 	//TODO: 把下面2个函数改成全局的非成员函数
@@ -77,7 +85,7 @@ private:
 		return attr_map;
 	}
 
-	TiXmlDocument* doc_; 
+	XmlDocPtr doc_;
 	std::string file_name_; 
 	std::map<STRING,STRING> data_;
 };
@@ -94,17 +102,12 @@ public:
 		:dataholder_(cfg_location){}
 	~Configure(){}
 
-	//TODO:把下面2个函数做成下标操作符可读性更好
+	//TODO:做成下标操作符可读性更好
 	//用const和非const来区分读写
 	std::map<STRING,STRING>& Param() &
 	{
 		return dataholder_.GetData();
 	}
-
-	std::map<STRING,STRING>&& Param() && 
-	{
-		return std::move(dataholder_.GetData()); 
-	} 
 
 	//https://www.jb51.net/article/198482.htm
 	template<class VisitorPtrT, class = typename std::enable_if<std::is_pointer<VisitorPtrT>::value>::type>

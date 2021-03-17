@@ -1,38 +1,17 @@
 #ifndef FACADE_HEAD_H
 #define FACADE_HEAD_H
 
-#include "CommonInclude/TypeDefine.h"
-#include "CommonInclude/PlatFormHead.h"
-
-#include "Configure/Configure.hpp"
-#include "ModuleFactory.hpp"
-
-#include "../CameraGrabber/ICameraGrabber.h"
-#include "../PlcAgent/IPlcAgent.h"
-
-//TODO: 去掉FrameBuilder类，建造者模式用不上
-//#include "FrameBuilder.h"
-//在程序停止运行的时候清理Dll里所有资源
-
-#include <windows.h>
+#include "FrameBuilder.h"
+#include "../Mediator/Mediator.hpp"
 
 class Facade
 {
-    using CameraGrabberFactory = ModuleFactory<CameraGrabberPtr>;
-	using PlcAgentFactory = ModuleFactory<PlcAgentPtr>;
 private:
-    //FrameBuilder builder_;
-    Configure<FRAMWORK_PART::MAIN> main_cfg_{GetModuleDirectory()+PathSeparator()+"Main.cfg"};
-	//m表示module
-	CameraGrabberFactory m_camera_grabber_;
-	PlcAgentFactory m_plc_agent_;
-    //TODO: 用tuple来管理几大模块
+    FrameBuilder builder_;
+	//Mediator * img_manager_;
 public:
     Facade();
     ~Facade();
-    PlcAgentPtr PlcAgent(){ return m_plc_agent_.Create( main_cfg_.Param()["PlcAgent"] ); }
-    CameraGrabberPtr CameraGrabber(){ return m_camera_grabber_.Create( main_cfg_.Param()["CameraGrabber"] ); } 
-
 	//template<typename T, typename... Ts>
 	//void Run(Ts&&... params)
 	//{
@@ -43,12 +22,12 @@ public:
 	//	camera_grabber->InitCamera();
 	//}
 	
+	//#include <windows.h>无需包含
 	void Run(HWND where, UINT width, UINT height)
 	{
-		auto camera_grabber = CameraGrabber();
+		auto camera_grabber = builder_.ConstructCameraGrabber();
 		camera_grabber->DisplayImg(where,width,height);
 	}
 };
-
 
 #endif 

@@ -11,15 +11,15 @@
 #include "CommonInclude/Memory.hpp"
 
 #include <windows.h>
+#include <memory>
 
 class DMKCamera : public ICameraGrabber
 {
 private:
 	Configure<FRAMWORK_PART::CAMERAGRABBER> dmk_cfg_;
-	DShowLib::Grabber* grabber_;
+	std::unique_ptr<DShowLib::Grabber> grabber_;
 public:
 	DMKCamera(const STRING & cfg);
-	~DMKCamera();
 	static const char* Name()
 	{
 		return "DMKCamera";
