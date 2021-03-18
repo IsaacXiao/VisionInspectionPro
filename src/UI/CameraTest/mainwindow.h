@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "../../Facade/Facade.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,7 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
+	Facade * facade_;
 private slots:
 	void on_StartButton_clicked();
 	void on_EndButton_clicked();

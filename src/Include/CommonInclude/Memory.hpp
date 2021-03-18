@@ -18,15 +18,19 @@ inline bool IsNull(PtrT ptr) noexcept
 }
 
 template<typename PtrT>
-inline void DeletePtr(PtrT ptr)
+inline bool DeletePtr(PtrT ptr)
 {
 	if( std::is_null_pointer<decltype(ptr)>::value )
 	{
 		delete ptr;
 		ptr = nullptr;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
-
 
 template<typename T>
 struct Dim2ArrayWrapper

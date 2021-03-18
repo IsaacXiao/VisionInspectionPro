@@ -3,13 +3,14 @@
 
 #include "CommonInclude/TypeDefine.h"
 #include "Logger/BroadCastLogger.hpp"
-#include "../../Facade/Facade.h"
 
+#include "CommonInclude/Memory.hpp"
 #include "../../Mediator/Mediator.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), 
+	ui(new Ui::MainWindow),
+	facade_( new Facade )
 {
     ui->setupUi(this);
 
@@ -19,16 +20,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+	DeletePtr(facade_);
+	DeletePtr(ui);
 }
 
 void MainWindow::on_StartButton_clicked()
 {
-	Facade facade;
-	facade.Run((HWND)ui->DisplayLabel->winId(), ui->DisplayLabel->width(), ui->DisplayLabel->height());
+	facade_->Run((HWND)ui->DisplayLabel->winId(), ui->DisplayLabel->width(), ui->DisplayLabel->height());
 }
 
 void MainWindow::on_EndButton_clicked()
 {
-	//facede.Stop
+	facade_->Stop();
 }

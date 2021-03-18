@@ -51,9 +51,9 @@ public:
 		bool text_show = StrToBool(cfg_.Param()["Text_Logger"]);
 		bool simple_show = StrToBool(cfg_.Param()["Simple_Logger"]);
 
+		Simple_LoggerT::Record(which_level, info, simple_show);
 		UI_LoggerT::Record( which_level, info, ui_show );
 		Text_LoggerT::Record( which_level, info, text_show );
-		Simple_LoggerT::Record( which_level, info, simple_show ); 
 	}
 };
 

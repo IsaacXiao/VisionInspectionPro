@@ -108,17 +108,17 @@ public:
 
 	void Release(ModulePtrT who)
 	{
-		/*try
-		{
-			assert(nullptr != who);
-			DllManagerPtr dm = GetModuleByName(decltype(*who)::Name());
-			auto remove_fn = (pRemove)dw->GetFunc("Remove");
+		assert(nullptr != who);
+		try
+		{		
+			DllManagerPtr dm = GetModuleByName(who->Id());
+			auto remove_fn = (pRemove)dm->GetFunc("Remove");
 			remove_fn(who);
 		}
 		catch (const InspectException& e)
 		{
 			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, e.what()), throw e;
-		}*/
+		}
 	}
 
     auto ModuleGroup()
