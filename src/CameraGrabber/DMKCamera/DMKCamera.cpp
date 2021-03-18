@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "DMKCamera.h"
-
+#include "CommonInclude/TypeDefine.h"
 
 DMKCamera::DMKCamera(const STRING & cfg) :dmk_cfg_(cfg)
 {
@@ -36,7 +36,9 @@ void DMKCamera::DisplayImg(HWND where, UINT width, UINT height)
 		grabber_->setWindowSize(width,height);
 
 		// Start the live video.
-		grabber_->startLive();
+		IS_SUCCESS res = grabber_->startLive();
+		//throw res;
+		MessageBox(NULL, "warning", "No device was selected", MB_OK);
 	}
 	else
 	{

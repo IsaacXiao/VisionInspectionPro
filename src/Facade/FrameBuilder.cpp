@@ -13,3 +13,13 @@ void FrameBuilder::InitModule()
 	m_camera_grabber_.Load();
 }
 
+void FrameBuilder::BuildInspectionSystem()
+{
+	ConstructCameraGrabber();
+}
+
+void FrameBuilder::DestructModule()
+{
+	//m_camera_grabber_.Release(std::get<CAMERAGRABBER>(inspection_));
+}
+

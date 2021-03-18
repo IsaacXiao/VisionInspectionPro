@@ -2,6 +2,7 @@
 #include "stdafx.h"
 
 #include "dllmain.h"
+#include "CommonInclude/Memory.hpp"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -52,5 +53,5 @@ extern "C" DMK_CAMERA_API void Names(char** names_ptr)
 ////
 extern "C" DMK_CAMERA_API void Remove(CameraGrabberPtr ptr)
 {
-	delete ptr;
+	DeletePtr(ptr);
 }

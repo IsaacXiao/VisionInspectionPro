@@ -3,6 +3,7 @@
 
 #include "FrameBuilder.h"
 #include "../Mediator/Mediator.hpp"
+#include <utility>
 
 class Facade
 {
@@ -12,21 +13,15 @@ private:
 public:
     Facade();
     ~Facade();
-	//template<typename T, typename... Ts>
-	//void Run(Ts&&... params)
-	//{
-	//	//PlcAgentPtr plc_agent = PlcAgent();
-	//	//std::cout << plc_agent->ShotTriggered() << endl;
-	//	GlobalLogger::Record("Main", LOG_LEVEL::TRACK, "VisionInspection Begin");
-	//	auto camera_grabber = CameraGrabber();
-	//	camera_grabber->InitCamera();
-	//}
-	
-	//#include <windows.h>无需包含
-	void Run(HWND where, UINT width, UINT height)
+
+	//有的相机采集的第三方库与界面耦合在一起了
+	//多亏C++11开始有了可变长模板参数，可将相机采集做成通用的方案
+	template<typename... Ts>
+	void Run(Ts&&... params)
 	{
-		auto camera_grabber = builder_.ConstructCameraGrabber();
-		camera_grabber->DisplayImg(where,width,height);
+		builder_.BuildInspectionSystem();
+		auto camera_grabber = builder_.Part<CAMERAGRABBER>();
+		camera_grabber->DisplayImg(std::forward<Ts>(params)...);
 	}
 };
 
