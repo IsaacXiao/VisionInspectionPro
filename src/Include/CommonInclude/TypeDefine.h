@@ -32,6 +32,7 @@ typedef unsigned char*			PUCHAR;
 //typedef long	long	LONG;
 
 typedef std::string STRING;
+
 template<typename T>
 using VECTOR = std::vector<T>;
 

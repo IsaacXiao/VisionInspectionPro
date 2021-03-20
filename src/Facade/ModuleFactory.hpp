@@ -51,10 +51,6 @@ private:
     }
 public:
     ModuleFactory( const STRING& path ) : path_( path ){}
-    ~ModuleFactory()
-    {
-
-    }
 
 	//每个模块在创建之前先把相应的文件夹下所有全路径名DLL保存
     void Load()

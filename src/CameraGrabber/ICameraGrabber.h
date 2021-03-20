@@ -10,7 +10,7 @@ private:
 public:
     ICameraGrabber(/* args */){}
     virtual ~ICameraGrabber(){}
-	virtual void StartLive(HWND where, UINT width, UINT height) = 0;
+	virtual void StartLive(HWND where) = 0;
 	virtual void StopLive() = 0;
 	virtual const STRING& Id() = 0;
 };

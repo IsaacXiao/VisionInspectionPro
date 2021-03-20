@@ -17,6 +17,7 @@ private:
 public:
     ThreadSafe_Queue()
     {}
+	//自定义了拷贝操作，编译器不会生成移动操作
     ThreadSafe_Queue(ThreadSafe_Queue const& other)
     {
         std::lock_guard<std::mutex> lk(other.mut);

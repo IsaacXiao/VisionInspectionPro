@@ -8,7 +8,7 @@ int main()
 {
     Facade facade;
     facade.Run();
-    Mediator<EmptyClass> mediator;
+    //ImgMediator<EmptyClass> mediator;
 
     return 0;
 }

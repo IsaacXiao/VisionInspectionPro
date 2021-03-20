@@ -11,18 +11,23 @@ DMKCamera::DMKCamera(const STRING & cfg):
 {
 }
 
-void DMKCamera::StartLive(HWND where, UINT width, UINT height)
-{
-	// Show the device page.
-	grabber_->showDevicePage();//bool类型，显示设备设置界面
 
+
+void DMKCamera::StartLive(HWND where)
+{
+	//TODO: 把根据窗口句柄转换宽和高做成函数
+	RECT rctA;
+	GetWindowRect(where, &rctA);
+	int width = rctA.right - rctA.left;   
+	int height = rctA.bottom - rctA.top; 
+
+	grabber_->showDevicePage();
 	if (grabber_->isDevValid())
 	{
 		grabber_->setHWND(where);
 		grabber_->setDefaultWindowPosition(false);
 		grabber_->setWindowSize(width,height);
 
-		// Start the live video.
 		grabber_->startLive();
 	}
 	else
