@@ -12,6 +12,13 @@ public:
     virtual ~IAlgProcessor(){}
 };
 
+template<>
+struct PointType<IAlgProcessor>
+{
+	using Org = IAlgProcessor*;
+	using Ptr = std::shared_ptr<IAlgProcessor>;
+};
+
 using AlgProcessorPtr = PointType<IAlgProcessor>::Ptr;
 
 #endif

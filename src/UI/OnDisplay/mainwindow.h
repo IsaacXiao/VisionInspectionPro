@@ -67,5 +67,6 @@ private:
 private slots:
     void OnNavBtnClick();
 	void OnStartBtnClick();
+	void OnStopBtnClick();
 };
 #endif // MAINWINDOW_H

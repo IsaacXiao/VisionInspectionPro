@@ -20,6 +20,6 @@ void FrameBuilder::BuildInspectionSystem()
 
 void FrameBuilder::DestructModule()
 {
-	m_camera_grabber_.Release(std::get<CAMERAGRABBER>(inspection_));
+	Part<CAMERAGRABBER>().swap((CameraGrabberPtr)nullptr);
 }
 

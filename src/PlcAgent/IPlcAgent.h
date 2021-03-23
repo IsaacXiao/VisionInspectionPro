@@ -17,9 +17,11 @@ public:
 template<>
 struct PointType<IPlcAgent>
 {
+	using Org = IPlcAgent*;
 	using Ptr = std::shared_ptr<IPlcAgent>;
 }; 
 
+using PlcAgentOrg = PointType<IPlcAgent>::Org;
 using PlcAgentPtr = PointType<IPlcAgent>::Ptr;
 
 #endif

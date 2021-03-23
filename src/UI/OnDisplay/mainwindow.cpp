@@ -11,6 +11,7 @@ MainWnd::MainWnd(QWidget *parent)
     InitStatusBar();
 
 	connect(ui.actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
+	connect(ui.actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
 
 	facade_ = std::make_unique<Facade>();
 }
@@ -27,7 +28,7 @@ void MainWnd::InitFrame()
     ui.actStart->setEnabled(true);
     ui.actExit->setEnabled(true);
     ui.actSetting->setEnabled(true);
-    ui.actStop->setDisabled(true);
+    //ui.actStop->setDisabled(true);
 
 
     //禁用最大化
@@ -198,6 +199,11 @@ void MainWnd::InitStatusBar()
 void MainWnd::OnStartBtnClick()
 {
 	facade_->Run((HWND)ui.labShowImgCam01->winId());
+}
+
+void MainWnd::OnStopBtnClick()
+{
+	facade_->Stop();
 }
 
 void MainWnd::OnNavBtnClick()

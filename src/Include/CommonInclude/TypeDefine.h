@@ -11,6 +11,7 @@
 template<typename T>
 struct PointType
 {
+	typedef T Org;
 	typedef T* Ptr;
 };
 

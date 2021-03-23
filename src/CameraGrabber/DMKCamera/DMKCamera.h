@@ -33,6 +33,7 @@ namespace
 template<>
 struct PointType<DShowLib::Grabber>
 {
+	using Org = DShowLib::Grabber*;
 	using Ptr = std::unique_ptr<DShowLib::Grabber, decltype(&del_grab)>;
 };
 

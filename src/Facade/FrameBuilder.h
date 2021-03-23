@@ -13,8 +13,8 @@
 
 class FrameBuilder
 {
-	using CameraGrabberFactory = ModuleFactory<CameraGrabberPtr>;
-	using PlcAgentFactory = ModuleFactory<PlcAgentPtr>;
+	using CameraGrabberFactory = ModuleFactory<CameraGrabberOrg,CameraGrabberPtr>;
+	using PlcAgentFactory = ModuleFactory<PlcAgentOrg,PlcAgentPtr>;
 	using SystemFrame = std::tuple<CameraGrabberPtr,PlcAgentPtr>;
 private:
 	SystemFrame inspection_;
@@ -41,5 +41,15 @@ public:
 
     ~FrameBuilder(){};
 };
+
+template<>
+struct PointType<FrameBuilder>
+{
+	using Org = FrameBuilder*;
+	using Ptr = std::shared_ptr<FrameBuilder>;
+};
+
+using FrameBuilderOrg = PointType<FrameBuilder>::Org;
+using FrameBuilderPtr = PointType<FrameBuilder>::Ptr;
 
 #endif 

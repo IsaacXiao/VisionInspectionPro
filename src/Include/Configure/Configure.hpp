@@ -17,6 +17,7 @@
 template<>
 struct PointType<TiXmlDocument>
 {
+	typedef TiXmlDocument* Org;
 	typedef std::unique_ptr<TiXmlDocument> Ptr;
 };
 

@@ -11,22 +11,19 @@
 #include <utility>
 #include <map>
 
-
-template<typename ModulePtrT, typename ModuleGroupT = EmptyClass>
+template<typename OrgT, typename PtrT, typename ModuleGroupT = EmptyClass>
 class ModuleFactory
 {
     typedef std::shared_ptr<DllManager> DllManagerPtr;
     typedef Dim2ArrayWrapper<char> Char2Array;
-    typedef ModulePtrT (*pCreate)( const char* name_ptr, const char* config_path );
-    //typedef bool (*pCheck)( const char* config_path );	
+    typedef OrgT (*pCreate)( const char* name_ptr, const char* config_path );
     typedef short (*pNumber)();
     typedef void (*pNames)( char** names_ptr );
-    typedef void (*pRemove)( ModulePtrT ptr );	
+    typedef void (*pRemove)(OrgT ptr );
 private:
     STRING path_;
     ModuleGroupT module_group_;
     VECTOR<STRING> names_;	
-    VECTOR<STRING> loaded_in_use_;
     std::map<STRING,DllManagerPtr> dll_;
 
     DllManagerPtr GetModuleByName( const STRING& name )
@@ -56,7 +53,6 @@ public:
     void Load()
     {
 		names_.clear();
-        loaded_in_use_.clear();
         dll_.clear();
 
         try
@@ -88,44 +84,30 @@ public:
         }
 	}
 
-    ModulePtrT Create( const STRING& name )
+	PtrT Create( const STRING& name )
     {
 		try
 		{
 			DllManagerPtr dm = GetModuleByName(name);
 			auto create_fn = (pCreate)dm->GetFunc("Create");
-			return create_fn(name.c_str(), CfgLocation(dm).c_str());
+
+			auto module_remove = [dm](OrgT pt)
+			{
+				GlobalLogger::Record("main.exe", LOG_LEVEL::TRACK, STRING("before release module") + STRING("\nin ") + __FUNCTION__);
+				auto remove_fn = (pRemove)dm->GetFunc("Remove");
+				remove_fn(pt);
+			};
+			
+			using RetType = decltype(PtrT(create_fn(name.c_str(), CfgLocation(dm).c_str()), module_remove));
+			RetType pt;
+			pt.reset(create_fn(name.c_str(), CfgLocation(dm).c_str()), module_remove);
+			return pt;
 		}
 		catch (const InspectException& e)
 		{
-			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, e.what()), throw e;
+			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, STRING(e.what()) + STRING("\nin ") + __FUNCTION__), throw e;
 		}
     }	
-
-	void Release(ModulePtrT who)
-	{
-		assert(nullptr != who);
-		try
-		{		
-			DllManagerPtr dm = GetModuleByName(who->Id());
-			auto remove_fn = (pRemove)dm->GetFunc("Remove");
-			remove_fn(who);
-		}
-		catch (const InspectException& e)
-		{
-			GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, e.what()), throw e;
-		}
-	}
-
-    auto ModuleGroup()
-    {
-		return &module_group_;
-	}
-
-    const VECTOR<STRING>& Loaded_In_Use() const 
-	{
-		return loaded_in_use_;
-	}	
 };
 
 

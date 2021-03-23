@@ -14,7 +14,7 @@
 ////
 ////通过名称Id创建对象
 ////
-extern "C" DMK_CAMERA_API CameraGrabberPtr Create(const char* name_ptr, const char* config_path);
+extern "C" DMK_CAMERA_API CameraGrabberOrg Create(const char* name_ptr, const char* config_path);
 
 ////
 ////获取所提供的名称Id数量
@@ -29,4 +29,4 @@ extern "C" DMK_CAMERA_API void Names(char** names_ptr);
 ////
 ////保证谁创建谁释放的原理释放对象空间.
 ////
-extern "C" DMK_CAMERA_API void Remove(CameraGrabberPtr ptr);
+extern "C" DMK_CAMERA_API void Remove(CameraGrabberOrg ptr);
