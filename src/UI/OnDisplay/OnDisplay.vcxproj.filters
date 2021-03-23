@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Facade">
+      <UniqueIdentifier>{bbf3742c-7f0d-4fea-a5fa-2fd53149d24a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{f3711bd2-59dd-492c-879e-b4761557a441}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CameraShot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Facade\Facade.cpp">
+      <Filter>Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Facade\FrameBuilder.cpp">
+      <Filter>Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Include\PlatForm\Windows\WindowsCore.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CameraShot.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="OnDisplay.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Qss\Qss.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="Qss\image\Start_64px.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\Start_96px.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\Stop_Normal_Red_96px.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\Stop_Normal_Red_96px.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\add-line_horizontal.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\add-line_vertical.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\array_down.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\error.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\fontawesome-webfont.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\gray2.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\gray_1.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\info.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo4.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo5.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\logo6.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_about.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_company.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_config.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_data.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_exit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_help.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_main.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\main_person.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\ooopic.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\ooopic_1527343609.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\psblack.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\qt_zh_CN.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\question.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\radio_normal.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\radio_selected.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\sub-line_horizontal.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\sub-line_vertical.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Qss\image\system_suspend_96px.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Facade\ModuleFactory.hpp">
+      <Filter>Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Facade\Facade.h">
+      <Filter>Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Facade\FrameBuilder.h">
+      <Filter>Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\PlatForm\Windows\WindowsCore.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="ZhConvert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
