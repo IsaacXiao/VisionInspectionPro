@@ -19,14 +19,6 @@
       <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
@@ -36,32 +28,33 @@
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Facade">
       <UniqueIdentifier>{bbf3742c-7f0d-4fea-a5fa-2fd53149d24a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform">
+    <Filter Include="Include">
+      <UniqueIdentifier>{f09a9ad9-7324-498a-b720-7d356da0e53e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\CommonInclude">
+      <UniqueIdentifier>{712b0d35-6313-44ee-a0fa-f5a59b3e134e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Platform">
       <UniqueIdentifier>{f3711bd2-59dd-492c-879e-b4761557a441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Configure">
+      <UniqueIdentifier>{a2807089-6714-48af-98af-e81bcf645bb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Configure\TinyXml">
+      <UniqueIdentifier>{e90af511-ca8b-486d-b6c2-fb1a94b2d03b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Logger">
+      <UniqueIdentifier>{c42f0134-c0c4-4dbb-a90e-26ab44456fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{5064225c-62ec-4a91-bfda-102993b96278}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CameraShot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mainwindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Facade\Facade.cpp">
       <Filter>Facade</Filter>
     </ClCompile>
@@ -69,15 +62,24 @@
       <Filter>Facade</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Include\PlatForm\Windows\WindowsCore.cpp">
-      <Filter>Platform</Filter>
+      <Filter>Include\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraShot.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CameraShot.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
     </QtMoc>
     <QtMoc Include="mainwindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -277,10 +279,51 @@
       <Filter>Facade</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Include\PlatForm\Windows\WindowsCore.h">
-      <Filter>Platform</Filter>
+      <Filter>Include\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\CommonInclude\utility.hpp">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\CommonInclude\InspectException.h">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\CommonInclude\Memory.hpp">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\CommonInclude\PlatFormHead.h">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\CommonInclude\TypeDefine.h">
+      <Filter>Include\CommonInclude</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Configure\TinyXml\tinyxml.h">
+      <Filter>Include\Configure\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Configure\TinyXml\XmlParserShareHeader.h">
+      <Filter>Include\Configure\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Configure\Configure.hpp">
+      <Filter>Include\Configure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Logger\UI_Logger.h">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Logger\BroadCastLogger.hpp">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Logger\Console_Logger.h">
+      <Filter>Include\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Logger\Text_Logger.h">
+      <Filter>Include\Logger</Filter>
     </ClInclude>
     <ClInclude Include="ZhConvert.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\Include\Configure\TinyXml\CMakeLists.txt">
+      <Filter>Include\Configure\TinyXml</Filter>
+    </Text>
   </ItemGroup>
 </Project>

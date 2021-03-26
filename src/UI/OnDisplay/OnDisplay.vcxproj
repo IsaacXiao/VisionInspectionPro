@@ -64,7 +64,7 @@
     <TargetName>OnDisplay</TargetName>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>../../Include/;$(IncludePath)</IncludePath>
+    <IncludePath>../../Include/;../../../3rd_lib/opencv/include;../../../3rd_lib/opencv/include/opencv;../../../3rd_lib/opencv/include/opencv2;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>msvc2015_64</QtInstall>
@@ -99,8 +99,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>shell32.lib;tinyxml.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../../3rd_lib/tinyxml;C:\openssl\lib;C:\Utils\my_sql\mysql-5.6.11-winx64\lib;C:\Utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shell32.lib;tinyxml.lib;opencv_world345.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\3rd_lib\opencv\x64\vc14\lib;../../../3rd_lib/tinyxml;C:\openssl\lib;C:\Utils\my_sql\mysql-5.6.11-winx64\lib;C:\Utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -214,6 +214,18 @@
     <ClInclude Include="..\..\Facade\Facade.h" />
     <ClInclude Include="..\..\Facade\FrameBuilder.h" />
     <ClInclude Include="..\..\Facade\ModuleFactory.hpp" />
+    <ClInclude Include="..\..\Include\CommonInclude\InspectException.h" />
+    <ClInclude Include="..\..\Include\CommonInclude\Memory.hpp" />
+    <ClInclude Include="..\..\Include\CommonInclude\PlatFormHead.h" />
+    <ClInclude Include="..\..\Include\CommonInclude\TypeDefine.h" />
+    <ClInclude Include="..\..\Include\CommonInclude\utility.hpp" />
+    <ClInclude Include="..\..\Include\Configure\Configure.hpp" />
+    <ClInclude Include="..\..\Include\Configure\TinyXml\tinyxml.h" />
+    <ClInclude Include="..\..\Include\Configure\TinyXml\XmlParserShareHeader.h" />
+    <ClInclude Include="..\..\Include\Logger\BroadCastLogger.hpp" />
+    <ClInclude Include="..\..\Include\Logger\Console_Logger.h" />
+    <ClInclude Include="..\..\Include\Logger\Text_Logger.h" />
+    <ClInclude Include="..\..\Include\Logger\UI_Logger.h" />
     <ClInclude Include="..\..\Include\PlatForm\Windows\WindowsCore.h" />
     <ClInclude Include="ZhConvert.h" />
     <QtMoc Include="mainwindow.h">
@@ -300,6 +312,9 @@
     <None Include="Qss\image\sub-line_horizontal.png" />
     <None Include="Qss\image\sub-line_vertical.png" />
     <None Include="Qss\image\system_suspend_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\Include\Configure\TinyXml\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

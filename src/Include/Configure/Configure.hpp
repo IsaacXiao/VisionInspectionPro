@@ -31,9 +31,10 @@ public:
 	XmlManager( const STRING& file_name ) : file_name_( file_name )
 	{
 		doc_ = std::make_unique<TiXmlDocument>(file_name_);
-		doc_->LoadFile(file_name_);
+		IS_SUCCESS is_success =  doc_->LoadFile(file_name_);
+		assert(is_success);
 	}
-
+	//C++11的容器内置了移动语义，直接等于号=写过来不用手动控制复制
 	auto GetData() ->std::map<STRING,STRING>&
 	{
 		auto parent_nodes = GetNodes( doc_->RootElement(), "Properties" );
@@ -51,7 +52,6 @@ public:
 	//auto XmlFile( ) { return doc_; }
 	void Save() { doc_->SaveFile( file_name_ ); }
 private:
-	//TODO: 把下面2个函数改成全局的非成员函数
 	VECTOR<TiXmlNode*> GetNodes( const TiXmlNode* parent, STRING && flag )
 	{
 		VECTOR<TiXmlNode*> c;

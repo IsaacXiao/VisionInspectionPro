@@ -9,7 +9,7 @@ private:
     /* data */
 public:
     IExport(/* args */){}
-    ~IExport(){}
+	virtual ~IExport(){}
 };
 
 template<>
@@ -19,6 +19,7 @@ struct PointType<IExport>
 	using Ptr = std::shared_ptr<IExport>;
 };
 
+using ExportOrg = PointType<IExport>::Org;
 using ExportPtr = PointType<IExport>::Ptr;
 
 #endif

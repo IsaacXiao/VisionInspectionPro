@@ -1,3 +1,18 @@
 ﻿  Generate moc_predefs.h
+  FrameBuilder.cpp
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm/Windows/WindowsCore.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp(34): warning C4189: 'is_success': local variable is initialized but not referenced
+d:\workspace\repository\visioninspectionpro\src\facade\ModuleFactory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger/BroadCastLogger.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\workspace\repository\visioninspectionpro\src\include\logger\UI_Logger.h(13): warning C4100: 'is_show': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\include\logger\UI_Logger.h(13): warning C4100: 'info': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\include\logger\UI_Logger.h(13): warning C4100: 'which_level': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\include\logger\Text_Logger.h(13): warning C4100: 'is_show': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\include\logger\Text_Logger.h(13): warning C4100: 'info': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\include\logger\Text_Logger.h(13): warning C4100: 'which_level': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\include\logger\Console_Logger.h(15): warning C4100: 'which_level': unreferenced formal parameter
+d:\workspace\repository\visioninspectionpro\src\cameragrabber\../Mediator/IMediator.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
   OnDisplay.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\src\UI\OnDisplay\../../../build/OnDisplay.exe
   OnDisplay.vcxproj -> ../../../build/OnDisplay.pdb (Full PDB)

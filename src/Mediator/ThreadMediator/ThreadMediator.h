@@ -1,12 +1,12 @@
 #pragma once
 
 #include "../IMediator.h"
-#include "Configure/Configure.hpp"
+#include "thread_pool.h"
 
 class ThreadMediator : public IMediator
 {
 private:
-	Configure<FRAMWORK_PART::MEDIATOR> thread_cfg_;
+	
 public:
 	ThreadMediator(const STRING & cfg);
 	~ThreadMediator();

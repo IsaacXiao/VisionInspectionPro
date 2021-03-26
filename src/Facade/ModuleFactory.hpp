@@ -97,11 +97,7 @@ public:
 				auto remove_fn = (pRemove)dm->GetFunc("Remove");
 				remove_fn(pt);
 			};
-			
-			using RetType = decltype(PtrT(create_fn(name.c_str(), CfgLocation(dm).c_str()), module_remove));
-			RetType pt;
-			pt.reset(create_fn(name.c_str(), CfgLocation(dm).c_str()), module_remove);
-			return pt;
+			return PtrT(create_fn(name.c_str(), CfgLocation(dm).c_str()), module_remove);
 		}
 		catch (const InspectException& e)
 		{

@@ -7,11 +7,10 @@
 #include <QImage>
 
 #include "CameraShot.h"
-#include "../Mediator/IMediator.hpp"
+#include "../Mediator/IMediator.h"
 
 class Facade
 {
-	using FrameBuilderPtr = PointType<FrameBuilder>::Ptr;
 private:
 	FrameBuilderPtr builder_;
 public:
@@ -26,20 +25,20 @@ public:
 	///让操作系统去自动释放
 	//~Facade() 
 	//{ 
-	//	Stop();  
+	//
 	//}
 
 	template<typename... Ts>
 	void Run(Ts&&... params)
 	{
 		builder_->BuildInspectionSystem();
-		builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
+		//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}
 
 	void Stop() 
 	{
 		//builder_.Part<CAMERAGRABBER>()->StopLive();
-		builder_->DestructModule();
+		//builder_->DestructModule();
 	}
 };
 
@@ -49,5 +48,7 @@ struct PointType<Facade>
 	using Org = Facade*;
 	using Ptr = std::unique_ptr<Facade>;
 };
+
+using FacadePtr = PointType<Facade>::Ptr;
 
 #endif 

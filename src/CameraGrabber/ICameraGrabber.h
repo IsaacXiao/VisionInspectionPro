@@ -3,17 +3,25 @@
 
 #include "CommonInclude/TypeDefine.h"
 #include <memory>
+#include "../Mediator/IMediator.h"
+#include "Configure/Configure.hpp"
+#include "opencv2/opencv.hpp"
 
 class ICameraGrabber
 {
 private:
-    /* data */
+
+protected:
+	bool stop_{ false };
+	Configure<FRAMWORK_PART::CAMERAGRABBER> cfg_;
 public:
-    ICameraGrabber(/* args */){}
+    ICameraGrabber(const STRING & cfg):cfg_(cfg){}
     virtual ~ICameraGrabber(){}
-	virtual void StartLive(HWND where) = 0;
-	virtual void StopLive() = 0;
+	bool IsStoped() const { return stop_; }
+	void StopGrabbing() { stop_ = true; }
 	virtual const STRING& Id() = 0;
+	virtual void SoftTrigger() = 0;
+	virtual void AttachMediator(MediatorPtr mediator) = 0;
 };
 
 template<>

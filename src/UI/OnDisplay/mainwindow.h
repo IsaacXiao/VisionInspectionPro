@@ -17,7 +17,6 @@ class CameraShot;
 
 class MainWnd : public QMainWindow
 {
-	using FacadePtr = PointType<Facade>::Ptr;
 public:
     MainWnd(QWidget *parent = nullptr);
     ~MainWnd();
