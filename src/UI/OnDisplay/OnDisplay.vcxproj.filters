@@ -317,7 +317,7 @@
     <ClInclude Include="..\..\Include\Logger\Text_Logger.h">
       <Filter>Include\Logger</Filter>
     </ClInclude>
-    <ClInclude Include="ZhConvert.h">
+    <ClInclude Include="Convert.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>

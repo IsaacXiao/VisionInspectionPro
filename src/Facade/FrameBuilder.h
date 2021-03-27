@@ -9,6 +9,7 @@
 
 #include "../CameraGrabber/ICameraGrabber.h"
 #include "../PlcAgent/IPlcAgent.h"
+#include "../Mediator/IMediator.h"
 #include <tuple>
 
 class FrameBuilder
@@ -31,14 +32,16 @@ private:
 	//void ConstructPlcAgent() { std::get<PLCAGENT>(inspection_) = m_plc_agent_.Create(main_cfg_.Param()["PlcAgent"]); }
 	void ConstructMediator() { std::get<MEDIATOR>(inspection_) = m_mediator_.Create(main_cfg_.Param()["Mediator"]); }
 	void ConstructCameraGrabber() { std::get<CAMERAGRABBER>(inspection_) = m_camera_grabber_.Create(main_cfg_.Param()["CameraGrabber"]); }
+protected:
+
 public:
     FrameBuilder();
-
 	template<FRAMWORK_PART module>
 	constexpr auto Part() const
 	{
 		return std::get<module>(inspection_);
 	}
+	MediatorPtr Get() const { return std::get<MEDIATOR>(inspection_); }
 
 	void InitModule();
 	void BuildInspectionSystem();

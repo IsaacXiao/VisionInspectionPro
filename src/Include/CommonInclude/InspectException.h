@@ -44,4 +44,11 @@ public:
   CfgException(STRING && msg):InspectException(msg){}  
 };
 
+class CameraGrabberException : public InspectException
+{
+public:
+	CameraGrabberException() :InspectException("CameraGrabberException!") {}
+	CameraGrabberException(STRING && msg) :InspectException(msg) {}
+};
+
 #endif 

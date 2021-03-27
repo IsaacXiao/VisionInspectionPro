@@ -12,15 +12,10 @@ MainWnd::MainWnd(QWidget *parent)
 
 	connect(ui.actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
 	connect(ui.actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
+	connect(ui.btnGrabImageCam01, SIGNAL(clicked(bool)), this, SLOT(OnTrigger()));
 
 	facade_ = std::make_unique<Facade>();
 }
-
-MainWnd::~MainWnd()
-{
-}
-
-
 
 void MainWnd::InitFrame()
 {
@@ -198,12 +193,23 @@ void MainWnd::InitStatusBar()
 
 void MainWnd::OnStartBtnClick()
 {
-	facade_->Run((HWND)ui.labShowImgCam01->winId());
+	facade_->Run(/*(HWND)ui.labShowImgCam01->winId()*/);
 }
 
 void MainWnd::OnStopBtnClick()
 {
 	facade_->Stop();
+}
+
+void MainWnd::OnTrigger()
+{
+	while (true)
+	{
+		QImage img_raw = cvMat2QImage(*(facade_->PlcTriggerGrab()), true, true);
+		QImage image_scale = img_raw.scaled(ui.labShowImgCam01->width(), ui.labShowImgCam01->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+		ui.labShowImgCam01->setBackImage(image_scale);
+		ui.labShowImgCam01->update();
+	}
 }
 
 void MainWnd::OnNavBtnClick()

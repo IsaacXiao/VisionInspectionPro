@@ -7,7 +7,7 @@
 using namespace QtCharts;
 
 #include "ui_OnDisplay.h"
-#include "ZhConvert.h"
+#include "Convert.h"
 
 #include "../../Facade/Facade.h"
 
@@ -19,7 +19,6 @@ class MainWnd : public QMainWindow
 {
 public:
     MainWnd(QWidget *parent = nullptr);
-    ~MainWnd();
 
 private:
     Q_OBJECT
@@ -67,5 +66,6 @@ private slots:
     void OnNavBtnClick();
 	void OnStartBtnClick();
 	void OnStopBtnClick();
+	void OnTrigger();
 };
 #endif // MAINWINDOW_H

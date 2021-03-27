@@ -14,6 +14,7 @@ DMKCamera::DMKCamera(const STRING & cfg):
 
 DMKCamera::~DMKCamera()
 {
+	StopGrabbing();
 	DShowLib::ExitLibrary();
 }
 
@@ -27,11 +28,10 @@ void DMKCamera::InitSettings()
 		grabber_->saveDeviceStateToFile(cfg);
 	}
 	
-	sink_ = FrameHandlerSink::create(eRGB24, 1); //  eRGB24
-												   //m_pSink = FrameHandlerSink::create(eY800, 1);
+	sink_ = FrameHandlerSink::create(eRGB24, 1); 
 	sink_->setSnapMode(false);
 	grabber_->setSinkType(sink_);
-	grabber_->startLive(false);
+	
 	property_ = grabber_->getAvailableVCDProperties();
 
 	if (!IsNull(property_) && (property_interface_ = property_->findInterface(VCDID_TriggerMode, VCDElement_Value, VCDInterface_Switch)) != 0)
@@ -45,6 +45,24 @@ void DMKCamera::InitSettings()
 	{
 		property_interface_->QueryInterface(softtrigger_);
 	}//软件触发
+}
+
+void DMKCamera::StartGrabbing()
+{
+	stop_ = false;
+	InitSettings();
+	grabber_->addListener(&listener_, GrabberListener::eFRAMEREADY);//注册回调
+	grabber_->startLive(false);
+}
+
+void DMKCamera::StopGrabbing()
+{
+	if (grabber_->isLive())
+	{
+		grabber_->stopLive();
+	}
+	stop_ = true;
+	grabber_->removeListener(&listener_, DShowLib::GrabberListener::eFRAMEREADY);
 }
 
 

@@ -13,6 +13,7 @@ class Facade
 {
 private:
 	FrameBuilderPtr builder_;
+	MediatorPtr control_center_;
 public:
     Facade()
 	{ 
@@ -33,12 +34,27 @@ public:
 	{
 		builder_->BuildInspectionSystem();
 		//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
+		control_center_ = builder_->Part<MEDIATOR>();
+		//builder_->Part<CAMERAGRABBER>()->StartGrabbing();
+		control_center_->Do();
 	}
 
 	void Stop() 
 	{
-		//builder_.Part<CAMERAGRABBER>()->StopLive();
-		//builder_->DestructModule();
+		control_center_->Stop();
+	}
+
+	ImgTypePtr SoftTriggerGrab()
+	{
+		assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
+		builder_->Part<CAMERAGRABBER>()->SoftTrigger();
+		return control_center_->FetchImage();
+	}
+
+	ImgTypePtr PlcTriggerGrab()
+	{
+		assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
+		return control_center_->FetchImage();
 	}
 };
 

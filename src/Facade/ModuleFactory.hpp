@@ -91,9 +91,9 @@ public:
 			DllManagerPtr dm = GetModuleByName(name);
 			auto create_fn = (pCreate)dm->GetFunc("Create");
 
-			auto module_remove = [dm](OrgT pt)
+			auto module_remove = [dm,name](OrgT pt)
 			{
-				GlobalLogger::Record("main.exe", LOG_LEVEL::TRACK, STRING("before release module") + STRING("\nin ") + __FUNCTION__);
+				GlobalLogger::Record("main.exe", LOG_LEVEL::TRACK, STRING("before release module: ") + name + STRING("\nin ") + __FUNCTION__);
 				auto remove_fn = (pRemove)dm->GetFunc("Remove");
 				remove_fn(pt);
 			};

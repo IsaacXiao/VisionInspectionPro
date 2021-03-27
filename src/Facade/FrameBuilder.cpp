@@ -20,6 +20,7 @@ void FrameBuilder::BuildInspectionSystem()
 	ConstructCameraGrabber();
 	ConstructMediator();
 	std::get<CAMERAGRABBER>(inspection_)->AttachMediator(std::get<MEDIATOR>(inspection_));
+	std::get<MEDIATOR>(inspection_)->AttachCamera(std::get<CAMERAGRABBER>(inspection_));
 }
 
 void FrameBuilder::DestructModule()

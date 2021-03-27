@@ -227,7 +227,7 @@
     <ClInclude Include="..\..\Include\Logger\Text_Logger.h" />
     <ClInclude Include="..\..\Include\Logger\UI_Logger.h" />
     <ClInclude Include="..\..\Include\PlatForm\Windows\WindowsCore.h" />
-    <ClInclude Include="ZhConvert.h" />
+    <ClInclude Include="Convert.h" />
     <QtMoc Include="mainwindow.h">
     </QtMoc>
   </ItemGroup>

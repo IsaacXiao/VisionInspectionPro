@@ -7,6 +7,8 @@
 #include <map>
 #include <cstdint>
 #include <functional>
+#include "opencv2/opencv.hpp"
+#include <memory>
 
 template<typename T>
 struct PointType
@@ -19,6 +21,17 @@ class EmptyClass
 {
 };
 
+using ImgType = cv::Mat;
+
+template<>
+struct PointType<ImgType>
+{
+	using Org = ImgType;
+	using Ptr = std::shared_ptr<ImgType>;
+};
+
+using ImgTypeOrg = PointType<ImgType>::Org;
+using ImgTypePtr = PointType<ImgType>::Ptr;
 
 ///essential data type
 enum BINARY { ZERO = 0, ONE };

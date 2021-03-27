@@ -17,6 +17,10 @@
 //#include "VCDPropertyDef.h"
 #include "udshl/VCDPropertyID.h"
 
+#include "../../Mediator/IMediator.h"
+
+#include "CommonInclude/InspectException.h"
+
 using namespace _DSHOWLIB_NAMESPACE;
 
 namespace
@@ -24,12 +28,7 @@ namespace
 	//TODO: 等文本日志加入后验证是否真的释放了资源，or程序结束操作系统自动释放资源
 	void del_grab(DShowLib::Grabber* grabber)
 	{
-		if (grabber->isLive())
-		{
-			grabber->stopLive();
-			grabber->closeDev();
-		}
-
+		grabber->closeDev();
 		GlobalLogger::Record("DShowLib::Grabber", LOG_LEVEL::TRACK, "camera device closed, now destroying");
 		DeletePtr(grabber);
 	};
@@ -52,11 +51,10 @@ class DMKCamera : public ICameraGrabber
 	using GrabberPtr = PointType<DShowLib::Grabber>::Ptr;
 	struct CameraListener : public DShowLib::GrabberListener
 	{
-		MediatorPtr mediator_;
+		ImgTypeOrg img_;
 		virtual void frameReady(DShowLib::Grabber& caller, smart_ptr<DShowLib::MemBuffer> pBuffer, DWORD FrameNumber) override
 		{
-			cv::Mat img(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), CV_8UC3, (BYTE*)pBuffer->getPtr());
-			mediator_->FetchImage(img.clone());
+			img_ = ImgTypeOrg(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), CV_8UC3, (BYTE*)pBuffer->getPtr());
 		}
 	};
 
@@ -68,15 +66,33 @@ private:
 	tIVCDSwitchPropertyPtr			triggerswitch_;  //触发开关
 	tIVCDButtonPropertyPtr			softtrigger_;    //软件触发
 	tIVCDPropertyInterfacePtr		property_interface_;
-	STRING which_{"test"};
+	STRING which_{"test"};	//TODO: 先写死了test再做成可配的
 public:
 	DMKCamera(const STRING & cfg);
 	~DMKCamera();
 	static const char* Name() { return "DMKCamera"; }
 	virtual const STRING& Id() override { return Name(); }
 	void InitSettings();
-	virtual void SoftTrigger() override { assert(IsNull(softtrigger_)); softtrigger_->push(); }
-	virtual void AttachMediator(MediatorPtr mediator) { listener_.mediator_ = mediator; }
+	virtual void StartGrabbing() override;
+	virtual void StopGrabbing() override;
+	virtual void SoftTrigger() override 
+	{ 
+		assert(IsStoped());
+		assert(!IsNull(softtrigger_)); 
+		softtrigger_->push(); 
+		if (listener_.img_.empty())
+		{
+			throw CameraGrabberException("soft trigger failed");
+		}
+		mediator_.lock()->StoreImage(std::move(listener_.img_));
+	}
+	virtual void PlcTrigger() override
+	{
+		if ( !listener_.img_.empty() )
+		{
+			mediator_.lock()->StoreImage(std::move(listener_.img_));
+		}
+	}
 };
 
 #endif

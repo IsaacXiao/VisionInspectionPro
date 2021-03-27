@@ -54,8 +54,5 @@ extern "C" DMK_CAMERA_API void Names(char** names_ptr)
 ////
 extern "C" DMK_CAMERA_API void Remove(CameraGrabberOrg ptr)
 {
-	if ( DeletePtr(ptr) )
-	{
-		GlobalLogger::Record("DMKCamera", LOG_LEVEL::TRACK, "destroyed" + STRING("\nin ") + __FUNCTION__);
-	}
+	assert(DeletePtr(ptr));
 }
