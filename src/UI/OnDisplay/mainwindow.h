@@ -19,7 +19,7 @@ class MainWnd : public QMainWindow
 {
 public:
     MainWnd(QWidget *parent = nullptr);
-
+	~MainWnd();
 private:
     Q_OBJECT
 
@@ -27,7 +27,7 @@ private:
 
 	FacadePtr facade_;
 
-    Ui::OnDisplayUi ui;
+    Ui::OnDisplayUi *ui;
 
     QLabel *labCurState;  //状态栏，显示相机的一些初始化状态
     QLabel *logoImage; //工具栏LOGO
@@ -62,10 +62,11 @@ private:
     void InitStatisticsTab();
     void InitCamArea();
     void InitStatusBar();
-private slots:
+public slots :
     void OnNavBtnClick();
 	void OnStartBtnClick();
 	void OnStopBtnClick();
 	void OnTrigger();
+	void OnSetBackImage(ImgTypePtr img);
 };
 #endif // MAINWINDOW_H

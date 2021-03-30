@@ -91,6 +91,7 @@ public:
 			DllManagerPtr dm = GetModuleByName(name);
 			auto create_fn = (pCreate)dm->GetFunc("Create");
 
+			//TODO: 试下按引用捕获
 			auto module_remove = [dm,name](OrgT pt)
 			{
 				GlobalLogger::Record("main.exe", LOG_LEVEL::TRACK, STRING("before release module: ") + name + STRING("\nin ") + __FUNCTION__);

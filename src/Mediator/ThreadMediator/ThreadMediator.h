@@ -3,11 +3,13 @@
 #include "../IMediator.h"
 #include "thread_pool.h"
 
-class ThreadMediator : public IMediator
+#include <QObject>
+
+class ThreadMediator : public IMediator, public QObject
 {
 private:
 	//TODO: 这个1做成从配置文件中读
-	threadpool executor{ 1 };
+	threadpool executor_{ 1 };
 public:
 	ThreadMediator(const STRING & cfg);
 	~ThreadMediator();
@@ -18,12 +20,10 @@ public:
 	}
 	const STRING& Id() { return Name(); }
 
-	virtual ImgTypePtr Do() override
+	virtual void GetImage() override
 	{
 		auto camera_grabber = camera_grabber_.lock();
-		camera_grabber->StartGrabbing();
-		camera_grabber->PlcTrigger();
-		FetchImage();
+		executor_.commit(std::bind(&ICameraGrabber::StartGrabbing, camera_grabber));
 	}
 
 	virtual void Stop() override

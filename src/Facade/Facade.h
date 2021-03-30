@@ -4,16 +4,18 @@
 #include "FrameBuilder.h"
 #include <utility>
 #include <queue>
-#include <QImage>
-
+#include <QObject>
 #include "CameraShot.h"
 #include "../Mediator/IMediator.h"
 
-class Facade
+class Facade : public QObject
 {
+	Q_OBJECT
 private:
 	FrameBuilderPtr builder_;
 	MediatorPtr control_center_;
+signals:
+	void SigChangeBack(ImgTypePtr);	//信号函数不需要实现
 public:
     Facade()
 	{ 
@@ -29,14 +31,25 @@ public:
 	//
 	//}
 
-	template<typename... Ts>
+	/*template<typename... Ts>
 	void Run(Ts&&... params)
 	{
-		builder_->BuildInspectionSystem();
 		//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
+	}*/
+
+
+	void Run()
+	{
+		builder_->BuildInspectionSystem();
 		control_center_ = builder_->Part<MEDIATOR>();
-		//builder_->Part<CAMERAGRABBER>()->StartGrabbing();
-		control_center_->Do();
+		control_center_->GetImage();
+		ImgTypePtr img = control_center_->FetchImage();
+		emit SigChangeBack(img);
+		//while (true/*!builder_->Part<CAMERAGRABBER>()->IsStoped()*/)
+		//{
+		//	ImgTypePtr img = control_center_->FetchImage();
+		//	emit SigChangeBack(img);
+		//}
 	}
 
 	void Stop() 
@@ -58,12 +71,12 @@ public:
 	}
 };
 
-template<>
+/*template<>
 struct PointType<Facade>
 {
 	using Org = Facade*;
 	using Ptr = std::unique_ptr<Facade>;
-};
+};*/
 
 using FacadePtr = PointType<Facade>::Ptr;
 

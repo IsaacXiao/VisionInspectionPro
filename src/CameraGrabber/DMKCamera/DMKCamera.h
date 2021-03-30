@@ -21,6 +21,7 @@
 
 #include "CommonInclude/InspectException.h"
 
+
 using namespace _DSHOWLIB_NAMESPACE;
 
 namespace
@@ -51,10 +52,11 @@ class DMKCamera : public ICameraGrabber
 	using GrabberPtr = PointType<DShowLib::Grabber>::Ptr;
 	struct CameraListener : public DShowLib::GrabberListener
 	{
-		ImgTypeOrg img_;
+		std::weak_ptr<IMediator> mediator_;
 		virtual void frameReady(DShowLib::Grabber& caller, smart_ptr<DShowLib::MemBuffer> pBuffer, DWORD FrameNumber) override
 		{
-			img_ = ImgTypeOrg(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), CV_8UC3, (BYTE*)pBuffer->getPtr());
+			auto img = ImgTypeOrg(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), CV_8UC3, (BYTE*)pBuffer->getPtr());
+			mediator_.lock()->StoreImage(std::move(img));
 		}
 	};
 
@@ -75,23 +77,15 @@ public:
 	void InitSettings();
 	virtual void StartGrabbing() override;
 	virtual void StopGrabbing() override;
+	virtual void AttachMediator(std::weak_ptr<IMediator> mediator) override
+	{
+		listener_.mediator_ = mediator;
+	}
 	virtual void SoftTrigger() override 
 	{ 
 		assert(IsStoped());
 		assert(!IsNull(softtrigger_)); 
-		softtrigger_->push(); 
-		if (listener_.img_.empty())
-		{
-			throw CameraGrabberException("soft trigger failed");
-		}
-		mediator_.lock()->StoreImage(std::move(listener_.img_));
-	}
-	virtual void PlcTrigger() override
-	{
-		if ( !listener_.img_.empty() )
-		{
-			mediator_.lock()->StoreImage(std::move(listener_.img_));
-		}
+		softtrigger_->push();
 	}
 };
 

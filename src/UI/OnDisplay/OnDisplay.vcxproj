@@ -211,7 +211,7 @@
   <ItemGroup>
     <QtMoc Include="CameraShot.h">
     </QtMoc>
-    <ClInclude Include="..\..\Facade\Facade.h" />
+    <QtMoc Include="..\..\Facade\Facade.h" />
     <ClInclude Include="..\..\Facade\FrameBuilder.h" />
     <ClInclude Include="..\..\Facade\ModuleFactory.hpp" />
     <ClInclude Include="..\..\Include\CommonInclude\InspectException.h" />

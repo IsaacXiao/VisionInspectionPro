@@ -53,6 +53,7 @@ void DMKCamera::StartGrabbing()
 	InitSettings();
 	grabber_->addListener(&listener_, GrabberListener::eFRAMEREADY);//×¢²á»Øµ÷
 	grabber_->startLive(false);
+	while (!IsStoped());
 }
 
 void DMKCamera::StopGrabbing()

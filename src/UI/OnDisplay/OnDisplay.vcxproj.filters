@@ -81,6 +81,9 @@
     <QtMoc Include="mainwindow.h">
       <Filter>UI</Filter>
     </QtMoc>
+    <QtMoc Include="..\..\Facade\Facade.h">
+      <Filter>Facade</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -270,9 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Facade\ModuleFactory.hpp">
-      <Filter>Facade</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Facade\Facade.h">
       <Filter>Facade</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Facade\FrameBuilder.h">

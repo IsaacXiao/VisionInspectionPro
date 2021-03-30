@@ -27,12 +27,12 @@ public:
 	{
 		camera_grabber_ = camera_grabber;
 	}
-	virtual ImgTypePtr Do() = 0;
+	virtual void GetImage() = 0;
 		//实际上是用相机指针调用这个函数
-		//1. GetImage();
+		//1. TakeShot();
 		/*threadpool executor{ 1 };
 		ICameraGrabber * camera = new DMKCamera;
-		std::future<void> res = executor.commit(std::bind(&ICameraGrabber::GetImage, camera));*/
+		std::future<void> res = executor.commit(std::bind(&ICameraGrabber::TakeShot, camera));*/
 		//2. BroadCastSend();
 		
 		//DisplayImage(/*尽量不要传ui*/);
@@ -41,16 +41,12 @@ public:
 	virtual void Stop() = 0;
 
 	void StoreImage(ImgType img)
-	{
+	{ 
 		img_stash_.push(img);
 	}
 
 	ImgTypePtr FetchImage()
 	{
-		while (!camera_grabber_.lock()->IsStoped())
-		{
-
-		}
 		return img_stash_.wait_and_pop();
 	}
 };
