@@ -217,6 +217,7 @@
     <ClInclude Include="..\..\Include\CommonInclude\InspectException.h" />
     <ClInclude Include="..\..\Include\CommonInclude\Memory.hpp" />
     <ClInclude Include="..\..\Include\CommonInclude\PlatFormHead.h" />
+    <ClInclude Include="..\..\Include\CommonInclude\thread_pool.h" />
     <ClInclude Include="..\..\Include\CommonInclude\TypeDefine.h" />
     <ClInclude Include="..\..\Include\CommonInclude\utility.hpp" />
     <ClInclude Include="..\..\Include\Configure\Configure.hpp" />

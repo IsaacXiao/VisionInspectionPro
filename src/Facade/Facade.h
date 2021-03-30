@@ -8,12 +8,15 @@
 #include "CameraShot.h"
 #include "../Mediator/IMediator.h"
 
+#include "CommonInclude/thread_pool.h"
+
 class Facade : public QObject
 {
 	Q_OBJECT
 private:
 	FrameBuilderPtr builder_;
 	MediatorPtr control_center_;
+	threadpool executor_{ 1 };
 signals:
 	void SigChangeBack(ImgTypePtr);	//信号函数不需要实现
 public:
@@ -21,6 +24,7 @@ public:
 	{ 
 		builder_ = std::make_unique<FrameBuilder>();
 		builder_->InitModule();
+		qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
 	}
 
 	///这里不做资源释放
@@ -37,19 +41,21 @@ public:
 		//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
 
+	void DisplayImg()
+	{
+		while (true/*!builder_->Part<CAMERAGRABBER>()->IsStoped()*/)
+		{
+			ImgTypePtr img = control_center_->FetchImage();
+			emit SigChangeBack(img);
+		}
+	}
 
 	void Run()
 	{
 		builder_->BuildInspectionSystem();
 		control_center_ = builder_->Part<MEDIATOR>();
 		control_center_->GetImage();
-		ImgTypePtr img = control_center_->FetchImage();
-		emit SigChangeBack(img);
-		//while (true/*!builder_->Part<CAMERAGRABBER>()->IsStoped()*/)
-		//{
-		//	ImgTypePtr img = control_center_->FetchImage();
-		//	emit SigChangeBack(img);
-		//}
+		executor_.commit(std::bind(&Facade::DisplayImg, this));
 	}
 
 	void Stop() 

@@ -1,11 +1,9 @@
 #pragma once
 
 #include "../IMediator.h"
-#include "thread_pool.h"
+#include "CommonInclude/thread_pool.h"
 
-#include <QObject>
-
-class ThreadMediator : public IMediator, public QObject
+class ThreadMediator : public IMediator
 {
 private:
 	//TODO: 这个1做成从配置文件中读
