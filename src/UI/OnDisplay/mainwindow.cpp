@@ -16,7 +16,7 @@ MainWnd::MainWnd(QWidget *parent)
 	connect(ui->actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
 	connect(ui->actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
 	connect(ui->btnGrabImageCam01, SIGNAL(clicked(bool)), this, SLOT(OnTrigger()));
-	connect(facade_, SIGNAL(SigChangeBack(ImgTypePtr)), this, SLOT(OnSetBackImage(ImgTypePtr)));
+	connect(facade_, SIGNAL(SigChangeBack(unsigned short,ImgTypePtr)), this, SLOT(OnSetBackImage(unsigned short,ImgTypePtr)));
 }
 
 MainWnd::~MainWnd()
@@ -92,6 +92,9 @@ void MainWnd::InitCamArea()
 {
 	camra_shot_[0] = ui->labShowImgCam01;
 	camra_shot_[0]->setStyleSheet("background-color:#B8B7B7");
+
+	camra_shot_[1] = ui->labShowImgCam02;
+	camra_shot_[1]->setStyleSheet("background-color:#B8B7B7");
 
 	/*camra_shot_[0] = ui->labShowImgCam01;
 	camra_shot_[1] = ui->labShowImgCam02;
@@ -218,12 +221,12 @@ void MainWnd::OnTrigger()
 	ui->labShowImgCam01->update();*/
 }
 
-void MainWnd::OnSetBackImage(ImgTypePtr img)
+void MainWnd::OnSetBackImage(unsigned short pos, ImgTypePtr img)
 {
 	QImage img_raw = cvMat2QImage(*(img), true, true);
-	QImage image_scale = img_raw.scaled(camra_shot_[0]->width(), camra_shot_[0]->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-	camra_shot_[0]->setBackImage(image_scale);
-	camra_shot_[0]->update();
+	QImage image_scale = img_raw.scaled(camra_shot_[pos]->width(), camra_shot_[pos]->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+	camra_shot_[pos]->setBackImage(image_scale);
+	camra_shot_[pos]->update();
 }
 
 void MainWnd::OnNavBtnClick()

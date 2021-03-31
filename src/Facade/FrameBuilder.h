@@ -11,16 +11,18 @@
 #include "../PlcAgent/IPlcAgent.h"
 #include "../Mediator/IMediator.h"
 #include <tuple>
+#include <vector>
 
 class FrameBuilder
 {
 	using CameraGrabberFactory = ModuleFactory<CameraGrabberOrg,CameraGrabberPtr>;
 	using PlcAgentFactory = ModuleFactory<PlcAgentOrg,PlcAgentPtr>;
 	using MediatorFactory = ModuleFactory<MediatorOrg, MediatorPtr>;
-
-	using SystemFrame = std::tuple<CameraGrabberPtr,PlcAgentPtr,MediatorPtr>;
+	using CameraGroup = VECTOR<CameraGrabberPtr>;
+	using SystemFrame = std::tuple<CameraGroup,PlcAgentPtr,MediatorPtr>;
 private:
 	SystemFrame inspection_;
+	size_t number_;
 
 	Configure<FRAMWORK_PART::MAIN> main_cfg_{ GetModuleDirectory() + PathSeparator() + "Main.cfg" };
 	//m表示module
@@ -31,7 +33,13 @@ private:
 	///等号会使智能指针第一次参与构造，后面的赋值操作会把之前的持有对象释放
 	//void ConstructPlcAgent() { std::get<PLCAGENT>(inspection_) = m_plc_agent_.Create(main_cfg_.Param()["PlcAgent"]); }
 	void ConstructMediator() { std::get<MEDIATOR>(inspection_) = m_mediator_.Create(main_cfg_.Param()["Mediator"]); }
-	void ConstructCameraGrabber() { std::get<CAMERAGRABBER>(inspection_) = m_camera_grabber_.Create(main_cfg_.Param()["CameraGrabber"]); }
+	void ConstructCameraGrabber( size_t n ) 
+	{ 
+		for ( size_t i = 0; i < n; i++ )
+		{
+			std::get<CAMERAGRABBER>(inspection_).emplace_back(m_camera_grabber_.Create(main_cfg_.Param()["CameraGrabber"]));
+		}
+	}
 protected:
 
 public:
@@ -42,6 +50,8 @@ public:
 		return std::get<module>(inspection_);
 	}
 	MediatorPtr Get() const { return std::get<MEDIATOR>(inspection_); }
+
+	unsigned short Number() const { return number_;  }
 
 	void InitModule();
 	void BuildInspectionSystem();

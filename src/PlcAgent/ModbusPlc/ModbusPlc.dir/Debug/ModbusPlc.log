@@ -1,0 +1,13 @@
+﻿tinyxml.lib(tinyxml.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in ModbusPlc.obj
+tinyxml.lib(tinyxml.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in ModbusPlc.obj
+tinyxml.lib(tinyxmlparser.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in ModbusPlc.obj
+tinyxml.lib(tinyxmlparser.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in ModbusPlc.obj
+tinyxml.lib(tinyxmlerror.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in ModbusPlc.obj
+tinyxml.lib(tinyxmlerror.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in ModbusPlc.obj
+     Creating library D:/WorkSpace/Repository/VisionInspectionPro/src/PlcAgent/ModbusPlc/Debug/ModbusPlc.lib and object D:/WorkSpace/Repository/VisionInspectionPro/src/PlcAgent/ModbusPlc/Debug/ModbusPlc.exp
+LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+tinyxml.lib(tinyxml.obj) : error LNK2019: unresolved external symbol __imp___invalid_parameter referenced in function "void * __cdecl std::_Allocate(unsigned int,unsigned int,bool)" (?_Allocate@std@@YAPAXII_N@Z)
+tinyxml.lib(tinyxmlparser.obj) : error LNK2001: unresolved external symbol __imp___invalid_parameter
+tinyxml.lib(tinyxml.obj) : error LNK2019: unresolved external symbol __imp___CrtDbgReportW referenced in function "void * __cdecl std::_Allocate(unsigned int,unsigned int,bool)" (?_Allocate@std@@YAPAXII_N@Z)
+tinyxml.lib(tinyxmlparser.obj) : error LNK2001: unresolved external symbol __imp___CrtDbgReportW
+D:\WorkSpace\Repository\VisionInspectionPro\src\PlcAgent\ModbusPlc\Debug\ModbusPlc.dll : fatal error LNK1120: 2 unresolved externals

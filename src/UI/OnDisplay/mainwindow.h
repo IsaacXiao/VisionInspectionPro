@@ -67,6 +67,6 @@ public slots :
 	void OnStartBtnClick();
 	void OnStopBtnClick();
 	void OnTrigger();
-	void OnSetBackImage(ImgTypePtr img);
+	void OnSetBackImage(unsigned short pos, ImgTypePtr img);
 };
 #endif // MAINWINDOW_H

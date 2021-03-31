@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWnd_t {
-    QByteArrayData data[9];
-    char stringdata0[94];
+    QByteArrayData data[10];
+    char stringdata0[98];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,13 +38,14 @@ QT_MOC_LITERAL(3, 23, 15), // "OnStartBtnClick"
 QT_MOC_LITERAL(4, 39, 14), // "OnStopBtnClick"
 QT_MOC_LITERAL(5, 54, 9), // "OnTrigger"
 QT_MOC_LITERAL(6, 64, 14), // "OnSetBackImage"
-QT_MOC_LITERAL(7, 79, 10), // "ImgTypePtr"
-QT_MOC_LITERAL(8, 90, 3) // "img"
+QT_MOC_LITERAL(7, 79, 3), // "pos"
+QT_MOC_LITERAL(8, 83, 10), // "ImgTypePtr"
+QT_MOC_LITERAL(9, 94, 3) // "img"
 
     },
     "MainWnd\0OnNavBtnClick\0\0OnStartBtnClick\0"
     "OnStopBtnClick\0OnTrigger\0OnSetBackImage\0"
-    "ImgTypePtr\0img"
+    "pos\0ImgTypePtr\0img"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,14 +67,14 @@ static const uint qt_meta_data_MainWnd[] = {
        3,    0,   40,    2, 0x0a /* Public */,
        4,    0,   41,    2, 0x0a /* Public */,
        5,    0,   42,    2, 0x0a /* Public */,
-       6,    1,   43,    2, 0x0a /* Public */,
+       6,    2,   43,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, QMetaType::UShort, 0x80000000 | 8,    7,    9,
 
        0        // eod
 };
@@ -88,7 +89,7 @@ void MainWnd::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->OnStartBtnClick(); break;
         case 2: _t->OnStopBtnClick(); break;
         case 3: _t->OnTrigger(); break;
-        case 4: _t->OnSetBackImage((*reinterpret_cast< ImgTypePtr(*)>(_a[1]))); break;
+        case 4: _t->OnSetBackImage((*reinterpret_cast< unsigned short(*)>(_a[1])),(*reinterpret_cast< ImgTypePtr(*)>(_a[2]))); break;
         default: ;
         }
     }

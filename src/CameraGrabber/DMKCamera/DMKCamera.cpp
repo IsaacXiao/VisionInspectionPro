@@ -20,11 +20,11 @@ DMKCamera::~DMKCamera()
 
 void DMKCamera::InitSettings()
 {
-	const STRING cfg = "camera" + which_ + ".xml";
-
+	const STRING cfg = "camera" + to_string(camera_id_) + ".xml";
 	if (!grabber_->loadDeviceStateFromFile(cfg))
 	{
-		grabber_->showDevicePage();
+		while (!grabber_->showDevicePage());
+		
 		grabber_->saveDeviceStateToFile(cfg);
 	}
 	
@@ -49,11 +49,11 @@ void DMKCamera::InitSettings()
 
 void DMKCamera::StartGrabbing()
 {
-	stop_ = false;
 	InitSettings();
+	stop_ = false;
 	grabber_->addListener(&listener_, GrabberListener::eFRAMEREADY);//×¢²á»Øµ÷
 	grabber_->startLive(false);
-	while (!IsStoped());
+	//while (!IsStoped());
 }
 
 void DMKCamera::StopGrabbing()

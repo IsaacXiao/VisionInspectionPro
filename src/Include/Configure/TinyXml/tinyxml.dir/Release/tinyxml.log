@@ -1,0 +1,6 @@
+﻿  Building Custom Rule D:/WorkSpace/Repository/VisionInspectionPro/src/Include/Configure/TinyXml/CMakeLists.txt
+  tinyxml.cpp
+  tinyxmlerror.cpp
+  tinyxmlparser.cpp
+  Generating Code...
+  tinyxml.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\3rd_lib\tinyxml\Release\tinyxml.lib

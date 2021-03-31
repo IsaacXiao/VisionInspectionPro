@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure\TinyXml\CMakeFiles\7e26666c0a94fd0fb8a45643fcef6bfa\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A0AE2F7B-8D56-33DF-ADF7-5807865E8A41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

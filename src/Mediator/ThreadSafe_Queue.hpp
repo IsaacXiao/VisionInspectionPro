@@ -11,12 +11,11 @@ template<typename T>
 class ThreadSafe_Queue
 {
 private:
-    mutable std::mutex mut;
+	mutable std::mutex mut;
     std::queue<T> data_queue;
     std::condition_variable data_cond;
 public:
-    ThreadSafe_Queue()
-    {}
+	ThreadSafe_Queue() = default;
 	//自定义了拷贝操作，编译器不会生成移动操作
     ThreadSafe_Queue(ThreadSafe_Queue const& other)
     {

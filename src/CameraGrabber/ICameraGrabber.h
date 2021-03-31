@@ -15,6 +15,7 @@ private:
 protected:
 	bool stop_{ true };
 	Configure<FRAMWORK_PART::CAMERAGRABBER> cfg_;
+	size_t camera_id_;
 public:
     ICameraGrabber(const STRING & cfg):cfg_(cfg){}
     virtual ~ICameraGrabber(){}
@@ -24,6 +25,7 @@ public:
 	virtual void StopGrabbing() = 0;
 	virtual const STRING& Id() = 0;
 	virtual void SoftTrigger() = 0;
+	void SetId(size_t id) { camera_id_ = id; }
 	//virtual void TakeShot() = 0;
 };
 

@@ -4,11 +4,12 @@
 #include "stdafx.h"
 #include "ThreadMediator.h"
 
-ThreadMediator::ThreadMediator(const STRING & cfg):IMediator(cfg)
+ThreadMediator::ThreadMediator(const STRING & cfg):IMediator(cfg),executors_(stoi(cfg_.Param()["camera_number"]))
 {
 
 }
 
 ThreadMediator::~ThreadMediator()
 {
+
 }

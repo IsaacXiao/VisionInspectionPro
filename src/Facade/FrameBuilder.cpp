@@ -5,7 +5,7 @@ FrameBuilder::FrameBuilder() :
 	m_plc_agent_(GetModuleDirectory() + PathSeparator() + "PlcAgent"),
 	m_mediator_(GetModuleDirectory() + PathSeparator() + "Mediator")
 {
-
+	number_ = stoi(main_cfg_.Param()["CameraNumber"]);
 }
 
 void FrameBuilder::InitModule()
@@ -16,11 +16,19 @@ void FrameBuilder::InitModule()
 }
 
 void FrameBuilder::BuildInspectionSystem()
-{
-	ConstructCameraGrabber();
+{ 
+	ConstructCameraGrabber( number_ );
 	ConstructMediator();
-	std::get<CAMERAGRABBER>(inspection_)->AttachMediator(std::get<MEDIATOR>(inspection_));
-	std::get<MEDIATOR>(inspection_)->AttachCamera(std::get<CAMERAGRABBER>(inspection_));
+	//std::get<CAMERAGRABBER>(inspection_)->AttachMediator(std::get<MEDIATOR>(inspection_));
+	//std::get<MEDIATOR>(inspection_)->AttachCamera(std::get<CAMERAGRABBER>(inspection_));
+
+	for ( size_t i = 0; i < number_; i++ )
+	{
+		auto &camera = std::get<CAMERAGRABBER>(inspection_)[i];
+		camera->SetId(i);
+		camera->AttachMediator(std::get<MEDIATOR>(inspection_));
+		std::get<MEDIATOR>(inspection_)->AttachCamera(camera);
+	}
 }
 
 void FrameBuilder::DestructModule()

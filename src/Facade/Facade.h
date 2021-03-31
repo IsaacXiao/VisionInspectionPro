@@ -15,10 +15,10 @@ class Facade : public QObject
 	Q_OBJECT
 private:
 	FrameBuilderPtr builder_;
-	MediatorPtr control_center_;
-	threadpool executor_{ 1 };
+	MediatorPtr consumer_;
+	threadpool executor_{ 2 };
 signals:
-	void SigChangeBack(ImgTypePtr);	//信号函数不需要实现
+	void SigChangeBack(unsigned short, ImgTypePtr);	//信号函数不需要实现
 public:
     Facade()
 	{ 
@@ -41,39 +41,40 @@ public:
 		//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
 
-	void DisplayImg()
+	void DisplayImg( unsigned short n )
 	{
-		while (true/*!builder_->Part<CAMERAGRABBER>()->IsStoped()*/)
-		{
-			ImgTypePtr img = control_center_->FetchImage();
-			emit SigChangeBack(img);
-		}
+		ImgTypePtr img = consumer_->FetchImage(n);
+		emit SigChangeBack(n, img);
 	}
 
 	void Run()
 	{
 		builder_->BuildInspectionSystem();
-		control_center_ = builder_->Part<MEDIATOR>();
-		control_center_->GetImage();
-		executor_.commit(std::bind(&Facade::DisplayImg, this));
+		consumer_ = builder_->Part<MEDIATOR>();
+		consumer_->GetImage();
+		
+		for (unsigned short i = 0; i < builder_->Number(); i++ )
+		{
+			executor_.commit(std::bind(&Facade::DisplayImg, this,i));
+		}
 	}
 
 	void Stop() 
 	{
-		control_center_->Stop();
+		consumer_->Stop();
 	}
 
 	ImgTypePtr SoftTriggerGrab()
 	{
-		assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
-		builder_->Part<CAMERAGRABBER>()->SoftTrigger();
-		return control_center_->FetchImage();
+		//assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
+		//builder_->Part<CAMERAGRABBER>()->SoftTrigger();
+		//return consumer_->FetchImage();
 	}
 
 	ImgTypePtr PlcTriggerGrab()
 	{
 		assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
-		return control_center_->FetchImage();
+		//return consumer_->FetchImage();
 	}
 };
 
