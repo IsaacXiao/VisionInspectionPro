@@ -23,10 +23,8 @@ public:
 	bool IsStoped() const { return stop_; }
 	virtual void StartGrabbing() = 0;
 	virtual void StopGrabbing() = 0;
-	virtual const STRING& Id() = 0;
 	virtual void SoftTrigger() = 0;
 	void SetId(size_t id) { camera_id_ = id; }
-	//virtual void TakeShot() = 0;
 };
 
 template<>

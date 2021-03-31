@@ -17,17 +17,14 @@ void FrameBuilder::InitModule()
 
 void FrameBuilder::BuildInspectionSystem()
 { 
-	ConstructCameraGrabber( number_ );
+	ConstructCameraGrabber();
 	ConstructMediator();
-	//std::get<CAMERAGRABBER>(inspection_)->AttachMediator(std::get<MEDIATOR>(inspection_));
-	//std::get<MEDIATOR>(inspection_)->AttachCamera(std::get<CAMERAGRABBER>(inspection_));
 
 	for ( size_t i = 0; i < number_; i++ )
 	{
 		auto &camera = std::get<CAMERAGRABBER>(inspection_)[i];
 		camera->SetId(i);
 		camera->AttachMediator(std::get<MEDIATOR>(inspection_));
-		std::get<MEDIATOR>(inspection_)->AttachCamera(camera);
 	}
 }
 

@@ -17,28 +17,18 @@ protected:
 	using StorageType = ThreadSafe_Queue<ImgType>;
 	VECTOR<StorageType> img_stash_;
 	Configure<FRAMWORK_PART::MEDIATOR> cfg_;
-	VECTOR<std::weak_ptr<ICameraGrabber>> camera_group_;
 public:
 	IMediator(const STRING & cfg):cfg_(cfg)
 	{
-	        
+		size_t n = stoi(cfg_.Param()["fifo_number"]);
+		for ( size_t i = 0; i < n; i++ )
+		{
+			img_stash_.emplace_back(StorageType());
+		}
 	}
 	virtual ~IMediator(){}
-	void AttachCamera(std::weak_ptr<ICameraGrabber> camera_grabber)
-	{
-		img_stash_.emplace_back(StorageType());
-		camera_group_.emplace_back(camera_grabber);
-	}
-	virtual void GetImage() = 0;
-		
-	virtual void Stop() = 0;
-
-	virtual void StoreImage(size_t id, ImgType img) = 0;
-
-	ImgTypePtr FetchImage(size_t id)
-	{
-		return img_stash_[id].wait_and_pop();
-	}
+	virtual void StoreImage(size_t id, ImgType&& img) = 0;
+	virtual ImgTypePtr FetchImage(size_t id) = 0;
 };
 
 template<>

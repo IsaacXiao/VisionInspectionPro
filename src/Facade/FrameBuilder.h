@@ -33,9 +33,9 @@ private:
 	///等号会使智能指针第一次参与构造，后面的赋值操作会把之前的持有对象释放
 	//void ConstructPlcAgent() { std::get<PLCAGENT>(inspection_) = m_plc_agent_.Create(main_cfg_.Param()["PlcAgent"]); }
 	void ConstructMediator() { std::get<MEDIATOR>(inspection_) = m_mediator_.Create(main_cfg_.Param()["Mediator"]); }
-	void ConstructCameraGrabber( size_t n ) 
+	void ConstructCameraGrabber() 
 	{ 
-		for ( size_t i = 0; i < n; i++ )
+		for ( size_t i = 0; i < number_; i++ )
 		{
 			std::get<CAMERAGRABBER>(inspection_).emplace_back(m_camera_grabber_.Create(main_cfg_.Param()["CameraGrabber"]));
 		}

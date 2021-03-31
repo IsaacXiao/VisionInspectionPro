@@ -54,14 +54,12 @@ class DMKCamera : public ICameraGrabber
 	struct CameraListener : public DShowLib::GrabberListener
 	{
 		std::weak_ptr<IMediator> mediator_;
-		size_t id_;
+		size_t camera_id_;
 
 		virtual void frameReady(DShowLib::Grabber& caller, smart_ptr<DShowLib::MemBuffer> pBuffer, DWORD FrameNumber) override
 		{
-			threadpool producer_{1};
 			auto img = ImgTypeOrg(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), CV_8UC3, (BYTE*)pBuffer->getPtr());
-			//mediator_.lock()->StoreImage(id_, std::move(img));
-			producer_.commit(std::bind(&IMediator::StoreImage, mediator_.lock(), id_, std::move(img)));
+			mediator_.lock()->StoreImage(camera_id_, std::move(img));
 		}
 	};
 
@@ -78,13 +76,12 @@ public:
 	DMKCamera(const STRING & cfg);
 	~DMKCamera();
 	static const char* Name() { return "DMKCamera"; }
-	virtual const STRING& Id() override { return Name(); }
 	void InitSettings();
 	virtual void StartGrabbing() override;
 	virtual void StopGrabbing() override;
 	virtual void AttachMediator(std::weak_ptr<IMediator> mediator) override
 	{
-		listener_.id_ = camera_id_;
+		
 		listener_.mediator_ = mediator;
 	}
 	virtual void SoftTrigger() override 

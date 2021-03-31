@@ -24,7 +24,6 @@ public:
 	{ 
 		builder_ = std::make_unique<FrameBuilder>();
 		builder_->InitModule();
-		qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
 	}
 
 	///这里不做资源释放
@@ -51,7 +50,11 @@ public:
 	{
 		builder_->BuildInspectionSystem();
 		consumer_ = builder_->Part<MEDIATOR>();
-		consumer_->GetImage();
+
+		for ( auto & camera: builder_->Part<CAMERAGRABBER>() )
+		{
+			camera->StartGrabbing();
+		}
 		
 		for (unsigned short i = 0; i < builder_->Number(); i++ )
 		{
@@ -61,7 +64,10 @@ public:
 
 	void Stop() 
 	{
-		consumer_->Stop();
+		for (auto & camera : builder_->Part<CAMERAGRABBER>())
+		{
+			camera->StopGrabbing();
+		}
 	}
 
 	ImgTypePtr SoftTriggerGrab()

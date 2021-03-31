@@ -20,6 +20,7 @@ DMKCamera::~DMKCamera()
 
 void DMKCamera::InitSettings()
 {
+	listener_.camera_id_ = camera_id_;
 	const STRING cfg = "camera" + to_string(camera_id_) + ".xml";
 	if (!grabber_->loadDeviceStateFromFile(cfg))
 	{

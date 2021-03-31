@@ -16,6 +16,8 @@ MainWnd::MainWnd(QWidget *parent)
 	connect(ui->actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
 	connect(ui->actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
 	connect(ui->btnGrabImageCam01, SIGNAL(clicked(bool)), this, SLOT(OnTrigger()));
+
+	qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
 	connect(facade_, SIGNAL(SigChangeBack(unsigned short,ImgTypePtr)), this, SLOT(OnSetBackImage(unsigned short,ImgTypePtr)));
 }
 
