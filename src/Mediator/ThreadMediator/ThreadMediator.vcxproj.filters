@@ -33,29 +33,33 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_ThreadMediator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="ThreadMediator.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <ClInclude Include="ThreadMediator_global.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dllmain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="debug\moc_predefs.h.cbt">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="release\moc_predefs.h.cbt">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="thread_pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadMediator.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
 </Project>

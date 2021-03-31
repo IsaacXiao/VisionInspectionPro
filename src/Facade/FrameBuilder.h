@@ -22,7 +22,7 @@ class FrameBuilder
 	using SystemFrame = std::tuple<CameraGroup,PlcAgentPtr,MediatorPtr>;
 private:
 	SystemFrame inspection_;
-	size_t number_;
+	size_t camera_number_;
 
 	Configure<FRAMWORK_PART::MAIN> main_cfg_{ GetModuleDirectory() + PathSeparator() + "Main.cfg" };
 	//m表示module
@@ -35,7 +35,7 @@ private:
 	void ConstructMediator() { std::get<MEDIATOR>(inspection_) = m_mediator_.Create(main_cfg_.Param()["Mediator"]); }
 	void ConstructCameraGrabber() 
 	{ 
-		for ( size_t i = 0; i < number_; i++ )
+		for ( size_t i = 0; i < camera_number_; i++ )
 		{
 			std::get<CAMERAGRABBER>(inspection_).emplace_back(m_camera_grabber_.Create(main_cfg_.Param()["CameraGrabber"]));
 		}
@@ -51,7 +51,7 @@ public:
 	}
 	MediatorPtr Get() const { return std::get<MEDIATOR>(inspection_); }
 
-	unsigned short Number() const { return number_;  }
+	unsigned short CameraNumber() const { return camera_number_;  }
 
 	void InitModule();
 	void BuildInspectionSystem();

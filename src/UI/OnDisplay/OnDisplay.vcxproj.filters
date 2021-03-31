@@ -320,9 +320,6 @@
     <ClInclude Include="Convert.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Include\CommonInclude\thread_pool.h">
-      <Filter>Include\CommonInclude</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\Include\Configure\TinyXml\CMakeLists.txt">

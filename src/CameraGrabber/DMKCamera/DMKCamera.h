@@ -20,7 +20,6 @@
 #include "../../Mediator/IMediator.h"
 
 #include "CommonInclude/InspectException.h"
-#include "CommonInclude/thread_pool.h"
 
 
 using namespace _DSHOWLIB_NAMESPACE;

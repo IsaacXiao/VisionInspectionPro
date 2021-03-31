@@ -8,9 +8,9 @@
 #include "opencv2/opencv.hpp"
 #include "../CameraGrabber/ICameraGrabber.h"
 
+
 class IMediator
 {
-	
 private:
 	
 protected:
@@ -28,7 +28,7 @@ public:
 	}
 	virtual ~IMediator(){}
 	virtual void StoreImage(size_t id, ImgType&& img) = 0;
-	virtual ImgTypePtr FetchImage(size_t id) = 0;
+	virtual ImgTypePtr FetchToBroadCast(size_t id) = 0;
 };
 
 template<>

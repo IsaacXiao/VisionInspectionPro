@@ -1,19 +1,22 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  dllmain.cpp
+﻿  dllmain.cpp
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger/BroadCastLogger.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm/Windows/WindowsCore.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  moc_ThreadMediator.cpp
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
   ThreadMediator.cpp
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-     Creating library ../../../build/Mediator/ThreadMediator\ThreadMediator.lib and object ../../../build/Mediator/ThreadMediator\ThreadMediator.exp
+d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     Creating library ../../../build/Mediator/ThreadMediator/ThreadMediator.lib and object ../../../build/Mediator/ThreadMediator/ThreadMediator.exp
   Generating code
-  0 of 1430 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  1323 of 1548 functions (85.5%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  ThreadMediator.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\../../../build/Mediator/ThreadMediator\ThreadMediator.dll
-  ThreadMediator.vcxproj -> ../../../build/Mediator/ThreadMediator\ThreadMediator.pdb (Full PDB)
+  ThreadMediator.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\../../../build/Mediator/ThreadMediator/ThreadMediator.dll
+  ThreadMediator.vcxproj -> ../../../build/Mediator/ThreadMediator/ThreadMediator.pdb (Full PDB)

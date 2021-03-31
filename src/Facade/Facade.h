@@ -8,17 +8,22 @@
 #include "CameraShot.h"
 #include "../Mediator/IMediator.h"
 
-#include "CommonInclude/thread_pool.h"
-
 class Facade : public QObject
 {
 	Q_OBJECT
+signals :
+	void SigChangeBack(unsigned short, ImgTypePtr) const;
 private:
 	FrameBuilderPtr builder_;
-	MediatorPtr consumer_;
-	threadpool executor_{ 2 };
-signals:
-	void SigChangeBack(unsigned short, ImgTypePtr);	//信号函数不需要实现
+
+	void DisplayImg(USHORT n) const
+	{
+		while (!builder_->Part<CAMERAGRABBER>()[n]->IsStoped)
+		{
+			ImgTypePtr img = builder_->Part<MEDIATOR>()->FetchImage(n);
+			emit SigChangeBack(n, img);
+		}
+	}
 public:
     Facade()
 	{ 
@@ -26,43 +31,26 @@ public:
 		builder_->InitModule();
 	}
 
-	///这里不做资源释放
-	///如果用户没有手动点击停止
-	///让操作系统去自动释放
-	//~Facade() 
-	//{ 
-	//
-	//}
-
 	/*template<typename... Ts>
 	void Run(Ts&&... params)
 	{
-		//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
+	//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
 
-	void DisplayImg( unsigned short n )
-	{
-		ImgTypePtr img = consumer_->FetchImage(n);
-		emit SigChangeBack(n, img);
-	}
-
-	void Run()
+	void Run() const
 	{
 		builder_->BuildInspectionSystem();
-		consumer_ = builder_->Part<MEDIATOR>();
-
-		for ( auto & camera: builder_->Part<CAMERAGRABBER>() )
-		{
-			camera->StartGrabbing();
-		}
 		
-		for (unsigned short i = 0; i < builder_->Number(); i++ )
+		for ( USHORT i = 0; i < builder_->CameraNumber(); i++ )
 		{
-			executor_.commit(std::bind(&Facade::DisplayImg, this,i));
+			builder_->Part<CAMERAGRABBER>()[i]->StartGrabbing();
+			DisplayImg(i);
+			//builder_->Part<MEDIATOR>()->
+			//executor_.commit(std::bind(&Facade::DisplayImg, this, i));
 		}
 	}
 
-	void Stop() 
+	void Stop()  const
 	{
 		for (auto & camera : builder_->Part<CAMERAGRABBER>())
 		{

@@ -81,7 +81,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>../../../build/Mediator/ThreadMediator</OutDir>
+    <OutDir>../../../build/Mediator/ThreadMediator/</OutDir>
     <IncludePath>../../../3rd_lib/opencv/include;../../../3rd_lib/opencv/include/opencv;../../../3rd_lib/opencv/include/opencv2;../../Include/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -136,14 +136,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;THREADMEDIATOR_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Programming\QT\Qt5.12.5\5.12.5\msvc2015_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\..\3rd_lib\opencv\x64\vc14\lib;..\..\..\3rd_lib\tinyxml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tinyxml.lib;opencv_world345.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\Programming\QT\Qt5.12.5\5.12.5\msvc2015_64\lib;..\..\..\3rd_lib\opencv\x64\vc14\lib;..\..\..\3rd_lib\tinyxml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgetsd.lib;tinyxml.lib;opencv_world345.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -171,6 +172,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="moc_ThreadMediator.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="ThreadMediator.cpp" />
   </ItemGroup>

@@ -75,7 +75,7 @@ void Facade::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Facade::*)(unsigned short , ImgTypePtr );
+            using _t = void (Facade::*)(unsigned short , ImgTypePtr ) const;
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Facade::SigChangeBack)) {
                 *result = 0;
                 return;
@@ -125,10 +125,10 @@ int Facade::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Facade::SigChangeBack(unsigned short _t1, ImgTypePtr _t2)
+void Facade::SigChangeBack(unsigned short _t1, ImgTypePtr _t2)const
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(const_cast< Facade *>(this), &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

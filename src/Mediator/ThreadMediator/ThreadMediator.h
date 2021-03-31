@@ -1,15 +1,22 @@
 #pragma once
 
 #include "../IMediator.h"
-#include "CommonInclude/thread_pool.h"
+#include "thread_pool.h"
 
-class ThreadMediator : public IMediator
+#include <QtCore/QObject>
+
+class ThreadMediator : public QObject, public IMediator
 {
+	Q_OBJECT
+signals :
+	void SigChangeBack(unsigned short, ImgTypePtr) const;
 private:
 	threadpool executors_;
 public:
-	ThreadMediator(const STRING & cfg);
-	~ThreadMediator();
+	ThreadMediator::ThreadMediator(const STRING & cfg) :IMediator(cfg), executors_(stoi(cfg_.Param()["thread_number"]))
+	{
+
+	}
 
 	static const char* Name()
 	{
@@ -19,10 +26,9 @@ public:
 	virtual void StoreImage(size_t id, ImgType&& img) override
 	{
 		executors_.commit(std::bind(&StorageType::push, &img_stash_[id], std::forward<ImgType>(img)));
-
 	}
 
-	virtual ImgTypePtr FetchImage(size_t id) override
+	virtual ImgTypePtr FetchToBroadCast(size_t id) override
 	{
 		return img_stash_[id].wait_and_pop();
 	}

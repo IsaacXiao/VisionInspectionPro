@@ -5,7 +5,7 @@ FrameBuilder::FrameBuilder() :
 	m_plc_agent_(GetModuleDirectory() + PathSeparator() + "PlcAgent"),
 	m_mediator_(GetModuleDirectory() + PathSeparator() + "Mediator")
 {
-	number_ = stoi(main_cfg_.Param()["CameraNumber"]);
+	camera_number_ = stoi(main_cfg_.Param()["CameraNumber"]);
 }
 
 void FrameBuilder::InitModule()
@@ -20,7 +20,7 @@ void FrameBuilder::BuildInspectionSystem()
 	ConstructCameraGrabber();
 	ConstructMediator();
 
-	for ( size_t i = 0; i < number_; i++ )
+	for ( size_t i = 0; i < camera_number_; i++ )
 	{
 		auto &camera = std::get<CAMERAGRABBER>(inspection_)[i];
 		camera->SetId(i);
