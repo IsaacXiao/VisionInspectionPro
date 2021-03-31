@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include <assert.h>
 
+#include "../Mediator/ThreadMediator/ThreadMediator.h"
+
 MainWnd::MainWnd(QWidget *parent)
     : QMainWindow(parent),ui(new Ui::OnDisplayUi)
 {
-	//facade_ = std::make_unique<Facade>();
-	facade_ = new Facade;
+	facade_ = std::make_unique<Facade>();
 
     ui->setupUi(this);
     InitFrame();
@@ -18,12 +19,10 @@ MainWnd::MainWnd(QWidget *parent)
 	connect(ui->btnGrabImageCam01, SIGNAL(clicked(bool)), this, SLOT(OnTrigger()));
 
 	qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
-	connect(facade_, SIGNAL(SigChangeBack(unsigned short,ImgTypePtr)), this, SLOT(OnSetBackImage(unsigned short,ImgTypePtr)));
 }
 
 MainWnd::~MainWnd()
 {
-	DeletePtr(facade_);
 	DeletePtr(ui);
 }
 
@@ -207,6 +206,10 @@ void MainWnd::InitStatusBar()
 
 void MainWnd::OnStartBtnClick()
 {
+	facade_->BuildSystem();
+	auto dispatcher = facade_->Dispatcher().get();
+
+	connect(dynamic_cast<ThreadMediator*>(dispatcher), SIGNAL(SigChangeBack(unsigned short, ImgTypePtr)), this, SLOT(OnSetBackImage(unsigned short, ImgTypePtr)));
 	facade_->Run();
 }
 

@@ -81,9 +81,6 @@
     <QtMoc Include="mainwindow.h">
       <Filter>UI</Filter>
     </QtMoc>
-    <QtMoc Include="..\..\Facade\Facade.h">
-      <Filter>Facade</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -319,6 +316,9 @@
     </ClInclude>
     <ClInclude Include="Convert.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Facade\Facade.h">
+      <Filter>Facade</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

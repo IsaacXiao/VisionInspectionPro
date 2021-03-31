@@ -8,22 +8,10 @@
 #include "CameraShot.h"
 #include "../Mediator/IMediator.h"
 
-class Facade : public QObject
+class Facade 
 {
-	Q_OBJECT
-signals :
-	void SigChangeBack(unsigned short, ImgTypePtr) const;
 private:
 	FrameBuilderPtr builder_;
-
-	void DisplayImg(USHORT n) const
-	{
-		while (!builder_->Part<CAMERAGRABBER>()[n]->IsStoped)
-		{
-			ImgTypePtr img = builder_->Part<MEDIATOR>()->FetchImage(n);
-			emit SigChangeBack(n, img);
-		}
-	}
 public:
     Facade()
 	{ 
@@ -31,22 +19,23 @@ public:
 		builder_->InitModule();
 	}
 
+	MediatorPtr Dispatcher() const { return builder_->Part<MEDIATOR>(); }
+
 	/*template<typename... Ts>
 	void Run(Ts&&... params)
 	{
 	//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
 
+	void BuildSystem() { builder_->BuildInspectionSystem(); }
+
 	void Run() const
 	{
-		builder_->BuildInspectionSystem();
-		
-		for ( USHORT i = 0; i < builder_->CameraNumber(); i++ )
+		builder_->Part<MEDIATOR>()->StartDispatch();
+		for ( USHORT camera_id = 0; camera_id < builder_->CameraNumber(); camera_id++ )
 		{
-			builder_->Part<CAMERAGRABBER>()[i]->StartGrabbing();
-			DisplayImg(i);
-			//builder_->Part<MEDIATOR>()->
-			//executor_.commit(std::bind(&Facade::DisplayImg, this, i));
+			builder_->Part<CAMERAGRABBER>()[camera_id]->StartGrabbing();
+			builder_->Part<MEDIATOR>()->FetchImgToWork(camera_id);
 		}
 	}
 
@@ -56,6 +45,7 @@ public:
 		{
 			camera->StopGrabbing();
 		}
+		builder_->Part<MEDIATOR>()->StopDispatch();
 	}
 
 	ImgTypePtr SoftTriggerGrab()
@@ -64,20 +54,14 @@ public:
 		//builder_->Part<CAMERAGRABBER>()->SoftTrigger();
 		//return consumer_->FetchImage();
 	}
-
-	ImgTypePtr PlcTriggerGrab()
-	{
-		assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
-		//return consumer_->FetchImage();
-	}
 };
 
-/*template<>
+template<>
 struct PointType<Facade>
 {
 	using Org = Facade*;
 	using Ptr = std::unique_ptr<Facade>;
-};*/
+};
 
 using FacadePtr = PointType<Facade>::Ptr;
 

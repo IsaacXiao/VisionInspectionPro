@@ -17,6 +17,7 @@ protected:
 	using StorageType = ThreadSafe_Queue<ImgType>;
 	VECTOR<StorageType> img_stash_;
 	Configure<FRAMWORK_PART::MEDIATOR> cfg_;
+	bool stop_dispatch_{true};
 public:
 	IMediator(const STRING & cfg):cfg_(cfg)
 	{
@@ -26,9 +27,11 @@ public:
 			img_stash_.emplace_back(StorageType());
 		}
 	}
+	void StartDispatch() { stop_dispatch_ = false;  }
+	void StopDispatch() { stop_dispatch_ = true;  }
 	virtual ~IMediator(){}
 	virtual void StoreImage(size_t id, ImgType&& img) = 0;
-	virtual ImgTypePtr FetchToBroadCast(size_t id) = 0;
+	virtual void FetchImgToWork(size_t camera_id) = 0;
 };
 
 template<>
