@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWnd_t {
-    QByteArrayData data[10];
-    char stringdata0[98];
+    QByteArrayData data[12];
+    char stringdata0[115];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,15 +37,18 @@ QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 15), // "OnStartBtnClick"
 QT_MOC_LITERAL(4, 39, 14), // "OnStopBtnClick"
 QT_MOC_LITERAL(5, 54, 9), // "OnTrigger"
-QT_MOC_LITERAL(6, 64, 14), // "OnSetBackImage"
-QT_MOC_LITERAL(7, 79, 3), // "pos"
-QT_MOC_LITERAL(8, 83, 10), // "ImgTypePtr"
-QT_MOC_LITERAL(9, 94, 3) // "img"
+QT_MOC_LITERAL(6, 64, 6), // "USHORT"
+QT_MOC_LITERAL(7, 71, 9), // "camera_id"
+QT_MOC_LITERAL(8, 81, 14), // "OnSetBackImage"
+QT_MOC_LITERAL(9, 96, 3), // "pos"
+QT_MOC_LITERAL(10, 100, 10), // "ImgTypePtr"
+QT_MOC_LITERAL(11, 111, 3) // "img"
 
     },
     "MainWnd\0OnNavBtnClick\0\0OnStartBtnClick\0"
-    "OnStopBtnClick\0OnTrigger\0OnSetBackImage\0"
-    "pos\0ImgTypePtr\0img"
+    "OnStopBtnClick\0OnTrigger\0USHORT\0"
+    "camera_id\0OnSetBackImage\0pos\0ImgTypePtr\0"
+    "img"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,15 +69,15 @@ static const uint qt_meta_data_MainWnd[] = {
        1,    0,   39,    2, 0x0a /* Public */,
        3,    0,   40,    2, 0x0a /* Public */,
        4,    0,   41,    2, 0x0a /* Public */,
-       5,    0,   42,    2, 0x0a /* Public */,
-       6,    2,   43,    2, 0x0a /* Public */,
+       5,    1,   42,    2, 0x0a /* Public */,
+       8,    2,   45,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::UShort, 0x80000000 | 8,    7,    9,
+    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, QMetaType::UShort, 0x80000000 | 10,    9,   11,
 
        0        // eod
 };
@@ -88,7 +91,7 @@ void MainWnd::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 0: _t->OnNavBtnClick(); break;
         case 1: _t->OnStartBtnClick(); break;
         case 2: _t->OnStopBtnClick(); break;
-        case 3: _t->OnTrigger(); break;
+        case 3: _t->OnTrigger((*reinterpret_cast< USHORT(*)>(_a[1]))); break;
         case 4: _t->OnSetBackImage((*reinterpret_cast< unsigned short(*)>(_a[1])),(*reinterpret_cast< ImgTypePtr(*)>(_a[2]))); break;
         default: ;
         }

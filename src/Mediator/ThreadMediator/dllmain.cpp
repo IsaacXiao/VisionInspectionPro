@@ -55,5 +55,5 @@ extern "C" THREAD_MEDIATOR_API void Names(char** names_ptr)
 ////
 extern "C" THREAD_MEDIATOR_API void Remove(MediatorOrg ptr)
 {
-	assert(DeletePtr(ptr));
+	DeletePtr(ptr);
 }

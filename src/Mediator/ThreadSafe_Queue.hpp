@@ -6,7 +6,6 @@
 #include <queue>
 #include <memory>
 
-//TODO: 把lock_guard改为unique_lock
 template<typename T>
 class ThreadSafe_Queue
 {

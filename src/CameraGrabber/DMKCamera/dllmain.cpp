@@ -54,5 +54,5 @@ extern "C" DMK_CAMERA_API void Names(char** names_ptr)
 ////
 extern "C" DMK_CAMERA_API void Remove(CameraGrabberOrg ptr)
 {
-	assert(DeletePtr(ptr));
+	DeletePtr(ptr);
 }

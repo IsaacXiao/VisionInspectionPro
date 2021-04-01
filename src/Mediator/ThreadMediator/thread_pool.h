@@ -49,7 +49,7 @@ public:
                             [this] {
                             return this->stoped_.load() || !this->tasks_.empty();
                         }
-                        ); // wait 直到有 task
+                        ); //条件等待直到有task被提交，线程池才会往里面装任务去干活
                         if (this->stoped_ && this->tasks_.empty())
                             return;
                         task = std::move(this->tasks_.front()); // 取一个 task

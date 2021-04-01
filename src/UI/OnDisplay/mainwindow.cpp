@@ -16,7 +16,7 @@ MainWnd::MainWnd(QWidget *parent)
 
 	connect(ui->actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
 	connect(ui->actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
-	connect(ui->btnGrabImageCam01, SIGNAL(clicked(bool)), this, SLOT(OnTrigger()));
+
 
 	qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
 }
@@ -96,6 +96,9 @@ void MainWnd::InitCamArea()
 
 	camra_shot_[1] = ui->labShowImgCam02;
 	camra_shot_[1]->setStyleSheet("background-color:#B8B7B7");
+
+	soft_trigger_[0] = ui->btnGrabImageCam01;
+	soft_trigger_[1] = ui->btnGrabImageCam02;
 
 	/*camra_shot_[0] = ui->labShowImgCam01;
 	camra_shot_[1] = ui->labShowImgCam02;
@@ -206,10 +209,21 @@ void MainWnd::InitStatusBar()
 
 void MainWnd::OnStartBtnClick()
 {
-	facade_->BuildSystem();
+	//TODO: 最好在界面上画个按钮来重新加载配置文件
+	facade_->ReloadCfgToBuildModule();
 	auto dispatcher = facade_->Dispatcher().get();
 
 	connect(dynamic_cast<ThreadMediator*>(dispatcher), SIGNAL(SigChangeBack(unsigned short, ImgTypePtr)), this, SLOT(OnSetBackImage(unsigned short, ImgTypePtr)));
+
+	for (USHORT camera_id = 0; camera_id < 2; camera_id++)
+	{
+		connect(soft_trigger_[camera_id], &QPushButton::clicked, this,
+			[=]()
+		{
+			facade_->SoftTriggerGrab(camera_id);
+		});
+	}
+
 	facade_->Run();
 }
 
@@ -218,7 +232,7 @@ void MainWnd::OnStopBtnClick()
 	facade_->Stop();
 }
 
-void MainWnd::OnTrigger()
+void MainWnd::OnTrigger(USHORT camera_id)
 {
 	/*QImage img_raw = cvMat2QImage(*(facade_->PlcTriggerGrab()), true, true);
 	QImage image_scale = img_raw.scaled(ui->labShowImgCam01->width(), ui->labShowImgCam01->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);

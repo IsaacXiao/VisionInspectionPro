@@ -18,17 +18,13 @@ inline bool IsNull(PtrT ptr) noexcept
 }
 
 template<typename PtrT>
-inline bool DeletePtr(PtrT ptr)
+inline void DeletePtr(PtrT ptr)
 {
-	if( !std::is_null_pointer<decltype(ptr)>::value )
+	//if( !std::is_null_pointer<decltype(ptr)>::value )
+	if( !IsNull(ptr) )
 	{
 		delete ptr;
 		ptr = nullptr;
-		return true;
-	}
-	else
-	{
-		return false;
 	}
 }
 

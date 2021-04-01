@@ -10,7 +10,6 @@
 #include "CommonInclude/Memory.hpp"
 #include "CommonInclude/TypeDefine.h"
 
-#include <windows.h>
 #include <memory>
 
 #include "udshl/FrameHandlerSink.h"
@@ -78,17 +77,7 @@ public:
 	void InitSettings();
 	virtual void StartGrabbing() override;
 	virtual void StopGrabbing() override;
-	virtual void AttachMediator(std::weak_ptr<IMediator> mediator) override
-	{
-		
-		listener_.mediator_ = mediator;
-	}
-	virtual void SoftTrigger() override 
-	{ 
-		assert(IsStoped());
-		assert(!IsNull(softtrigger_)); 
-		softtrigger_->push();
-	}
+	virtual void SoftTrigger() override { assert(!IsNull(softtrigger_)); softtrigger_->push(); }
 };
 
 #endif

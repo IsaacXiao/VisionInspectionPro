@@ -8,16 +8,23 @@
 #include "CameraShot.h"
 #include "../Mediator/IMediator.h"
 
+#include "../UI/IForDisplay.h"
+
 class Facade 
 {
 private:
 	FrameBuilderPtr builder_;
+	IForDisplay * ui_;
 public:
     Facade()
 	{ 
 		builder_ = std::make_unique<FrameBuilder>();
 		builder_->InitModule();
 	}
+	~Facade() { Stop();  }
+
+	
+	void AttachUI(IForDisplay * ui) { ui_ = ui;  }
 
 	MediatorPtr Dispatcher() const { return builder_->Part<MEDIATOR>(); }
 
@@ -27,7 +34,7 @@ public:
 	//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
 
-	void BuildSystem() { builder_->BuildInspectionSystem(); }
+	void ReloadCfgToBuildModule() { builder_->BuildInspectionSystem(); }
 
 	void Run() const
 	{
@@ -48,11 +55,9 @@ public:
 		builder_->Part<MEDIATOR>()->StopDispatch();
 	}
 
-	ImgTypePtr SoftTriggerGrab()
+	void SoftTriggerGrab( USHORT camera_id ) const
 	{
-		//assert(!builder_->Part<CAMERAGRABBER>()->IsStoped());
-		//builder_->Part<CAMERAGRABBER>()->SoftTrigger();
-		//return consumer_->FetchImage();
+		builder_->Part<CAMERAGRABBER>()[camera_id]->SoftTrigger();
 	}
 };
 

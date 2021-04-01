@@ -16,10 +16,11 @@ protected:
 	bool stop_{ true };
 	Configure<FRAMWORK_PART::CAMERAGRABBER> cfg_;
 	size_t camera_id_;
+	std::weak_ptr<IMediator> mediator_;
 public:
     ICameraGrabber(const STRING & cfg):cfg_(cfg){}
     virtual ~ICameraGrabber(){}
-	virtual void AttachMediator(std::weak_ptr<IMediator> mediator) = 0;
+	void AttachMediator(std::weak_ptr<IMediator> mediator) { mediator_ = mediator;  }
 	bool IsStoped() const { return stop_; }
 	virtual void StartGrabbing() = 0;
 	virtual void StopGrabbing() = 0;

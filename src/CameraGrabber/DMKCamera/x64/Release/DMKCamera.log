@@ -10,9 +10,10 @@ D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm/Windows/Windows
 D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger/BroadCastLogger.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
      Creating library ../../../build/CameraGrabber/DMKCamera/DMKCamera.lib and object ../../../build/CameraGrabber/DMKCamera/DMKCamera.exp
   Generating code
-  0 of 965 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  0 of 967 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
+stdafx.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'stdafx.obj' or at 'D:\WorkSpace\Repository\VisionInspectionPro\build\CameraGrabber\DMKCamera\vc140.pdb'; linking object as if no debug info
   DMKCamera.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\src\CameraGrabber\DMKCamera\../../../build/CameraGrabber/DMKCamera/DMKCamera.dll
   DMKCamera.vcxproj -> ../../../build/CameraGrabber/DMKCamera/DMKCamera.pdb (Full PDB)

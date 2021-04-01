@@ -10,6 +10,7 @@ using namespace QtCharts;
 #include "Convert.h"
 
 #include "../../Facade/Facade.h"
+#include "../IForDisplay.h"
 
 class CameraShot;
 
@@ -54,6 +55,7 @@ private:
 
     //显示图像的Label对象
     CameraShot* camra_shot_[CAMERA_NUM];
+	QPushButton * soft_trigger_[CAMERA_NUM];
     // 相机触发选择框
     QCheckBox* camara_trigger[CAMERA_NUM];
     std::array<QString, CAMERA_NUM> camera_counting{"-999","-999","-999","-999"};
@@ -66,7 +68,7 @@ public slots :
     void OnNavBtnClick();
 	void OnStartBtnClick();
 	void OnStopBtnClick();
-	void OnTrigger();
+	void OnTrigger( USHORT camera_id );
 	void OnSetBackImage(unsigned short pos, ImgTypePtr img);
 };
 #endif // MAINWINDOW_H
