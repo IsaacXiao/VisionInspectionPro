@@ -8,3 +8,17 @@ Makefile
 cmake_install.cmake
 DMKCamera.tlog
 *.VC.VC.opendb
+/src/.vs
+/src/*.zip
+release
+*-Debug
+debug
+*.jpg
+*.bmp
+*.pdb
+/src/VisionInspectionPro.VC.db
+/src/main.VC.db
+*.dir
+Debug
+x64
+CMakeCache.txt
