@@ -22,3 +22,7 @@ debug
 Debug
 x64
 CMakeCache.txt
+/build/CameraGrabber/DMKCamera/DMKCamera.exp
+/build/CameraGrabber/DMKCamera/DMKCamera.iobj
+/build/CameraGrabber/DMKCamera/DMKCamera.ipdb
+/build/CameraGrabber/DMKCamera/DMKCamera.lib
