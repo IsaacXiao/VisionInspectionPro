@@ -1,0 +1,11 @@
+*{ font-size:13px;color:#252525;font-family:"微软雅黑";}
+QDialog{background-color:#fafafa;}
+
+
+QPushButton,QToolButton{
+    background-color: green;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     padding: 2px;
+}

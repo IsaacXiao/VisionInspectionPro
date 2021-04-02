@@ -1,19 +1,17 @@
 ﻿  dllmain.cpp
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm/Windows/WindowsCore.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger/BroadCastLogger.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure\Configure.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude\Memory.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm\Windows\WindowsCore.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger\BroadCastLogger.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   DMKCamera.cpp
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm/Windows/WindowsCore.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger/BroadCastLogger.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-     Creating library ../../../build/CameraGrabber/DMKCamera/DMKCamera.lib and object ../../../build/CameraGrabber/DMKCamera/DMKCamera.exp
-  Generating code
-  0 of 967 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure\Configure.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude\Memory.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm\Windows\WindowsCore.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger\BroadCastLogger.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+    正在创建库 ../../../build/CameraGrabber/DMKCamera/DMKCamera.lib 和对象 ../../../build/CameraGrabber/DMKCamera/DMKCamera.exp
+  正在生成代码
+  1 of 821 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-stdafx.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'stdafx.obj' or at 'D:\WorkSpace\Repository\VisionInspectionPro\build\CameraGrabber\DMKCamera\vc140.pdb'; linking object as if no debug info
-  DMKCamera.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\src\CameraGrabber\DMKCamera\../../../build/CameraGrabber/DMKCamera/DMKCamera.dll
-  DMKCamera.vcxproj -> ../../../build/CameraGrabber/DMKCamera/DMKCamera.pdb (Full PDB)
+  已完成代码的生成
+  DMKCamera.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\build\CameraGrabber\DMKCamera\DMKCamera.dll

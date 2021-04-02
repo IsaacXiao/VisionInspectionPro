@@ -25,7 +25,7 @@ void DMKCamera::InitSettings()
 	const STRING cfg = "camera" + to_string(camera_id_) + ".xml";
 	if (!grabber_->loadDeviceStateFromFile(cfg))
 	{
-		while (!grabber_->showDevicePage());
+		while(!grabber_->showDevicePage());
 		
 		grabber_->saveDeviceStateToFile(cfg);
 	}

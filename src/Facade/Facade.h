@@ -3,13 +3,16 @@
 
 #include "FrameBuilder.h"
 #include <utility>
-#include <queue>
-#include <QObject>
-#include "CameraShot.h"
 #include "../Mediator/IMediator.h"
 
 #include "../UI/IForDisplay.h"
 
+
+///这个Facade代表应用程序的所有功能
+///不依赖任何第三方库的UI类
+///不论QT还是MFC或是其他界面类
+///只需拿过来继承自IForDisplay
+///重写DisplayImage函数即可显示
 class Facade 
 {
 private:
@@ -23,8 +26,11 @@ public:
 	}
 	~Facade() { Stop();  }
 
-	
 	void AttachUI(IForDisplay * ui) { ui_ = ui;  }
+	void DisplayImage(USHORT camera_id, ImgTypePtr img)
+	{
+		ui_->DisplayImage(camera_id, img);
+	}
 
 	MediatorPtr Dispatcher() const { return builder_->Part<MEDIATOR>(); }
 
@@ -34,9 +40,13 @@ public:
 	//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
 
-	void ReloadCfgToBuildModule() { builder_->BuildInspectionSystem(); }
+	void ReloadCfg() 
+	{ 
+		builder_->BuildInspectionSystem(); 
+		builder_->Part<MEDIATOR>()->AttachFacade(this);
+	}
 
-	void Run() const
+	void Run()
 	{
 		builder_->Part<MEDIATOR>()->StartDispatch();
 		for ( USHORT camera_id = 0; camera_id < builder_->CameraNumber(); camera_id++ )
@@ -61,12 +71,12 @@ public:
 	}
 };
 
-template<>
-struct PointType<Facade>
-{
-	using Org = Facade*;
-	using Ptr = std::unique_ptr<Facade>;
-};
+//template<>
+//struct PointType<Facade>
+//{
+//	using Org = Facade*;
+//	using Ptr = std::unique_ptr<Facade>;
+//};
 
 using FacadePtr = PointType<Facade>::Ptr;
 

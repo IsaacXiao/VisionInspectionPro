@@ -2,5 +2,5 @@
   tinyxml.cpp
   tinyxmlerror.cpp
   tinyxmlparser.cpp
-  Generating Code...
+  正在生成代码...
   tinyxml.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\3rd_lib\tinyxml\Release\tinyxml.lib

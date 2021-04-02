@@ -1,2 +1,2 @@
 CONFIG += no_fixpath
-QT += core gui widgets charts
+QT += core gui widgets

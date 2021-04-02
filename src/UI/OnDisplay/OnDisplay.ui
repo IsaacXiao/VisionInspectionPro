@@ -2790,9 +2790,6 @@
         </layout>
        </widget>
       </item>
-      <item row="0" column="1" rowspan="2">
-       <widget class="QChartView" name="chartViewBar"/>
-      </item>
       <item row="1" column="0">
        <widget class="QTableWidget" name="DataTable">
         <property name="font">
@@ -3481,11 +3478,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>QChartView</class>
-   <extends>QGraphicsView</extends>
-   <header>qchartview.h</header>
-  </customwidget>
   <customwidget>
    <class>CameraShot</class>
    <extends>QLabel</extends>

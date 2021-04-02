@@ -1,14 +1,18 @@
 #include "mainwindow.h"
 #include <assert.h>
-
+#include <QFile>
 #include "../Mediator/ThreadMediator/ThreadMediator.h"
 
 MainWnd::MainWnd(QWidget *parent)
     : QMainWindow(parent),ui(new Ui::OnDisplayUi)
 {
-	facade_ = std::make_unique<Facade>();
+	//facade_ = std::make_unique<Facade>();
+	
 
-    ui->setupUi(this);
+	facade_ = new Facade;
+	facade_->AttachUI(this);
+    
+	ui->setupUi(this);
     InitFrame();
     InitStatisticsTab();
     InitCamArea();
@@ -18,11 +22,12 @@ MainWnd::MainWnd(QWidget *parent)
 	connect(ui->actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
 
 
-	qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
+	//qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
 }
 
 MainWnd::~MainWnd()
 {
+	DeletePtr(facade_);
 	DeletePtr(ui);
 }
 
@@ -210,11 +215,9 @@ void MainWnd::InitStatusBar()
 void MainWnd::OnStartBtnClick()
 {
 	//TODO: 最好在界面上画个按钮来重新加载配置文件
-	facade_->ReloadCfgToBuildModule();
-	auto dispatcher = facade_->Dispatcher().get();
+	facade_->ReloadCfg();
 
-	connect(dynamic_cast<ThreadMediator*>(dispatcher), SIGNAL(SigChangeBack(unsigned short, ImgTypePtr)), this, SLOT(OnSetBackImage(unsigned short, ImgTypePtr)));
-
+	//设置软触发按钮的调用函数
 	for (USHORT camera_id = 0; camera_id < 2; camera_id++)
 	{
 		connect(soft_trigger_[camera_id], &QPushButton::clicked, this,
@@ -232,15 +235,7 @@ void MainWnd::OnStopBtnClick()
 	facade_->Stop();
 }
 
-void MainWnd::OnTrigger(USHORT camera_id)
-{
-	/*QImage img_raw = cvMat2QImage(*(facade_->PlcTriggerGrab()), true, true);
-	QImage image_scale = img_raw.scaled(ui->labShowImgCam01->width(), ui->labShowImgCam01->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-	ui->labShowImgCam01->setBackImage(image_scale);
-	ui->labShowImgCam01->update();*/
-}
-
-void MainWnd::OnSetBackImage(unsigned short pos, ImgTypePtr img)
+void MainWnd::DisplayImage(unsigned short pos, ImgTypePtr img)
 {
 	QImage img_raw = cvMat2QImage(*(img), true, true);
 	QImage image_scale = img_raw.scaled(camra_shot_[pos]->width(), camra_shot_[pos]->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);

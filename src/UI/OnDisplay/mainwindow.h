@@ -2,21 +2,21 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QChartView>
-#include <QChart>
-using namespace QtCharts;
+//#include <QChartView>
+//#include <QChart>
+//using namespace QtCharts;
 
 #include "ui_OnDisplay.h"
 #include "Convert.h"
 
 #include "../../Facade/Facade.h"
-#include "../IForDisplay.h"
+//#include "../IForDisplay.h"
 
 class CameraShot;
 
 #include <array>
 
-class MainWnd : public QMainWindow
+class MainWnd : public QMainWindow, public IForDisplay
 {
 public:
     MainWnd(QWidget *parent = nullptr);
@@ -68,7 +68,6 @@ public slots :
     void OnNavBtnClick();
 	void OnStartBtnClick();
 	void OnStopBtnClick();
-	void OnTrigger( USHORT camera_id );
-	void OnSetBackImage(unsigned short pos, ImgTypePtr img);
+	virtual void DisplayImage(unsigned short pos, ImgTypePtr img) override;
 };
 #endif // MAINWINDOW_H

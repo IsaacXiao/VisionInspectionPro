@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/ico">
+        <file>ico/arrow_bottom.ico</file>
+        <file>ico/arrow_download.ico</file>
+        <file>ico/arrow_interface.ico</file>
+        <file>ico/camcorder.ico</file>
+        <file>ico/cancel.ico</file>
+        <file>ico/certificate.ico</file>
+        <file>ico/checkboxmark.ico</file>
+        <file>ico/copy.ico</file>
+        <file>ico/delete_folder.ico</file>
+        <file>ico/exchanging.ico</file>
+        <file>ico/flash_off.ico</file>
+        <file>ico/help_file.ico</file>
+        <file>ico/login.ico</file>
+        <file>ico/playback.ico</file>
+        <file>ico/printer.ico</file>
+        <file>ico/printer_64.ico</file>
+        <file>ico/product.ico</file>
+        <file>ico/settings.ico</file>
+        <file>ico/settings_64px.ico</file>
+        <file>ico/tasks.ico</file>
+        <file>ico/tools.ico</file>
+        <file>ico/up_arrow.ico</file>
+        <file>ico/update.ico</file>
+        <file>ico/warning.ico</file>
+        <file>ico/x_office.ico</file>
+        <file>ico/interface.ico</file>
+        <file>ico/arrow_bottom_down (1).ico</file>
+        <file>ico/arrow_bottom_down (2).ico</file>
+    </qresource>
+</RCC>

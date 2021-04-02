@@ -1,25 +1,25 @@
 ﻿  dllmain.cpp
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\ThreadMediator.h(34): warning C4267: 'argument': conversion from 'size_t' to 'unsigned short', possible loss of data
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger/BroadCastLogger.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm/Windows/WindowsCore.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure\Configure.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude\Memory.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\thread_pool.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm\Windows\WindowsCore.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Facade\ModuleFactory.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger\BroadCastLogger.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Facade\FrameBuilder.h(54,38): warning C4267: “return”: 从“size_t”转换到“unsigned short”，可能丢失数据
+D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\ThreadMediator.h(20,1): warning C4267: “参数”: 从“size_t”转换到“USHORT”，可能丢失数据
+  stdafx.cpp
   ThreadMediator.cpp
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\ThreadMediator.h(34): warning C4267: 'argument': conversion from 'size_t' to 'unsigned short', possible loss of data
-  moc_ThreadMediator.cpp
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure/Configure.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude/Memory.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\thread_pool.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-d:\workspace\repository\visioninspectionpro\src\mediator\threadmediator\ThreadMediator.h(34): warning C4267: 'argument': conversion from 'size_t' to 'unsigned short', possible loss of data
-     Creating library ../../../build/Mediator/ThreadMediator/ThreadMediator.lib and object ../../../build/Mediator/ThreadMediator/ThreadMediator.exp
-  Generating code
-  1 of 1738 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  ThreadMediator.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\../../../build/Mediator/ThreadMediator/ThreadMediator.dll
-  ThreadMediator.vcxproj -> ../../../build/Mediator/ThreadMediator/ThreadMediator.pdb (Full PDB)
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Configure\Configure.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\CommonInclude\Memory.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\thread_pool.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\PlatForm\Windows\WindowsCore.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Facade\ModuleFactory.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Include\Logger\BroadCastLogger.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\WorkSpace\Repository\VisionInspectionPro\src\Facade\FrameBuilder.h(54,38): warning C4267: “return”: 从“size_t”转换到“unsigned short”，可能丢失数据
+D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\ThreadMediator.h(20,1): warning C4267: “参数”: 从“size_t”转换到“USHORT”，可能丢失数据
+    正在创建库 ../../../build/Mediator/ThreadMediator/ThreadMediator.lib 和对象 ../../../build/Mediator/ThreadMediator/ThreadMediator.exp
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 1200 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  ThreadMediator.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\build\Mediator\ThreadMediator\ThreadMediator.dll

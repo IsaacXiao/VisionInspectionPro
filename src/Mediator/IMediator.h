@@ -8,6 +8,8 @@
 #include "opencv2/opencv.hpp"
 #include "../CameraGrabber/ICameraGrabber.h"
 
+//#include "../Facade/Facade.h"
+class Facade;
 
 class IMediator
 {
@@ -18,6 +20,7 @@ protected:
 	VECTOR<StorageType> img_stash_;
 	Configure<FRAMWORK_PART::MEDIATOR> cfg_;
 	bool stop_dispatch_{true};
+	Facade * facade_;
 public:
 	IMediator(const STRING & cfg):cfg_(cfg)
 	{
@@ -27,6 +30,7 @@ public:
 			img_stash_.emplace_back(StorageType());
 		}
 	}
+	void AttachFacade(Facade * facade)  { facade_ = facade; }
 	void StartDispatch() { stop_dispatch_ = false;  }
 	void StopDispatch() { stop_dispatch_ = true;  }
 	virtual ~IMediator(){}

@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{10B68A1F-2084-4FB3-A408-EA3FCE20E31E}"
+	ProjectSection(SolutionItems) = preProject
+		UI\IForDisplay.h = UI\IForDisplay.h
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlcAgent", "PlcAgent", "{F0C06F88-ED1F-4FBE-A691-C679870FB7B6}"
 	ProjectSection(SolutionItems) = preProject
@@ -117,5 +120,8 @@ Global
 		{6013E271-7AA5-49E2-93BA-D5DFBF61F544} = {99AEE226-B745-4DE3-BF5D-525A02B5F474}
 		{08DD3E4C-432A-3ED9-B0F1-CA5E4D411C13} = {10B68A1F-2084-4FB3-A408-EA3FCE20E31E}
 		{D59E1626-20B4-42CC-AF3E-25DB25435715} = {A098C74E-98D5-42CA-B0BB-E8DF9420F1F3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FAD815C-3F0A-4F05-8C12-A6B059CA4E14}
 	EndGlobalSection
 EndGlobal
