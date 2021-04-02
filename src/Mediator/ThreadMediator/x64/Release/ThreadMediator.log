@@ -20,6 +20,6 @@ D:\WorkSpace\Repository\VisionInspectionPro\src\Mediator\ThreadMediator\ThreadMe
     正在创建库 ../../../build/Mediator/ThreadMediator/ThreadMediator.lib 和对象 ../../../build/Mediator/ThreadMediator/ThreadMediator.exp
   正在生成代码
   Previous IPDB not found, fall back to full compilation.
-  All 1200 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1205 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   ThreadMediator.vcxproj -> D:\WorkSpace\Repository\VisionInspectionPro\build\Mediator\ThreadMediator\ThreadMediator.dll
