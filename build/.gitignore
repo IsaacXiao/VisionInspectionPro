@@ -4,3 +4,8 @@
 /cmake_install.cmake
 Include
 CMakeFiles
+/camera0.xml
+/camera1.xml
+/main.bsc
+/main.iobj
+/main.ipdb
