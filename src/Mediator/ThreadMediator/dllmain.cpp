@@ -4,7 +4,6 @@
 #include "Logger/BroadCastLogger.hpp"
 #include "CommonInclude/Memory.hpp"
 
-#include <assert.h>
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -55,5 +54,6 @@ extern "C" THREAD_MEDIATOR_API void Names(char** names_ptr)
 ////
 extern "C" THREAD_MEDIATOR_API void Remove(MediatorOrg ptr)
 {
+	GlobalLogger::Record("ThreadMediator.dll", LOG_LEVEL::TRACK, "destroying");
 	DeletePtr(ptr);
 }

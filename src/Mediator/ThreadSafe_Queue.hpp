@@ -13,6 +13,7 @@ private:
 	mutable std::mutex mut;
     std::queue<T> data_queue;
     std::condition_variable data_cond;
+    bool running_{true};
 public:
 	ThreadSafe_Queue() = default;
 	//自定义了拷贝操作，编译器不会生成移动操作
@@ -20,6 +21,19 @@ public:
     {
         std::lock_guard<std::mutex> lk(other.mut);
         data_queue=other.data_queue;
+    }
+
+    /// <summary>
+    /// 如果点击停止之后，线程还在等待最后一帧
+    /// 则给它个空的让它结束此次等待
+    /// 修改运行状态后它下次就不会再等了
+    /// </summary>
+    void StopWaiting()
+    { 
+        std::unique_lock<std::mutex> lk(mut);
+        data_queue.push(T());
+        running_ = false;
+        data_cond.notify_one();
     }
 
     void push(T new_value)
@@ -40,7 +54,8 @@ public:
     std::shared_ptr<T> wait_and_pop()
     {
         std::unique_lock<std::mutex> lk(mut);
-        data_cond.wait(lk,[this]{return !data_queue.empty();});
+        if(running_)
+            data_cond.wait(lk, [this] { return !data_queue.empty(); });
         std::shared_ptr<T> res(std::make_shared<T>(data_queue.front()));
         data_queue.pop();
         return res;
