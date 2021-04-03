@@ -82,7 +82,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>../../../build/Mediator/ThreadMediator/</OutDir>
-    <IncludePath>../../../3rd_lib/opencv/include;../../../3rd_lib/opencv/include/opencv;../../../3rd_lib/opencv/include/opencv2;../../Include/;$(IncludePath)</IncludePath>
+    <IncludePath>../../../3rd_lib/opencv/include;../../../3rd_lib/opencv/include/opencv2;../../Include/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,8 +143,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\..\3rd_lib\opencv\x64\vc14\lib;..\..\..\3rd_lib\tinyxml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tinyxml.lib;opencv_world345.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\3rd_lib\opencv\x64\;..\..\..\3rd_lib\tinyxml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tinyxml.lib;opencv_world451.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

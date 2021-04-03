@@ -85,7 +85,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>../../../3rd_lib/opencv/include/opencv2;../../../3rd_lib/opencv/include/opencv;../../../3rd_lib/opencv/include;../../Include/;../../../3rd_lib/Camera/IC Imaging Control 3.5/classlib/include;$(IncludePath)</IncludePath>
+    <IncludePath>../../../3rd_lib/opencv/include/opencv2;../../../3rd_lib/opencv/include;../../Include/;../../../3rd_lib/Camera/IC Imaging Control 3.5/classlib/include;$(IncludePath)</IncludePath>
     <OutDir>../../../build/CameraGrabber/DMKCamera/</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -150,8 +150,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>tinyxml.lib;opencv_world345.lib;tis_udshl12_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\3rd_lib\opencv\x64\vc14\lib;..\..\..\3rd_lib\Camera\IC Imaging Control 3.5\classlib\x64\release;..\..\..\3rd_lib\tinyxml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tinyxml.lib;opencv_world451.lib;tis_udshl12_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\3rd_lib\opencv\x64\;..\..\..\3rd_lib\Camera\IC Imaging Control 3.5\classlib\x64\release;..\..\..\3rd_lib\tinyxml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

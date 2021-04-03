@@ -21,7 +21,15 @@ MainWnd::MainWnd(QWidget *parent)
 	connect(ui->actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
 	connect(ui->actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
 
-
+	//设置软触发按钮的调用函数
+	for (USHORT camera_id = 0; camera_id < 2; camera_id++)
+	{
+		connect(soft_trigger_[camera_id], &QPushButton::clicked, this,
+			[=]()
+		{
+			facade_->SoftTriggerGrab(camera_id);
+		});
+	}
 	//qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
 }
 
@@ -216,16 +224,6 @@ void MainWnd::OnStartBtnClick()
 {
 	//TODO: 最好在界面上画个按钮来重新加载配置文件
 	facade_->ReloadCfg();
-
-	//设置软触发按钮的调用函数
-	for (USHORT camera_id = 0; camera_id < 2; camera_id++)
-	{
-		connect(soft_trigger_[camera_id], &QPushButton::clicked, this,
-			[=]()
-		{
-			facade_->SoftTriggerGrab(camera_id);
-		});
-	}
 
 	facade_->Run();
 }
