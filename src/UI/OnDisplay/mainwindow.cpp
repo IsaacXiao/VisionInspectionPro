@@ -235,7 +235,7 @@ void MainWnd::OnStopBtnClick()
 
 void MainWnd::DisplayImage(unsigned short pos, ImgTypePtr img)
 {
-	QImage img_raw = cvMat2QImage(*(img), true, true);
+	QImage img_raw = cvMat2QImage(*(img), false, true);
 	QImage image_scale = img_raw.scaled(camra_shot_[pos]->width(), camra_shot_[pos]->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 	camra_shot_[pos]->setBackImage(image_scale);
 	camra_shot_[pos]->update();
