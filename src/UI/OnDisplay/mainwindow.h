@@ -7,7 +7,7 @@
 //using namespace QtCharts;
 
 #include "ui_OnDisplay.h"
-#include "Convert.h"
+#include "../Convert.h"
 
 #include "../../Facade/Facade.h"
 //#include "../IForDisplay.h"

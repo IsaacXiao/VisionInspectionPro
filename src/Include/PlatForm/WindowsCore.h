@@ -169,12 +169,12 @@ namespace
 		{
 			return false;
 		}
-		int read_size = 0;//实际读入的字符数
+		auto read_size{0};//实际读入的字符数
 		//循环读取文件字节数
 		while (read_size < data_len)
 		{
-			int curr_read_size = 0;//当前循环写入的字节数
-			curr_read_size = fread((char*)data + read_size, sizeof(unsigned char), data_len - read_size, hFile);
+			//当前循环写入的字节数
+			auto curr_read_size = fread((char*)data + read_size, sizeof(unsigned char), data_len - read_size, hFile);
 			if (curr_read_size == 0)
 				break;
 			read_size += curr_read_size;
@@ -198,12 +198,12 @@ namespace
 		{
 			return false;
 		}
-		int write_size = 0;//实际读入的字符数
+		auto write_size{0};//实际读入的字符数
 		//循环读取文件字节数
 		while (write_size < data_len)
 		{
-			int curr_write_size = 0;//当前循环写入的字节数
-			curr_write_size = fwrite((char*)data + write_size, sizeof(unsigned char), data_len - write_size, hFile);
+			//当前循环写入的字节数
+			auto curr_write_size = fwrite((char*)data + write_size, sizeof(unsigned char), data_len - write_size, hFile);
 			if (curr_write_size == 0)
 				break;
 			write_size += curr_write_size;

@@ -1,14 +1,17 @@
-﻿#include "CommonInclude/TypeDefine.h"
+﻿
 #include "Logger/BroadCastLogger.hpp"
 #include "Facade/Facade.h"
 
-#include "Mediator/Mediator.hpp"
 
 int main()
 {
+	try
+	{
     Facade facade;
     facade.Run();
-    //ImgMediator<EmptyClass> mediator;
-
-    return 0;
+  }
+  catch(...)
+  {
+  	
+  }
 }

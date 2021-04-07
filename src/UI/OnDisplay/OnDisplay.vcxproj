@@ -203,7 +203,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\Facade\Facade.cpp" />
     <ClCompile Include="..\..\Facade\FrameBuilder.cpp" />
-    <ClCompile Include="..\..\Include\PlatForm\Windows\WindowsCore.cpp" />
     <ClCompile Include="CameraShot.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
@@ -214,20 +213,6 @@
     <ClInclude Include="..\..\Facade\Facade.h" />
     <ClInclude Include="..\..\Facade\FrameBuilder.h" />
     <ClInclude Include="..\..\Facade\ModuleFactory.hpp" />
-    <ClInclude Include="..\..\Include\CommonInclude\InspectException.h" />
-    <ClInclude Include="..\..\Include\CommonInclude\Memory.hpp" />
-    <ClInclude Include="..\..\Include\CommonInclude\PlatFormHead.h" />
-    <ClInclude Include="..\..\Include\CommonInclude\TypeDefine.h" />
-    <ClInclude Include="..\..\Include\CommonInclude\utility.hpp" />
-    <ClInclude Include="..\..\Include\Configure\Configure.hpp" />
-    <ClInclude Include="..\..\Include\Configure\TinyXml\tinyxml.h" />
-    <ClInclude Include="..\..\Include\Configure\TinyXml\XmlParserShareHeader.h" />
-    <ClInclude Include="..\..\Include\Logger\BroadCastLogger.hpp" />
-    <ClInclude Include="..\..\Include\Logger\Console_Logger.h" />
-    <ClInclude Include="..\..\Include\Logger\Text_Logger.h" />
-    <ClInclude Include="..\..\Include\Logger\UI_Logger.h" />
-    <ClInclude Include="..\..\Include\PlatForm\Windows\WindowsCore.h" />
-    <ClInclude Include="Convert.h" />
     <QtMoc Include="mainwindow.h">
     </QtMoc>
   </ItemGroup>
@@ -312,9 +297,6 @@
     <None Include="Qss\image\sub-line_horizontal.png" />
     <None Include="Qss\image\sub-line_vertical.png" />
     <None Include="Qss\image\system_suspend_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\Include\Configure\TinyXml\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

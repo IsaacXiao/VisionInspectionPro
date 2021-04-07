@@ -28,7 +28,7 @@ public:
 	void DisplayImage(USHORT camera_id, ImgTypePtr img){ ui_->DisplayImage(camera_id, img); }
 
 	/*如果界面显示无法和下层的类解耦合
-	只能这样用可变长模板参数拖着几个QLable窗口句柄往几个Camera里传过去
+	只能这样用可变长模板参数拖着几个QLable窗口句柄往下层的几个Camera里传过去
 	template<typename... Ts>
 	void Run(Ts&&... params)
 	{

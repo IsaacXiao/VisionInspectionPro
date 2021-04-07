@@ -54,7 +54,7 @@ class DMKCamera : public ICameraGrabber
 	{
 		std::weak_ptr<IMediator> mediator_;
 		size_t camera_id_;
-		bool is_multicolour_;
+		bool is_multicolour_{true};
 
 		virtual void frameReady(DShowLib::Grabber& caller, smart_ptr<DShowLib::MemBuffer> pBuffer, DWORD FrameNumber) override
 		{

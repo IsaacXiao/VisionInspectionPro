@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{10B68A1F-2084-4FB3-A408-EA3FCE20E31E}"
 	ProjectSection(SolutionItems) = preProject
+		UI\Convert.h = UI\Convert.h
 		UI\IForDisplay.h = UI\IForDisplay.h
 	EndProjectSection
 EndProject
@@ -52,6 +53,43 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OnDisplay", "UI\OnDisplay\O
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadMediator", "Mediator\ThreadMediator\ThreadMediator.vcxproj", "{D59E1626-20B4-42CC-AF3E-25DB25435715}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonInclude", "CommonInclude", "{7250874B-0A85-4909-9DC6-6A6926D75A7F}"
+	ProjectSection(SolutionItems) = preProject
+		Include\CommonInclude\InspectException.h = Include\CommonInclude\InspectException.h
+		Include\CommonInclude\Memory.hpp = Include\CommonInclude\Memory.hpp
+		Include\CommonInclude\PlatFormHead.h = Include\CommonInclude\PlatFormHead.h
+		Include\CommonInclude\TypeDefine.h = Include\CommonInclude\TypeDefine.h
+		Include\CommonInclude\utility.hpp = Include\CommonInclude\utility.hpp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configure", "Configure", "{FD43FF5E-C99B-4DD0-9718-DF44955A21B3}"
+	ProjectSection(SolutionItems) = preProject
+		Include\Configure\Configure.hpp = Include\Configure\Configure.hpp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logger", "Logger", "{87869998-1E86-411F-98AF-3B691A8411A0}"
+	ProjectSection(SolutionItems) = preProject
+		Include\Logger\BroadCastLogger.hpp = Include\Logger\BroadCastLogger.hpp
+		Include\Logger\Console_Logger.h = Include\Logger\Console_Logger.h
+		Include\Logger\Text_Logger.h = Include\Logger\Text_Logger.h
+		Include\Logger\UI_Logger.h = Include\Logger\UI_Logger.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{B5D23EFB-D299-420D-95CA-3145083030D5}"
+	ProjectSection(SolutionItems) = preProject
+		Include\PlatForm\LinuxCore.h = Include\PlatForm\LinuxCore.h
+		Include\PlatForm\WindowsCore.h = Include\PlatForm\WindowsCore.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TinyXml", "TinyXml", "{BE965930-ACAA-43DC-AD39-984648F5F44D}"
+	ProjectSection(SolutionItems) = preProject
+		Include\Configure\TinyXml\CMakeLists.txt = Include\Configure\TinyXml\CMakeLists.txt
+		Include\Configure\TinyXml\tinyxml.h = Include\Configure\TinyXml\tinyxml.h
+		Include\Configure\TinyXml\XmlParserShareHeader.h = Include\Configure\TinyXml\XmlParserShareHeader.h
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +158,11 @@ Global
 		{6013E271-7AA5-49E2-93BA-D5DFBF61F544} = {99AEE226-B745-4DE3-BF5D-525A02B5F474}
 		{08DD3E4C-432A-3ED9-B0F1-CA5E4D411C13} = {10B68A1F-2084-4FB3-A408-EA3FCE20E31E}
 		{D59E1626-20B4-42CC-AF3E-25DB25435715} = {A098C74E-98D5-42CA-B0BB-E8DF9420F1F3}
+		{7250874B-0A85-4909-9DC6-6A6926D75A7F} = {D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}
+		{FD43FF5E-C99B-4DD0-9718-DF44955A21B3} = {D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}
+		{87869998-1E86-411F-98AF-3B691A8411A0} = {D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}
+		{B5D23EFB-D299-420D-95CA-3145083030D5} = {D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}
+		{BE965930-ACAA-43DC-AD39-984648F5F44D} = {FD43FF5E-C99B-4DD0-9718-DF44955A21B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FAD815C-3F0A-4F05-8C12-A6B059CA4E14}

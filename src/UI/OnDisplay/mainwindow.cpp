@@ -150,7 +150,6 @@ void MainWnd::InitStatusBar()
     QualificationRate->setFont(trfont);
     labCurState->setFont(trfont);
     QualificationRate->setText(Gb2312ToUnicode("相机初始化成功"));
-    labCurState->setText(Gb2312ToUnicode("版权所有：长沙麦睛科技有限公司"));
 
     ui->statusBar->addWidget(QualificationRate, 1);
     ui->statusBar->addWidget(labCurState, 1);

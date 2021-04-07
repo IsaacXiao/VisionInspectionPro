@@ -30,7 +30,12 @@ private:
 	PlcAgentFactory m_plc_agent_;
 	MediatorFactory m_mediator_;
 	
-	///等号会使智能指针第一次参与构造，后面的赋值操作会把之前的持有对象释放
+	/// 等号会使std::shared_ptr第一次参与构造
+	/// 而后面再运行=则是赋值操作，会把之前的持有对象释放
+	/// 这样管理资源恰好符合用户的操作习惯
+	/// 每次配置文件修改之后再次运行
+	/// 就像图书馆借书看完后还想再看另外一本之前
+	/// 先把之前的归还再借新的去
 	//void ConstructPlcAgent() { std::get<PLCAGENT>(inspection_) = m_plc_agent_.Create(main_cfg_.Param()["PlcAgent"]); }
 	void ConstructMediator() { std::get<MEDIATOR>(inspection_) = m_mediator_.Create(main_cfg_.Param()["Mediator"]); }
 	void ConstructCameraGrabber();

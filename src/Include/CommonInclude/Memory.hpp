@@ -8,7 +8,7 @@
 #define MEMORY_HPP
 
 
-#include <type_traits>
+//#include <type_traits>
 
 
 template<typename PtrT>
