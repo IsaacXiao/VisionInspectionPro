@@ -1,5 +1,14 @@
 #include "FrameBuilder.h"
 
+void FrameBuilder::ConstructCameraGrabber()
+{
+	std::get<CAMERAGRABBER>(inspection_).clear();
+	for (size_t i = 0; i < camera_number_; i++)
+	{
+		std::get<CAMERAGRABBER>(inspection_).emplace_back(m_camera_grabber_.Create(main_cfg_.Param()["CameraGrabber"]));
+	}
+}
+
 FrameBuilder::FrameBuilder() :
 	m_camera_grabber_(GetModuleDirectory() + PathSeparator() + "CameraGrabber"),
 	m_plc_agent_(GetModuleDirectory() + PathSeparator() + "PlcAgent"),
@@ -28,8 +37,4 @@ void FrameBuilder::BuildInspectionSystem()
 	}
 }
 
-void FrameBuilder::DestructModule()
-{
-	//这里无需reset或swap，智能指针真智能
-}
 

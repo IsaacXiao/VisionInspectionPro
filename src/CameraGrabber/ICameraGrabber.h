@@ -1,6 +1,7 @@
 #ifndef ICAMERA_GRABBER_H
 #define ICAMERA_GRABBER_H
 
+
 #include "CommonInclude/TypeDefine.h"
 #include <memory>
 //#include "../Mediator/IMediator.h"

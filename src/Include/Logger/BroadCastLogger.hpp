@@ -1,6 +1,3 @@
-//  (C) Copyright XiaoRong 2021.
-//  composited logger with policy .
-//  Software License, Version 1.0.0
 
 #ifndef BROADCAST_LOGGER_HPP
 #define BROADCAST_LOGGER_HPP

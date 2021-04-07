@@ -6,10 +6,17 @@
 #include <vector>
 #include <map>
 #include <cstdint>
-#include <functional>
 #include "opencv2/opencv.hpp"
 #include <memory>
 
+/// <summary>
+/// 统一规范指针定义
+/// 默认使用原生指针
+/// 但是能用智能指针
+/// 就尽量用智能指针
+/// 在需要的地方
+/// 做模板特化即可
+/// </summary>
 template<typename T>
 struct PointType
 {

@@ -13,62 +13,34 @@
 ///不论QT还是MFC或是其他界面类
 ///只需拿过来继承自IForDisplay
 ///重写DisplayImage函数即可显示
+///因为没有计划让别的编程语言来调用这个Facade
+///就不把这个类做到Dll或者So中去了 
 class Facade 
 {
 private:
-	FrameBuilderPtr builder_;
-	IForDisplay * ui_;
+	FrameBuilderPtr system_{nullptr};
+	IForDisplay* ui_{nullptr};
 public:
-    Facade()
-	{ 
-		builder_ = std::make_unique<FrameBuilder>();
-		builder_->InitModule();
-	}
+	Facade();
 	~Facade() { Stop();  }
 
 	void AttachUI(IForDisplay * ui) { ui_ = ui;  }
-	void DisplayImage(USHORT camera_id, ImgTypePtr img)
-	{
-		ui_->DisplayImage(camera_id, img);
-	}
+	void DisplayImage(USHORT camera_id, ImgTypePtr img){ ui_->DisplayImage(camera_id, img); }
 
-	MediatorPtr Dispatcher() const { return builder_->Part<MEDIATOR>(); }
-
-	/*template<typename... Ts>
+	/*如果界面显示无法和下层的类解耦合
+	只能这样用可变长模板参数拖着几个QLable窗口句柄往几个Camera里传过去
+	template<typename... Ts>
 	void Run(Ts&&... params)
 	{
-	//builder_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
+		//system_->Part<CAMERAGRABBER>()->StartLive(std::forward<Ts>(params)...);
 	}*/
+	void Run();
 
-	void ReloadCfg() 
-	{ 
-		builder_->BuildInspectionSystem(); 
-		builder_->Part<MEDIATOR>()->AttachFacade(this);
-	}
+	void ReloadCfg();
 
-	void Run()
-	{
-		builder_->Part<MEDIATOR>()->StartDispatch();
-		for ( USHORT camera_id = 0; camera_id < builder_->CameraNumber(); camera_id++ )
-		{
-			builder_->Part<CAMERAGRABBER>()[camera_id]->StartGrabbing();
-			builder_->Part<MEDIATOR>()->FetchImgToWork(camera_id);
-		}
-	}
+	void Stop() const;
 
-	void Stop()  const
-	{
-		for (auto & camera : builder_->Part<CAMERAGRABBER>())
-		{
-			camera->StopGrabbing();
-		}
-		builder_->Part<MEDIATOR>()->StopDispatch();
-	}
-
-	void SoftTriggerGrab( USHORT camera_id ) const
-	{
-		builder_->Part<CAMERAGRABBER>()[camera_id]->SoftTrigger();
-	}
+	void SoftTriggerGrab(USHORT camera_id) const;
 };
 
 //template<>

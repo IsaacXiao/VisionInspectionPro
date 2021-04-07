@@ -13,5 +13,4 @@ private:
 
 };
 
-
 #endif // !IFORDISPLAY_HEADER

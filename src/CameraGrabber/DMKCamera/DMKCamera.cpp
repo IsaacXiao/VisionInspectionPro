@@ -22,6 +22,8 @@ void DMKCamera::InitSettings()
 {
 	listener_.camera_id_ = camera_id_;
 	listener_.mediator_ = mediator_;
+	bool is_multicolour = StrToBool(cfg_.Param()["is_multicolour"]);
+	listener_.is_multicolour_ = is_multicolour;
 	const STRING cfg = "camera" + to_string(camera_id_) + ".xml";
 	if (!grabber_->loadDeviceStateFromFile(cfg))
 	{
@@ -30,7 +32,8 @@ void DMKCamera::InitSettings()
 		grabber_->saveDeviceStateToFile(cfg);
 	}
 	
-	sink_ = FrameHandlerSink::create(eRGB24, 1); 
+	//黑白eY800，彩色eRGB24
+	sink_ = FrameHandlerSink::create( is_multicolour ? eRGB24 : eY800, 1 );
 	sink_->setSnapMode(false);
 	grabber_->setSinkType(sink_);
 	
@@ -41,7 +44,6 @@ void DMKCamera::InitSettings()
 		property_interface_->QueryInterface(triggerswitch_);
 		triggerswitch_->setSwitch(true);
 	}//触发开关 end
-
 
 	if (!IsNull(property_) && (property_interface_ = property_->findInterface(VCDID_TriggerMode, VCDElement_SoftwareTrigger, VCDInterface_Button)) != 0)
 	{
@@ -55,7 +57,6 @@ void DMKCamera::StartGrabbing()
 	stop_ = false;
 	grabber_->addListener(&listener_, GrabberListener::eFRAMEREADY);//注册回调
 	grabber_->startLive(false);
-	//while (!IsStoped());
 }
 
 void DMKCamera::StopGrabbing()

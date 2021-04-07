@@ -49,7 +49,7 @@ void MainWnd::InitFrame()
 
 
     //禁用最大化
-    //setWindowFlags(windowFlags()& ~Qt::WindowMaximizeButtonHint);
+    setWindowFlags(windowFlags()& ~Qt::WindowMaximizeButtonHint);
 
     //背景全黑
     QFile style(":psblack.css");

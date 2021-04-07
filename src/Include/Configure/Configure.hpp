@@ -18,19 +18,19 @@ template<>
 struct PointType<TiXmlDocument>
 {
 	typedef TiXmlDocument* Org;
-	typedef std::unique_ptr<TiXmlDocument> Ptr;
+	typedef std::shared_ptr<TiXmlDocument> Ptr;
 };
 
 class XmlManager final
 {
-	XmlManager(const XmlManager&) = delete;
-	XmlManager & operator = (const XmlManager&) = delete;
+	//XmlManager(const XmlManager&) = delete;
+	//XmlManager & operator = (const XmlManager&) = delete;
 
 	using XmlDocPtr = PointType<TiXmlDocument>::Ptr;
 public:
 	XmlManager( const STRING& file_name ) : file_name_( file_name )
 	{
-		doc_ = std::make_unique<TiXmlDocument>(file_name_);
+		doc_ = std::make_shared<TiXmlDocument>(file_name_);
 		IS_SUCCESS is_success =  doc_->LoadFile(file_name_);
 		assert(is_success);
 	}
