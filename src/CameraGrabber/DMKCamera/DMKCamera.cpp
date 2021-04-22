@@ -27,7 +27,8 @@ void DMKCamera::InitSettings()
 	const STRING cfg = "camera" + to_string(camera_id_) + ".xml";
 	if (!grabber_->loadDeviceStateFromFile(cfg))
 	{
-		while(!grabber_->showDevicePage());
+		//while(!grabber_->showDevicePage());
+		grabber_->showDevicePage();
 		
 		grabber_->saveDeviceStateToFile(cfg);
 	}
@@ -54,8 +55,14 @@ void DMKCamera::InitSettings()
 void DMKCamera::StartGrabbing()
 {
 	InitSettings();
+	if (!grabber_->isDevOpen())
+	{
+		mediator_.lock()->CameraOffLine(camera_id_);
+		return;
+	}
 	stop_ = false;
-	grabber_->addListener(&listener_, GrabberListener::eFRAMEREADY);//×¢²á»Øµ÷
+	grabber_->addListener(&listener_, GrabberListener::eFRAMEREADY);
+	grabber_->addListener(&listener_, GrabberListener::eDEVICELOST);
 	grabber_->startLive(false);
 }
 

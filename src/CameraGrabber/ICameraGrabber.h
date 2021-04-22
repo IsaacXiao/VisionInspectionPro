@@ -16,7 +16,7 @@ private:
 protected:
 	bool stop_{ true };
 	Configure<FRAMWORK_PART::CAMERAGRABBER> cfg_;
-	size_t camera_id_;
+	USHORT camera_id_;
 	std::weak_ptr<IMediator> mediator_;
 public:
     ICameraGrabber(const STRING & cfg):cfg_(cfg){}
@@ -26,7 +26,7 @@ public:
 	virtual void StartGrabbing() = 0;
 	virtual void StopGrabbing() = 0;
 	virtual void SoftTrigger() = 0;
-	void SetId(size_t id) { camera_id_ = id; }
+	virtual void SetId(USHORT id) = 0;
 };
 
 template<>

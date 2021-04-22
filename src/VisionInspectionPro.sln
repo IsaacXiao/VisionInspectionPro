@@ -49,7 +49,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OnDisplay", "UI\OnDisplay\OnDisplay.vcxproj", "{08DD3E4C-432A-3ED9-B0F1-CA5E4D411C13}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D59E1626-20B4-42CC-AF3E-25DB25435715} = {D59E1626-20B4-42CC-AF3E-25DB25435715}
-		{6013E271-7AA5-49E2-93BA-D5DFBF61F544} = {6013E271-7AA5-49E2-93BA-D5DFBF61F544}
+		{210BEB43-DD5D-476F-9385-D1208E311732} = {210BEB43-DD5D-476F-9385-D1208E311732}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadMediator", "Mediator\ThreadMediator\ThreadMediator.vcxproj", "{D59E1626-20B4-42CC-AF3E-25DB25435715}"
@@ -90,6 +90,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TinyXml", "TinyXml", "{BE96
 		Include\Configure\TinyXml\tinyxml.h = Include\Configure\TinyXml\tinyxml.h
 		Include\Configure\TinyXml\XmlParserShareHeader.h = Include\Configure\TinyXml\XmlParserShareHeader.h
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HikCamera", "CameraGrabber\HikCamera\HikCamera.vcxproj", "{210BEB43-DD5D-476F-9385-D1208E311732}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,22 @@ Global
 		{D59E1626-20B4-42CC-AF3E-25DB25435715}.RelWithDebInfo|x64.Build.0 = Release|x64
 		{D59E1626-20B4-42CC-AF3E-25DB25435715}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
 		{D59E1626-20B4-42CC-AF3E-25DB25435715}.RelWithDebInfo|x86.Build.0 = Release|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Debug|x64.ActiveCfg = Debug|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Debug|x64.Build.0 = Debug|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Debug|x86.ActiveCfg = Debug|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Debug|x86.Build.0 = Debug|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.MinSizeRel|x64.ActiveCfg = Debug|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.MinSizeRel|x64.Build.0 = Debug|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.MinSizeRel|x86.ActiveCfg = Debug|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.MinSizeRel|x86.Build.0 = Debug|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Release|x64.ActiveCfg = Release|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Release|x64.Build.0 = Release|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Release|x86.ActiveCfg = Release|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.Release|x86.Build.0 = Release|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{210BEB43-DD5D-476F-9385-D1208E311732}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{210BEB43-DD5D-476F-9385-D1208E311732}.RelWithDebInfo|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,6 +181,7 @@ Global
 		{87869998-1E86-411F-98AF-3B691A8411A0} = {D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}
 		{B5D23EFB-D299-420D-95CA-3145083030D5} = {D8C2CC83-B02A-4A73-A38F-2EE1EFE934B0}
 		{BE965930-ACAA-43DC-AD39-984648F5F44D} = {FD43FF5E-C99B-4DD0-9718-DF44955A21B3}
+		{210BEB43-DD5D-476F-9385-D1208E311732} = {99AEE226-B745-4DE3-BF5D-525A02B5F474}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FAD815C-3F0A-4F05-8C12-A6B059CA4E14}

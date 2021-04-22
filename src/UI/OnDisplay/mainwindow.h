@@ -24,7 +24,7 @@ public:
 private:
     Q_OBJECT
 
-    enum { CAMERA_NUM = 4 };
+    enum { CAMERA_NUM = 9 };
 
 	FacadePtr facade_;
 

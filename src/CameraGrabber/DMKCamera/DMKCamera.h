@@ -53,7 +53,7 @@ class DMKCamera : public ICameraGrabber
 	struct CameraListener : public DShowLib::GrabberListener
 	{
 		std::weak_ptr<IMediator> mediator_;
-		size_t camera_id_;
+		USHORT camera_id_;
 		bool is_multicolour_{true};
 
 		virtual void frameReady(DShowLib::Grabber& caller, smart_ptr<DShowLib::MemBuffer> pBuffer, DWORD FrameNumber) override
@@ -61,6 +61,10 @@ class DMKCamera : public ICameraGrabber
 			//黑白CV_8UC1，彩色CV_8UC3
 			auto img = ImgTypeOrg(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), is_multicolour_ ? CV_8UC3: CV_8UC1, (BYTE*)pBuffer->getPtr());
 			mediator_.lock()->StoreImage(camera_id_, std::move(img));
+		}
+		virtual void deviceLost(Grabber& caller) override
+		{
+			mediator_.lock()->CameraOffLine(camera_id_);
 		}
 	};
 
@@ -73,11 +77,13 @@ private:
 	tIVCDButtonPropertyPtr			softtrigger_{ nullptr };    //软件触发
 	tIVCDPropertyInterfacePtr		property_interface_{ nullptr };
 	STRING which_{"test"};	//TODO: 先写死了test再做成可配的
+
+	void InitSettings();
 public:
 	DMKCamera(const STRING & cfg);
 	~DMKCamera();
+	virtual void SetId(USHORT id) override { camera_id_ = id; }
 	static const char* Name() { return "DMKCamera"; }
-	void InitSettings();
 	virtual void StartGrabbing() override;
 	virtual void StopGrabbing() override;
 	virtual void SoftTrigger() override { assert(!IsNull(softtrigger_)); softtrigger_->push(); }

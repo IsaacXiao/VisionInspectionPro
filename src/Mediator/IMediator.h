@@ -7,7 +7,7 @@
 #include <memory>
 #include "opencv2/opencv.hpp"
 #include "../CameraGrabber/ICameraGrabber.h"
-
+#include "Logger/BroadCastLogger.hpp"
 
 //#include "../Facade/Facade.h"
 class Facade;
@@ -30,12 +30,12 @@ protected:
 	Configure<FRAMWORK_PART::MEDIATOR> cfg_;
 	
 	Facade* facade_;
-	size_t fifo_number_;
+	USHORT fifo_number_;
 public:
 	IMediator(const STRING & cfg):cfg_(cfg)
 	{
 		fifo_number_ = stoi(cfg_.Param()["fifo_number"]);
-		for ( size_t i = 0; i < fifo_number_; i++ )
+		for (USHORT i = 0; i < fifo_number_; i++ )
 		{
 			img_stash_.emplace_back(StorageType());
 		}
@@ -44,8 +44,9 @@ public:
 	virtual void StartDispatch() = 0;
 	virtual void StopDispatch() = 0;
 	virtual ~IMediator(){}
-	virtual void StoreImage(size_t camera_id, ImgType&& img) = 0;
-	virtual void FetchImgToWork(size_t camera_id) = 0;
+	virtual void StoreImage(USHORT camera_id, ImgType&& img) = 0;
+	virtual void FetchImgToWork(USHORT camera_id) = 0;
+	virtual void CameraOffLine(USHORT camera_id) = 0;
 };
 
 template<>

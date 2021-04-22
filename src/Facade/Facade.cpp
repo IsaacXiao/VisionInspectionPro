@@ -37,3 +37,4 @@ void Facade::SoftTriggerGrab(USHORT camera_id) const
 {
 	system_->Part<CAMERAGRABBER>()[camera_id]->SoftTrigger();
 }
+

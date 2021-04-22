@@ -22,7 +22,6 @@ private:
 	IForDisplay* ui_{nullptr};
 public:
 	Facade();
-	~Facade() { Stop();  }
 
 	void AttachUI(IForDisplay * ui) { ui_ = ui;  }
 	void DisplayImage(USHORT camera_id, ImgTypePtr img){ ui_->DisplayImage(camera_id, img); }
@@ -41,6 +40,14 @@ public:
 	void Stop() const;
 
 	void SoftTriggerGrab(USHORT camera_id) const;
+
+	void CameraOffline(USHORT camera_id) const
+	{
+		if (!system_->Part<CAMERAGRABBER>()[camera_id]->IsStoped())
+		{
+			//Stop();界面通知用户去点击停止，不要在这里调用，怕线程池重复释放资源会出稀奇
+		}
+	}
 };
 
 //template<>

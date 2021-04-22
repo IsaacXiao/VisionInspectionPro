@@ -91,10 +91,10 @@ public:
 			DllManagerPtr dm = GetModuleByName(name);
 			auto create_fn = (pCreate)dm->GetFunc("Create");
 
-			//TODO: 按引用捕获释放资源会出问题，有空查下
-			auto module_remove = [dm,name](OrgT pt)
+			//按引用捕获释放资源会出问题
+			auto module_remove = [dm_copy=dm](OrgT pt)
 			{
-				auto remove_fn = (pRemove)dm->GetFunc("Remove");
+				auto remove_fn = (pRemove)dm_copy->GetFunc("Remove");
 				remove_fn(pt);
 			};
 			return PtrT(create_fn(name.c_str(), CfgLocation(dm).c_str()), module_remove);

@@ -27,20 +27,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    debug/moc_mainwindow.cpp \
-    debug/qrc_ico.cpp \
-    main.cpp \
-    mainwindow.cpp
+        mainwindow.cpp #\
+    #main.cpp \
+    #mainwindow.cpp \
+    #debug/moc_mainwindow.cpp \
+    #debug/qrc_ico.cpp \
+    #main.cpp \
+    #mainwindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    mainwindow.h \
-    debug/moc_predefs.h \
-    mainwindow.h \
-    ui_mainwindow.h
+    #mainwindow.h \
+    #debug/moc_predefs.h \
+    #mainwindow.h
 
 FORMS += \
         mainwindow.ui

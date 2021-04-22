@@ -13,8 +13,6 @@ private:
 	threadpool *executors_;
 	bool stop_dispatch_{ true };
 
-	void Dispatch(size_t camera_id);
-
 public:
 	ThreadMediator::ThreadMediator(const STRING & cfg):IMediator(cfg),executors_(nullptr){}
 	static const char* Name(){return "ThreadMediator";}
@@ -23,8 +21,10 @@ public:
 
 	void StopDispatch() override;
 
-	virtual void StoreImage(size_t camera_id, ImgType&& img) override;
+	virtual void StoreImage(USHORT camera_id, ImgType&& img) override;
 
-	virtual void FetchImgToWork(size_t camera_id) override;
+	virtual void FetchImgToWork(USHORT camera_id) override;
+
+	virtual void CameraOffLine(USHORT camera_id) override;
 };
 

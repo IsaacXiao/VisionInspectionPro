@@ -156,7 +156,7 @@ namespace
 		return length;
 	}
 	
-	bool FileReadOnly(STRING file_name, void* data, int& data_len, bool is_binary = false )
+	bool FileReadOnly(STRING file_name, void* data, size_t& data_len, bool is_binary = false )
 	{
 		//打开文件
 		STRING file_mode;
@@ -169,12 +169,12 @@ namespace
 		{
 			return false;
 		}
-		auto read_size{0};//实际读入的字符数
+		size_t read_size{0};//实际读入的字符数
 		//循环读取文件字节数
 		while (read_size < data_len)
 		{
 			//当前循环写入的字节数
-			auto curr_read_size = fread((char*)data + read_size, sizeof(unsigned char), data_len - read_size, hFile);
+			size_t curr_read_size = fread((char*)data + read_size, sizeof(unsigned char), data_len - read_size, hFile);
 			if (curr_read_size == 0)
 				break;
 			read_size += curr_read_size;
@@ -185,7 +185,7 @@ namespace
 	}
 	
 	
-	bool FileWriteOnly(STRING file_name, void* data, int data_len, bool is_binary = false)
+	bool FileWriteOnly(STRING file_name, void* data, size_t data_len, bool is_binary = false)
 	{
 		//打开文件
 		STRING file_mode;
@@ -198,12 +198,12 @@ namespace
 		{
 			return false;
 		}
-		auto write_size{0};//实际读入的字符数
+		size_t write_size{0};//实际读入的字符数
 		//循环读取文件字节数
 		while (write_size < data_len)
 		{
 			//当前循环写入的字节数
-			auto curr_write_size = fwrite((char*)data + write_size, sizeof(unsigned char), data_len - write_size, hFile);
+			size_t curr_write_size = fwrite((char*)data + write_size, sizeof(unsigned char), data_len - write_size, hFile);
 			if (curr_write_size == 0)
 				break;
 			write_size += curr_write_size;

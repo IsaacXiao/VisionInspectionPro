@@ -28,3 +28,4 @@ CMakeCache.txt
 /build/CameraGrabber/DMKCamera/DMKCamera.lib
 /build/opencv_world345.dll
 /build/opencv_world451.dll
+*.exp

@@ -5,23 +5,6 @@
 #include "ThreadMediator.h"
 #include "../../Facade/Facade.h"
 
-void ThreadMediator::Dispatch(size_t camera_id)
-{
-	while (!stop_dispatch_)
-	{
-		ImgTypePtr img = img_stash_[camera_id].wait_and_pop();
-		//输出UI
-		facade_->DisplayImage(camera_id, img);
-		if (!img->empty())	//最后一帧是空的
-		{
-
-			//存图到硬盘
-
-			//给算法检测
-		}
-	}
-	GlobalLogger::Record("ThreadMediator", LOG_LEVEL::TRACK, "Dispatch is stopped");
-}
 
 void ThreadMediator::StartDispatch()
 {
@@ -32,7 +15,7 @@ void ThreadMediator::StartDispatch()
 void ThreadMediator::StopDispatch()
 {
 	stop_dispatch_ = true;
-	for (size_t i = 0; i < fifo_number_; i++)
+	for (USHORT i = 0; i < fifo_number_; i++)
 	{
 		img_stash_[i].StopWaiting();
 	}
@@ -51,12 +34,33 @@ void ThreadMediator::StopDispatch()
 	DeletePtr(executors_);
 }
 
-void ThreadMediator::StoreImage(size_t camera_id, ImgType&& img)
+void ThreadMediator::StoreImage(USHORT camera_id, ImgType&& img)
 {
-	img_stash_[camera_id].push(std::forward<ImgType>(img));
+	img_stash_[camera_id].push(img);
 }
 
-void ThreadMediator::FetchImgToWork(size_t camera_id)
+void ThreadMediator::FetchImgToWork(USHORT camera_id)
 {
-	executors_->commit(std::bind(&ThreadMediator::Dispatch, this, camera_id));
+	executors_->commit([this,camera_id](){
+		while (!stop_dispatch_)
+		{
+			ImgTypePtr img = img_stash_[camera_id].wait_and_pop();
+			//输出UI
+			facade_->DisplayImage(camera_id, img);
+			if (!img->empty())	//最后一帧是空的
+			{
+
+				//存图到硬盘
+
+				//给算法检测
+			}
+		}
+		GlobalLogger::Record("ThreadMediator", LOG_LEVEL::TRACK, "Dispatch is stopped");
+	});
+}
+
+void ThreadMediator::CameraOffLine(USHORT camera_id)
+{
+	GlobalLogger::Record("Camera " + to_string(camera_id), LOG_LEVEL::ERR, "disconnected,please check connection"/* + STRING("\nin ") + __FUNCTION__*/);
+	facade_->CameraOffline(camera_id);
 }

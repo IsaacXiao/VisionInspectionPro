@@ -43,6 +43,9 @@ using ImgTypePtr = PointType<ImgType>::Ptr;
 ///essential data type
 enum BINARY { ZERO = 0, ONE };
 
+#define SUCCESS ZERO;
+#define FAILURE ONE;
+
 typedef int			ERROR_CODE;
 typedef unsigned short USHORT;
 typedef unsigned int UINT;
@@ -58,8 +61,7 @@ template<typename T>
 using VECTOR = std::vector<T>;
 
 typedef bool		IS_SUCCESS;
-#define SUCCESS ZERO;
-#define FAILURE ONE;
+
 
 enum class LOG_LEVEL : std::uint32_t { TRACK = 0, WARN, HIGH_WARN, ERR, DEAD };
 enum FRAMWORK_PART { CAMERAGRABBER = 0, PLCAGENT, MEDIATOR, ALGPROCESSOR, EXPORT, FACADE, MAIN, LOGGER, DEFAULT };
