@@ -12,25 +12,83 @@ MainWnd::MainWnd(QWidget *parent)
 	facade_ = new Facade;
 	facade_->AttachUI(this);
     
+	//TODO: 最好在界面上画个按钮来重新加载配置文件
+	facade_->ReloadCfg();
+
 	ui->setupUi(this);
     InitFrame();
-    InitStatisticsTab();
+
     InitCamArea();
-    InitStatusBar();
+
+    ui->actStart->setDisabled(true);
+    ui->actStop->setDisabled(true);
+    ui->btnGetSetting->setDisabled(true);
+    ui->btnSaveSetting01->setDisabled(true);
 
 	connect(ui->actStart, SIGNAL(clicked(bool)), this, SLOT(OnStartBtnClick()));
 	connect(ui->actStop, SIGNAL(clicked(bool)), this, SLOT(OnStopBtnClick()));
 
+    ui->btnCloseDevice->setDisabled(true);
+    ui->btnGrabImageCam01->setDisabled(true);
+
 	//设置软触发按钮的调用函数
-	for (USHORT camera_id = 0; camera_id < 2; camera_id++)
+	for (USHORT camera_id = 0; camera_id < facade_->CameraNum(); camera_id++)
 	{
 		connect(soft_trigger_[camera_id], &QPushButton::clicked, this,
 			[=]()
 		{
-			facade_->SoftTriggerGrab(camera_id);
+            Camera(camera_id)->SoftTrigger();
 		});
 	}
-	//qRegisterMetaType<ImgTypePtr>("ImgTypePtr");
+
+    connect(ui->btnOpenDevice, &QPushButton::clicked, this,
+        [=]()
+    {
+		//TODO: 最好在界面上画个按钮来重新加载配置文件
+		facade_->ReloadCfg();
+
+        facade_->OpenDevice(0);
+        ui->btnOpenDevice->setDisabled(true);
+        ui->btnCloseDevice->setEnabled(true);
+        ui->actStart->setEnabled(true);
+		ui->btnGetSetting->setEnabled(true);
+		ui->btnSaveSetting01->setEnabled(true);
+        ui->btnGrabImageCam01->setEnabled(true);
+    });
+
+	connect(ui->btnCloseDevice, &QPushButton::clicked, this,
+		[=]()
+	{
+		facade_->CloseDevice(0);
+        ui->btnCloseDevice->setDisabled(true);
+        ui->actStart->setDisabled(true);
+		ui->btnGetSetting->setDisabled(true);
+		ui->btnSaveSetting01->setDisabled(true);
+        ui->btnOpenDevice->setEnabled(true);
+        ui->btnGrabImageCam01->setDisabled(true);
+	});
+
+	connect(ui->btnGetSetting, &QPushButton::clicked, this,
+		[=]()
+	{
+        float exposure_time = facade_->GetFloatValue(0,"ExposureTime");
+        float gain = facade_->GetFloatValue(0, "Gain");
+        float frame_rate = facade_->GetFloatValue(0, "AcquisitionFrameRate");
+        ui->exposure_time01->setText(QString::number(exposure_time, 'f',1));
+        ui->gain01->setText(QString::number(gain, 'f'));
+        ui->frame_rate01->setText(QString::number(frame_rate, 'f'));
+	});
+
+	connect(ui->btnSaveSetting01, &QPushButton::clicked, this,
+		[=]()
+	{
+        QString exposure_time = ui->exposure_time01->text();
+        facade_->SetFloatValue(0, "ExposureTime", exposure_time.toFloat());
+		QString gain = ui->gain01->text();
+        facade_->SetFloatValue(0, "Gain", gain.toFloat());
+        QString frame_rate = ui->frame_rate01->text();
+        facade_->SetFloatValue(0, "AcquisitionFrameRate", frame_rate.toFloat());
+	});
 }
 
 MainWnd::~MainWnd()
@@ -81,162 +139,46 @@ void MainWnd::InitFrame()
     ui->btn_Main->click();
 }
 
-void MainWnd::InitStatisticsTab()
-{
-    QStringList headers;
-    headers << Gb2312ToUnicode("型号") << Gb2312ToUnicode("开始时间") << Gb2312ToUnicode("OK结果") << Gb2312ToUnicode("NG结果")<< Gb2312ToUnicode ("TBA") << Gb2312ToUnicode("结束时间");
-    ui->DataTable->setColumnCount(6);
-    ui->DataTable->setHorizontalHeaderLabels(headers);
-    ui->DataTable->verticalHeader()->setVisible(false);//纵向表头可视化
-    ui->DataTable->horizontalHeader()->setVisible(true);//横向表头可视化
-    ui->DataTable->setEditTriggers(QAbstractItemView::NoEditTriggers);//设置编辑方式：禁止编辑表格
-    ui->DataTable->setSelectionBehavior(QAbstractItemView::SelectRows);//设置表格选择方式：设置表格为整行选中
-    ui->DataTable->setSelectionMode(QAbstractItemView::SingleSelection);//选择目标方式
-    ui->DataTable->setStyleSheet("selection-background-color:lightblue");//设置选中颜色：
-    ui->DataTable->setAlternatingRowColors(true);
-    ui->DataTable->setColumnWidth(0, 202);
-    ui->DataTable->setColumnWidth(1, 205);
-    ui->DataTable->setColumnWidth(2, 105);
-    ui->DataTable->setColumnWidth(3, 105);
-    ui->DataTable->setColumnWidth(4, 105);
-    ui->DataTable->setColumnWidth(5, 205);
-}
-
 void MainWnd::InitCamArea()
 {
 	camra_shot_[0] = ui->labShowImgCam01;
-	camra_shot_[0]->setStyleSheet("background-color:#B8B7B7");
-
 	camra_shot_[1] = ui->labShowImgCam02;
-	camra_shot_[1]->setStyleSheet("background-color:#B8B7B7");
+	camra_shot_[2] = ui->labShowImgCam03;
+	camra_shot_[3] = ui->labShowImgCam04;
+	camra_shot_[4] = ui->labShowImgCam05;
+	camra_shot_[5] = ui->labShowImgCam06;
+	camra_shot_[6] = ui->labShowImgCam07;
+	camra_shot_[7] = ui->labShowImgCam08;
+	camra_shot_[8] = ui->labShowImgCam09;
 
 	soft_trigger_[0] = ui->btnGrabImageCam01;
 	soft_trigger_[1] = ui->btnGrabImageCam02;
 
-	/*camra_shot_[0] = ui->labShowImgCam01;
-	camra_shot_[1] = ui->labShowImgCam02;
-	camra_shot_[2] = ui->labShowImgCam03;
-	camra_shot_[3] = ui->labShowImgCam04;
-
-	for (int i = 0; i < CAMERA_NUM; i++)
-	{
-	camra_shot_[i]->num = i;
-	camra_shot_[i]->setStyleSheet("background-color:#B8B7B7");
-	}
-
-	camara_trigger[0] = ui->chkTriggerCam01;
-	camara_trigger[1] = ui->chkTriggerCam02;
-	camara_trigger[2] = ui->chkTriggerCam03;
-	camara_trigger[3] = ui->chkTriggerCam04;
-	for (int i = 0; i < CAMERA_NUM; i++)
-	{
-		camara_trigger[i]->setCheckState(Qt::Unchecked);
-	}
-
-	ui->camera0->setText(camera_counting[0]);
-	ui->camera1->setText(camera_counting[1]);
-	ui->camera2->setText(camera_counting[2]);
-	ui->camera3->setText(camera_counting[3]);*/
 }
 
-void MainWnd::InitStatusBar()
-{
-    QCurrentime = new QLabel;
-    labCurState = new QLabel;
-    QualificationRate = new QLabel;
-
-    QFont trfont("Microsoft YaHei", 10, 0);
-    QCurrentime->setFont(trfont);
-    QualificationRate->setFont(trfont);
-    labCurState->setFont(trfont);
-    QualificationRate->setText(Gb2312ToUnicode("相机初始化成功"));
-
-    ui->statusBar->addWidget(QualificationRate, 1);
-    ui->statusBar->addWidget(labCurState, 1);
-
-    //运行状态显示：
-    QFont font("Microsoft YaHei", 12, 0);//设置QLabel 字体大小
-
-    tredtRunningState = new QLabel;
-    //plcsetupComm->PLCStates(statstate);
-    tredtRunningState->setFont(font);
-    tredtRunningState->setText(Gb2312ToUnicode("运行状态:"));
-    ui->tbrRunningState->addWidget(tredtRunningState);
-    edtRunningState = new QLineEdit;
-    edtRunningState->setFixedWidth(90);
-    edtRunningState->setAlignment(Qt::AlignCenter);
-    edtRunningState->setStyleSheet("text-align:center; font-size:18px; font-weight:bold; font-style:Microsoft YaHei; color:yellow; background-color:rgba(0,0,0)");
-    //edtRunningState->setText(statstate.sFunction);//状态
-    edtRunningState->setFocusPolicy(Qt::NoFocus);
-    ui->tbrRunningState->addWidget(edtRunningState);
-
-    tredOkNum = new QLabel;
-    tredOkNum->setFont(font);
-    tredOkNum->setText(Gb2312ToUnicode("OK数:"));
-    ui->tbrRunningState->addWidget(tredOkNum);
-    edtOkNum = new QLineEdit;
-    edtOkNum->setFixedWidth(80);
-    edtOkNum->setAlignment(Qt::AlignCenter);
-    edtOkNum->setStyleSheet("text-align:center; font-size:18px; font-weight:bold; font-style:Courier; color:yellow; background-color:rgba(0,0,0)");
-    edtOkNum->setText("0");
-    edtOkNum->setFocusPolicy(Qt::NoFocus);
-    ui->tbrRunningState->addWidget(edtOkNum);
-
-    tredNgNum = new QLabel;
-    tredNgNum->setFont(font);
-    tredNgNum->setText(Gb2312ToUnicode("NG数:"));
-    ui->tbrRunningState->addWidget(tredNgNum);
-    edtNgNum = new QLineEdit;
-    edtNgNum->setFixedWidth(80);
-    edtNgNum->setAlignment(Qt::AlignCenter);
-    edtNgNum->setStyleSheet("text-align:center; font-size:18px; font-weight:bold; font-style:Courier; color:yellow; background-color:rgba(0,0,0)");
-    edtNgNum->setText("0");
-    edtNgNum->setFocusPolicy(Qt::NoFocus);
-    ui->tbrRunningState->addWidget(edtNgNum);
-
-    tredtTbaNum = new QLabel;
-    tredtTbaNum->setFont(font);
-    tredtTbaNum->setText(Gb2312ToUnicode("待检数:"));
-    ui->tbrRunningState->addWidget(tredtTbaNum);
-    edtTbaNum = new QLineEdit;
-    edtTbaNum->setFixedWidth(80);
-    edtTbaNum->setAlignment(Qt::AlignCenter);
-    edtTbaNum->setStyleSheet("text-align:center; font-size:18px; font-weight:bold; font-style:Courier; color:yellow; background-color:rgba(0,0,0)");
-    edtTbaNum->setText("0");
-    edtTbaNum->setFocusPolicy(Qt::NoFocus);
-    ui->tbrRunningState->addWidget(edtTbaNum);
-
-    tredpercent = new QLabel;
-    tredpercent->setFont(font);
-    tredpercent->setText(Gb2312ToUnicode("合格率:"));
-    ui->tbrRunningState->addWidget(tredpercent);
-    edPercent = new QLineEdit;
-    edPercent->setFixedWidth(80);
-    edPercent->setAlignment(Qt::AlignCenter);
-    edPercent->setStyleSheet("text-align:center; font-size:18px; font-weight:bold; font-style:Courier; color:yellow; background-color:rgba(0,0,0)");//设置文本框样式
-    edPercent->setText("0");
-    edPercent->setFocusPolicy(Qt::NoFocus);
-    ui->tbrRunningState->addWidget(edPercent);
-}
 
 void MainWnd::OnStartBtnClick()
 {
-	//TODO: 最好在界面上画个按钮来重新加载配置文件
-	facade_->ReloadCfg();
-
+    //facade_->ReloadCfg();
 	facade_->Run();
+
+    ui->actStart->setDisabled(true);
+    ui->actStop->setEnabled(true);
 }
 
 void MainWnd::OnStopBtnClick()
 {
 	facade_->Stop();
+    ui->actStart->setEnabled(true);
+    ui->actStop->setDisabled(true);
 }
 
 void MainWnd::DisplayImage(unsigned short pos, ImgTypePtr img)
 {
-	QImage img_raw = cvMat2QImage(*(img), false, true);
+	QImage img_raw = cvMat2QImage(img->mat_, false, true);
 	QImage image_scale = img_raw.scaled(camra_shot_[pos]->width(), camra_shot_[pos]->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 	camra_shot_[pos]->setBackImage(image_scale);
+    camra_shot_[pos]->frame_num_.setNum(img->num_);
 	camra_shot_[pos]->update();
 }
 

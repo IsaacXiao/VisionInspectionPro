@@ -1,5 +1,6 @@
 #include "Facade.h"
 #include "Logger/BroadCastLogger.hpp"
+#include "CommonInclude/InspectException.h"
 
 Facade::Facade()
 {
@@ -7,14 +8,20 @@ Facade::Facade()
 	system_->InitModule();
 }
 
-//TODO:需要加入相机是否掉线的判断
 void Facade::Run()
 {
-	system_->Part<MEDIATOR>()->StartDispatch();
-	for (USHORT camera_id = 0; camera_id < system_->CameraNumber(); camera_id++)
+	try
 	{
-		system_->Part<CAMERAGRABBER>()[camera_id]->StartGrabbing();
-		system_->Part<MEDIATOR>()->FetchImgToWork(camera_id);
+		system_->Part<MEDIATOR>()->StartDispatch();
+		for (USHORT camera_id = 0; camera_id < system_->CameraNumber(); camera_id++)
+		{
+			system_->Part<CAMERAGRABBER>()[camera_id]->StartGrabbing();
+			system_->Part<MEDIATOR>()->FetchImgToWork(camera_id);
+		}
+	}
+	catch (const InspectException& e)
+	{
+		GlobalLogger::Record("main.exe", LOG_LEVEL::DEAD, e.what());
 	}
 }
 

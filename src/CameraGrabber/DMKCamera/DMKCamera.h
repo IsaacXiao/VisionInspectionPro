@@ -58,8 +58,10 @@ class DMKCamera : public ICameraGrabber
 
 		virtual void frameReady(DShowLib::Grabber& caller, smart_ptr<DShowLib::MemBuffer> pBuffer, DWORD FrameNumber) override
 		{
+			ImgTypeOrg img;
 			//ºÚ°×CV_8UC1£¬²ÊÉ«CV_8UC3
-			auto img = ImgTypeOrg(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), is_multicolour_ ? CV_8UC3: CV_8UC1, (BYTE*)pBuffer->getPtr());
+			img.mat_ = cv::Mat(caller.getAcqSizeMaxY(), caller.getAcqSizeMaxX(), is_multicolour_ ? CV_8UC3: CV_8UC1, (BYTE*)pBuffer->getPtr());
+			img.num_ = FrameNumber;
 			mediator_.lock()->StoreImage(camera_id_, std::move(img));
 		}
 		virtual void deviceLost(Grabber& caller) override

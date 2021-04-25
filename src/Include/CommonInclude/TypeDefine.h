@@ -9,6 +9,15 @@
 #include "opencv2/opencv.hpp"
 #include <memory>
 
+typedef int			ERROR_CODE;
+typedef unsigned short USHORT;
+typedef unsigned int UINT;
+typedef char					CHAR;
+typedef char* PCHAR;
+typedef unsigned char			UCHAR;
+typedef unsigned char* PUCHAR;
+//typedef long	long	LONG;
+
 /// <summary>
 /// 统一规范指针定义
 /// 默认使用原生指针
@@ -28,7 +37,11 @@ class EmptyClass
 {
 };
 
-using ImgType = cv::Mat;
+struct ImgType
+{
+	cv::Mat mat_;
+	UINT num_;
+};
 
 template<>
 struct PointType<ImgType>
@@ -46,14 +59,6 @@ enum BINARY { ZERO = 0, ONE };
 #define SUCCESS ZERO;
 #define FAILURE ONE;
 
-typedef int			ERROR_CODE;
-typedef unsigned short USHORT;
-typedef unsigned int UINT;
-typedef char					CHAR;
-typedef char*					PCHAR;
-typedef unsigned char			UCHAR;
-typedef unsigned char*			PUCHAR;
-//typedef long	long	LONG;
 
 typedef std::string STRING;
 

@@ -10,6 +10,10 @@ void ThreadMediator::StartDispatch()
 {
 	stop_dispatch_ = false;
 	executors_ = new threadpool(stoi(cfg_.Param()["thread_number"]));
+	for (USHORT i = 0; i < fifo_number_; i++)
+	{
+		img_stash_[i].StartWaiting();
+	}
 }
 
 void ThreadMediator::StopDispatch()
@@ -45,10 +49,11 @@ void ThreadMediator::FetchImgToWork(USHORT camera_id)
 		while (!stop_dispatch_)
 		{
 			ImgTypePtr img = img_stash_[camera_id].wait_and_pop();
-			//输出UI
-			facade_->DisplayImage(camera_id, img);
-			if (!img->empty())	//最后一帧是空的
+
+			if (!img->mat_.empty())	//最后一帧是空的
 			{
+				//输出UI
+				facade_->DisplayImage(camera_id, img);
 
 				//存图到硬盘
 

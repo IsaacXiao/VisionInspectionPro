@@ -48,6 +48,33 @@ public:
 			//Stop();界面通知用户去点击停止，不要在这里调用，怕线程池重复释放资源会出稀奇
 		}
 	}
+
+	void OpenDevice(USHORT camera_id)
+	{
+		system_->Part<CAMERAGRABBER>()[camera_id]->OpenDevice();
+	}
+
+	void CloseDevice(USHORT camera_id)
+	{
+		system_->Part<CAMERAGRABBER>()[camera_id]->CloseDevice();
+	}
+
+	float GetFloatValue(USHORT camera_id,const char* what) const
+	{
+		return system_->Part<CAMERAGRABBER>()[camera_id]->GetFloatValue(what);
+	}
+
+	void SetFloatValue(USHORT camera_id, const char* what,float value)
+	{
+		return system_->Part<CAMERAGRABBER>()[camera_id]->SetFloatValue(what,value);
+	}
+
+	CameraGrabberPtr Camera(USHORT camera_id)
+	{
+		return system_->Part<CAMERAGRABBER>()[camera_id];
+	}
+
+	USHORT CameraNum() const { return system_->CameraNumber(); }
 };
 
 //template<>

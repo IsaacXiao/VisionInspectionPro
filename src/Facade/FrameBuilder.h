@@ -13,12 +13,13 @@
 #include <tuple>
 #include <vector>
 
+using CameraGroup = VECTOR<CameraGrabberPtr>;
+
 class FrameBuilder
 {
 	using CameraGrabberFactory = ModuleFactory<CameraGrabberOrg,CameraGrabberPtr>;
 	using PlcAgentFactory = ModuleFactory<PlcAgentOrg,PlcAgentPtr>;
 	using MediatorFactory = ModuleFactory<MediatorOrg, MediatorPtr>;
-	using CameraGroup = VECTOR<CameraGrabberPtr>;
 	using SystemFrame = std::tuple<CameraGroup,PlcAgentPtr,MediatorPtr>;
 private:
 	SystemFrame inspection_;

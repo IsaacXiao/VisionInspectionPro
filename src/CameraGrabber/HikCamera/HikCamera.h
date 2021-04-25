@@ -42,9 +42,9 @@ namespace
 	}
 
 	// convert data stream in Mat format
-	ImgTypeOrg Convert2Mat(MV_FRAME_OUT_INFO_EX* pstImageInfo, unsigned char* pData)
+	cv::Mat Convert2Mat(MV_FRAME_OUT_INFO_EX* pstImageInfo, unsigned char* pData)
 	{
-		ImgTypeOrg srcImage;
+		cv::Mat srcImage;
 		if (pstImageInfo->enPixelType == PixelType_Gvsp_Mono8)
 		{
 			srcImage = cv::Mat(pstImageInfo->nHeight, pstImageInfo->nWidth, CV_8UC1, pData);
@@ -71,9 +71,12 @@ namespace
 	void __stdcall ImageCallBackEx(unsigned char* pData, MV_FRAME_OUT_INFO_EX* pFrameInfo, void* pUser)
 	{
 		//此处调用MV_CC_ConvertPixelType可以转换像素格式见ConvertPixelType.cpp
-		ImgTypeOrg img = Convert2Mat(pFrameInfo, pData);
+		ImgTypeOrg img;
+		img.mat_ = Convert2Mat(pFrameInfo, pData);
+		img.num_ = pFrameInfo->nFrameNum;
 		UserData* user_data = (UserData*)pUser;
 		user_data->mediator_.lock()->StoreImage(user_data->camera_id_, std::move(img));
+		
 		//还需更多帧信息见ChunkData.cpp
 	}
 
@@ -101,19 +104,21 @@ public:
 
 	static const char* Name() { return "HikCamera"; }
 
+	virtual void OpenDevice() override;
+	virtual void CloseDevice() override;
 	virtual void StartGrabbing() override;
-
 	virtual void StopGrabbing() override;
-
 	virtual void SoftTrigger() override;
-
 	virtual void SetId(USHORT id) override;
-
+	virtual float GetFloatValue(const char* what) const override;
+	virtual void SetFloatValue(const char* what, float fValue) override;
+	virtual UINT GetIntValue(const char* what) const override;
+	virtual void SetIntValue(const char* what, UINT iValue) override;
 private:
 	MV_CC_DEVICE_INFO_LIST stDeviceList_;
 	CameraHandle handle_{nullptr};
 	UserData* user_data_{nullptr};
-
+	bool callback_registered_{ false };
 	void InitSettings();
 };
 

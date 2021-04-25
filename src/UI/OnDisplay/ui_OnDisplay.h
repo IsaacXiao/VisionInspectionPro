@@ -24,7 +24,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
@@ -55,100 +54,35 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *page_1;
     QGridLayout *gridLayout_21;
-    QGroupBox *groupBox;
-    QGroupBox *groupBox_5;
-    QGridLayout *gridLayout_17;
-    QGridLayout *gridLayout;
-    QLineEdit *edtTotalNumCam01;
-    QLabel *label_3;
-    QLineEdit *edtNGNumCam01;
-    QLabel *label_4;
-    QLineEdit *edtCurStateCam01;
-    QLabel *label_2;
-    QGroupBox *groupBox_9;
-    QGridLayout *gridLayout_39;
-    CameraShot *labShowImgCam01;
-    QGroupBox *groupBox_6;
-    QGridLayout *gridLayout_10;
-    QGridLayout *gridLayout_3;
-    QCheckBox *chkTriggerCam01;
-    QCheckBox *chkSaveImageCam01;
-    QPushButton *btnVCDPropertyCam01;
-    QPushButton *btnGrabImageCam01;
-    QPushButton *btnReadImageCam01;
-    QLabel *reg_lab1;
-    QLineEdit *camera0;
-    QGroupBox *groupBox_2;
-    QGroupBox *groupBox_8;
-    QGridLayout *gridLayout_15;
-    QGridLayout *gridLayout_4;
-    QLabel *label_5;
-    QLineEdit *edtTotalNumCam02;
-    QLabel *label_6;
-    QLineEdit *edtNGNumCam02;
-    QLabel *label_7;
-    QLineEdit *edtCurStateCam02;
-    QGroupBox *groupBox_10;
-    QGridLayout *gridLayout_20;
-    CameraShot *labShowImgCam02;
-    QGroupBox *groupBox_7;
-    QGridLayout *gridLayout_11;
-    QGridLayout *gridLayout_6;
-    QCheckBox *chkTriggerCam02;
-    QPushButton *btnVCDPropertyCam02;
-    QCheckBox *chkSaveImageCam02;
-    QPushButton *btnGrabImageCam02;
-    QPushButton *btnReadImageCam02;
-    QLineEdit *camera1;
-    QLabel *reg_lab2;
     QGroupBox *groupBox_4;
-    QGroupBox *groupBox_20;
-    QGridLayout *gridLayout_14;
-    QGridLayout *gridLayout_16;
-    QLabel *label_11;
-    QLineEdit *edtTotalNumCam03;
-    QLabel *label_12;
-    QLineEdit *edtNGNumCam03;
-    QLabel *label_26;
-    QLineEdit *edtCurStateCam03;
-    QGroupBox *groupBox_19;
-    QGridLayout *gridLayout_12;
-    QGridLayout *gridLayout_7;
-    QCheckBox *chkTriggerCam03;
-    QPushButton *btnVCDPropertyCam03;
-    QCheckBox *chkSaveImageCam03;
-    QPushButton *btnGrabImageCam03;
-    QPushButton *btnReadImageCam03;
     QGroupBox *groupBox_21;
-    QGridLayout *gridLayout_19;
-    CameraShot *labShowImgCam03;
-    QLabel *reg_lab3;
-    QLineEdit *camera2;
-    QGroupBox *groupBox_3;
-    QGroupBox *groupBox_11;
-    QGridLayout *gridLayout_13;
-    QGridLayout *gridLayout_9;
-    QCheckBox *chkTriggerCam04;
-    QPushButton *btnVCDPropertyCam04;
-    QCheckBox *chkSaveImageCam04;
-    QPushButton *btnGrabImageCam04;
-    QPushButton *btnReadImageCam04;
-    QPushButton *btnReadImageCam04_2;
-    QGroupBox *groupBox_12;
-    QGridLayout *gridLayout_18;
-    QGridLayout *gridLayout_8;
-    QLineEdit *edtTotalNumCam04;
-    QLineEdit *edtCurStateCam04;
-    QLabel *label_15;
-    QLabel *label_13;
-    QLineEdit *edtNGNumCam04;
-    QLabel *label_14;
-    QGroupBox *groupBox_22;
-    QGridLayout *gridLayout_44;
-    CameraShot *labShowImgCam04;
-    QLineEdit *camera3;
-    QLabel *reg_lab4;
+    CameraShot *labShowImgCam05;
+    CameraShot *labShowImgCam06;
+    CameraShot *labShowImgCam07;
     QSpacerItem *verticalSpacer;
+    QGroupBox *groupBox_2;
+    QGroupBox *groupBox_10;
+    CameraShot *labShowImgCam03;
+    CameraShot *labShowImgCam04;
+    QGroupBox *groupBox;
+    CameraShot *labShowImgCam02;
+    QPushButton *btnSaveSetting01;
+    QPushButton *btnGrabImageCam01;
+    QPushButton *btnOpenDevice;
+    QLabel *label_2;
+    QLineEdit *exposure_time01;
+    CameraShot *labShowImgCam01;
+    QPushButton *btnCloseDevice;
+    QLabel *label_11;
+    QLineEdit *gain01;
+    QPushButton *btnGrabImageCam02;
+    QPushButton *btnGetSetting;
+    QLineEdit *frame_rate01;
+    QLabel *label_12;
+    QGroupBox *groupBox_3;
+    QGroupBox *groupBox_22;
+    CameraShot *labShowImgCam09;
+    CameraShot *labShowImgCam08;
     QWidget *page_2;
     QGroupBox *groupBox_13;
     QGridLayout *gridLayout_22;
@@ -259,40 +193,11 @@ public:
     QGroupBox *groupBox_23;
     QWidget *layoutWidget;
     QGridLayout *gridLayout_45;
-    QComboBox *Box_ProductModel;
-    QLabel *label_21;
-    QLabel *label_25;
-    QLabel *label_32;
-    QLabel *label_22;
-    QLabel *label_28;
-    QLineEdit *edtOuterMax;
-    QLabel *label_27;
-    QLabel *AP_CTP;
-    QLineEdit *OK_PV;
-    QLabel *label_23;
-    QLineEdit *NG_count_PV;
-    QLineEdit *edtInnerMax;
-    QLineEdit *edtOuterMin;
-    QLabel *label_24;
-    QSpinBox *spinBoxGear;
-    QLineEdit *speedTime;
-    QLabel *label_34;
-    QLabel *FS_normal;
-    QLabel *label_16;
-    QToolButton *ComState_btn;
-    QLabel *label;
-    QLabel *label_31;
-    QLabel *label_45;
-    QLineEdit *TBC_count_PV;
     QLineEdit *edtInnerMin;
-    QLineEdit *edtWallMin;
-    QLabel *label_48;
     QWidget *layoutWidget1;
     QGridLayout *gridLayout_40;
     QToolButton *actStop;
     QToolButton *actStart;
-    QToolButton *System_error_switch_btn;
-    QPushButton *btnDataClear;
     QStatusBar *statusBar;
     QToolBar *tbrRunningState;
 
@@ -461,558 +366,178 @@ public:
         gridLayout_21->setSpacing(6);
         gridLayout_21->setContentsMargins(11, 11, 11, 11);
         gridLayout_21->setObjectName(QString::fromUtf8("gridLayout_21"));
-        groupBox = new QGroupBox(page_1);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
-        groupBox->setSizePolicy(sizePolicy);
-        groupBox->setMinimumSize(QSize(751, 436));
-        groupBox_5 = new QGroupBox(groupBox);
-        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setGeometry(QRect(550, 150, 190, 131));
-        sizePolicy.setHeightForWidth(groupBox_5->sizePolicy().hasHeightForWidth());
-        groupBox_5->setSizePolicy(sizePolicy);
-        groupBox_5->setMinimumSize(QSize(190, 121));
-        gridLayout_17 = new QGridLayout(groupBox_5);
-        gridLayout_17->setSpacing(6);
-        gridLayout_17->setContentsMargins(11, 11, 11, 11);
-        gridLayout_17->setObjectName(QString::fromUtf8("gridLayout_17"));
-        gridLayout = new QGridLayout();
-        gridLayout->setSpacing(6);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        edtTotalNumCam01 = new QLineEdit(groupBox_5);
-        edtTotalNumCam01->setObjectName(QString::fromUtf8("edtTotalNumCam01"));
-        QFont font3;
-        font3.setPointSize(12);
-        edtTotalNumCam01->setFont(font3);
+        groupBox_4 = new QGroupBox(page_1);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        sizePolicy.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
+        groupBox_4->setSizePolicy(sizePolicy);
+        groupBox_4->setMinimumSize(QSize(751, 436));
+        groupBox_21 = new QGroupBox(groupBox_4);
+        groupBox_21->setObjectName(QString::fromUtf8("groupBox_21"));
+        groupBox_21->setGeometry(QRect(10, 20, 721, 407));
+        sizePolicy.setHeightForWidth(groupBox_21->sizePolicy().hasHeightForWidth());
+        groupBox_21->setSizePolicy(sizePolicy);
+        groupBox_21->setMinimumSize(QSize(531, 406));
+        labShowImgCam05 = new CameraShot(groupBox_21);
+        labShowImgCam05->setObjectName(QString::fromUtf8("labShowImgCam05"));
+        labShowImgCam05->setGeometry(QRect(20, 20, 171, 171));
+        sizePolicy.setHeightForWidth(labShowImgCam05->sizePolicy().hasHeightForWidth());
+        labShowImgCam05->setSizePolicy(sizePolicy);
+        labShowImgCam05->setMinimumSize(QSize(20, 20));
+        labShowImgCam05->setFrameShape(QFrame::Panel);
+        labShowImgCam06 = new CameraShot(groupBox_21);
+        labShowImgCam06->setObjectName(QString::fromUtf8("labShowImgCam06"));
+        labShowImgCam06->setGeometry(QRect(210, 30, 191, 161));
+        sizePolicy.setHeightForWidth(labShowImgCam06->sizePolicy().hasHeightForWidth());
+        labShowImgCam06->setSizePolicy(sizePolicy);
+        labShowImgCam06->setMinimumSize(QSize(20, 20));
+        labShowImgCam06->setFrameShape(QFrame::Panel);
+        labShowImgCam07 = new CameraShot(groupBox_21);
+        labShowImgCam07->setObjectName(QString::fromUtf8("labShowImgCam07"));
+        labShowImgCam07->setGeometry(QRect(420, 30, 181, 161));
+        sizePolicy.setHeightForWidth(labShowImgCam07->sizePolicy().hasHeightForWidth());
+        labShowImgCam07->setSizePolicy(sizePolicy);
+        labShowImgCam07->setMinimumSize(QSize(20, 20));
+        labShowImgCam07->setFrameShape(QFrame::Panel);
 
-        gridLayout->addWidget(edtTotalNumCam01, 0, 1, 1, 1);
+        gridLayout_21->addWidget(groupBox_4, 2, 0, 1, 1);
 
-        label_3 = new QLabel(groupBox_5);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font3);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addWidget(label_3, 1, 0, 1, 1);
-
-        edtNGNumCam01 = new QLineEdit(groupBox_5);
-        edtNGNumCam01->setObjectName(QString::fromUtf8("edtNGNumCam01"));
-        edtNGNumCam01->setFont(font3);
-
-        gridLayout->addWidget(edtNGNumCam01, 1, 1, 1, 1);
-
-        label_4 = new QLabel(groupBox_5);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setFont(font3);
-
-        gridLayout->addWidget(label_4, 2, 0, 1, 1);
-
-        edtCurStateCam01 = new QLineEdit(groupBox_5);
-        edtCurStateCam01->setObjectName(QString::fromUtf8("edtCurStateCam01"));
-        edtCurStateCam01->setFont(font3);
-
-        gridLayout->addWidget(edtCurStateCam01, 2, 1, 1, 1);
-
-        label_2 = new QLabel(groupBox_5);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font3);
-
-        gridLayout->addWidget(label_2, 0, 0, 1, 1);
-
-
-        gridLayout_17->addLayout(gridLayout, 0, 0, 1, 1);
-
-        groupBox_9 = new QGroupBox(groupBox);
-        groupBox_9->setObjectName(QString::fromUtf8("groupBox_9"));
-        groupBox_9->setGeometry(QRect(10, 20, 531, 407));
-        sizePolicy.setHeightForWidth(groupBox_9->sizePolicy().hasHeightForWidth());
-        groupBox_9->setSizePolicy(sizePolicy);
-        groupBox_9->setMinimumSize(QSize(531, 406));
-        gridLayout_39 = new QGridLayout(groupBox_9);
-        gridLayout_39->setSpacing(0);
-        gridLayout_39->setContentsMargins(11, 11, 11, 11);
-        gridLayout_39->setObjectName(QString::fromUtf8("gridLayout_39"));
-        gridLayout_39->setContentsMargins(0, 0, 0, 0);
-        labShowImgCam01 = new CameraShot(groupBox_9);
-        labShowImgCam01->setObjectName(QString::fromUtf8("labShowImgCam01"));
-        sizePolicy.setHeightForWidth(labShowImgCam01->sizePolicy().hasHeightForWidth());
-        labShowImgCam01->setSizePolicy(sizePolicy);
-        labShowImgCam01->setMinimumSize(QSize(529, 405));
-        labShowImgCam01->setFrameShape(QFrame::Panel);
-
-        gridLayout_39->addWidget(labShowImgCam01, 0, 0, 1, 1);
-
-        groupBox_6 = new QGroupBox(groupBox);
-        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setGeometry(QRect(550, 20, 191, 121));
-        sizePolicy.setHeightForWidth(groupBox_6->sizePolicy().hasHeightForWidth());
-        groupBox_6->setSizePolicy(sizePolicy);
-        groupBox_6->setMinimumSize(QSize(190, 121));
-        gridLayout_10 = new QGridLayout(groupBox_6);
-        gridLayout_10->setSpacing(6);
-        gridLayout_10->setContentsMargins(11, 11, 11, 11);
-        gridLayout_10->setObjectName(QString::fromUtf8("gridLayout_10"));
-        gridLayout_3 = new QGridLayout();
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        chkTriggerCam01 = new QCheckBox(groupBox_6);
-        chkTriggerCam01->setObjectName(QString::fromUtf8("chkTriggerCam01"));
-        chkTriggerCam01->setFont(font3);
-
-        gridLayout_3->addWidget(chkTriggerCam01, 0, 0, 1, 1);
-
-        chkSaveImageCam01 = new QCheckBox(groupBox_6);
-        chkSaveImageCam01->setObjectName(QString::fromUtf8("chkSaveImageCam01"));
-        chkSaveImageCam01->setFont(font3);
-
-        gridLayout_3->addWidget(chkSaveImageCam01, 0, 1, 1, 1);
-
-        btnVCDPropertyCam01 = new QPushButton(groupBox_6);
-        btnVCDPropertyCam01->setObjectName(QString::fromUtf8("btnVCDPropertyCam01"));
-        btnVCDPropertyCam01->setFont(font3);
-        btnVCDPropertyCam01->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_3->addWidget(btnVCDPropertyCam01, 1, 0, 1, 1);
-
-        btnGrabImageCam01 = new QPushButton(groupBox_6);
-        btnGrabImageCam01->setObjectName(QString::fromUtf8("btnGrabImageCam01"));
-        btnGrabImageCam01->setFont(font3);
-        btnGrabImageCam01->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_3->addWidget(btnGrabImageCam01, 1, 1, 1, 1);
-
-        btnReadImageCam01 = new QPushButton(groupBox_6);
-        btnReadImageCam01->setObjectName(QString::fromUtf8("btnReadImageCam01"));
-        btnReadImageCam01->setFont(font3);
-        btnReadImageCam01->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_3->addWidget(btnReadImageCam01, 2, 0, 1, 1);
-
-
-        gridLayout_10->addLayout(gridLayout_3, 0, 0, 1, 1);
-
-        reg_lab1 = new QLabel(groupBox);
-        reg_lab1->setObjectName(QString::fromUtf8("reg_lab1"));
-        reg_lab1->setGeometry(QRect(560, 300, 71, 16));
-        camera0 = new QLineEdit(groupBox);
-        camera0->setObjectName(QString::fromUtf8("camera0"));
-        camera0->setGeometry(QRect(640, 300, 91, 20));
-
-        gridLayout_21->addWidget(groupBox, 0, 0, 1, 1);
+        gridLayout_21->addItem(verticalSpacer, 3, 1, 1, 1);
 
         groupBox_2 = new QGroupBox(page_1);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
         groupBox_2->setSizePolicy(sizePolicy);
         groupBox_2->setMinimumSize(QSize(751, 436));
-        groupBox_8 = new QGroupBox(groupBox_2);
-        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
-        groupBox_8->setGeometry(QRect(550, 150, 190, 121));
-        sizePolicy.setHeightForWidth(groupBox_8->sizePolicy().hasHeightForWidth());
-        groupBox_8->setSizePolicy(sizePolicy);
-        groupBox_8->setMinimumSize(QSize(190, 121));
-        gridLayout_15 = new QGridLayout(groupBox_8);
-        gridLayout_15->setSpacing(6);
-        gridLayout_15->setContentsMargins(11, 11, 11, 11);
-        gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
-        gridLayout_4 = new QGridLayout();
-        gridLayout_4->setSpacing(6);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        label_5 = new QLabel(groupBox_8);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font3);
-
-        gridLayout_4->addWidget(label_5, 0, 0, 1, 1);
-
-        edtTotalNumCam02 = new QLineEdit(groupBox_8);
-        edtTotalNumCam02->setObjectName(QString::fromUtf8("edtTotalNumCam02"));
-        edtTotalNumCam02->setFont(font3);
-
-        gridLayout_4->addWidget(edtTotalNumCam02, 0, 1, 1, 1);
-
-        label_6 = new QLabel(groupBox_8);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font3);
-
-        gridLayout_4->addWidget(label_6, 1, 0, 1, 1);
-
-        edtNGNumCam02 = new QLineEdit(groupBox_8);
-        edtNGNumCam02->setObjectName(QString::fromUtf8("edtNGNumCam02"));
-        edtNGNumCam02->setFont(font3);
-
-        gridLayout_4->addWidget(edtNGNumCam02, 1, 1, 1, 1);
-
-        label_7 = new QLabel(groupBox_8);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font3);
-
-        gridLayout_4->addWidget(label_7, 2, 0, 1, 1);
-
-        edtCurStateCam02 = new QLineEdit(groupBox_8);
-        edtCurStateCam02->setObjectName(QString::fromUtf8("edtCurStateCam02"));
-        edtCurStateCam02->setFont(font3);
-
-        gridLayout_4->addWidget(edtCurStateCam02, 2, 1, 1, 1);
-
-
-        gridLayout_15->addLayout(gridLayout_4, 0, 0, 1, 1);
-
         groupBox_10 = new QGroupBox(groupBox_2);
         groupBox_10->setObjectName(QString::fromUtf8("groupBox_10"));
-        groupBox_10->setGeometry(QRect(10, 20, 531, 407));
+        groupBox_10->setGeometry(QRect(10, 20, 531, 406));
         sizePolicy.setHeightForWidth(groupBox_10->sizePolicy().hasHeightForWidth());
         groupBox_10->setSizePolicy(sizePolicy);
         groupBox_10->setMinimumSize(QSize(531, 406));
-        gridLayout_20 = new QGridLayout(groupBox_10);
-        gridLayout_20->setSpacing(0);
-        gridLayout_20->setContentsMargins(11, 11, 11, 11);
-        gridLayout_20->setObjectName(QString::fromUtf8("gridLayout_20"));
-        gridLayout_20->setContentsMargins(0, 0, 0, 0);
-        labShowImgCam02 = new CameraShot(groupBox_10);
-        labShowImgCam02->setObjectName(QString::fromUtf8("labShowImgCam02"));
-        sizePolicy.setHeightForWidth(labShowImgCam02->sizePolicy().hasHeightForWidth());
-        labShowImgCam02->setSizePolicy(sizePolicy);
-        labShowImgCam02->setMinimumSize(QSize(529, 405));
-        labShowImgCam02->setFrameShape(QFrame::Panel);
-
-        gridLayout_20->addWidget(labShowImgCam02, 0, 0, 1, 1);
-
-        groupBox_7 = new QGroupBox(groupBox_2);
-        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
-        groupBox_7->setGeometry(QRect(550, 20, 190, 121));
-        sizePolicy.setHeightForWidth(groupBox_7->sizePolicy().hasHeightForWidth());
-        groupBox_7->setSizePolicy(sizePolicy);
-        groupBox_7->setMinimumSize(QSize(190, 121));
-        gridLayout_11 = new QGridLayout(groupBox_7);
-        gridLayout_11->setSpacing(6);
-        gridLayout_11->setContentsMargins(11, 11, 11, 11);
-        gridLayout_11->setObjectName(QString::fromUtf8("gridLayout_11"));
-        gridLayout_6 = new QGridLayout();
-        gridLayout_6->setSpacing(6);
-        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
-        chkTriggerCam02 = new QCheckBox(groupBox_7);
-        chkTriggerCam02->setObjectName(QString::fromUtf8("chkTriggerCam02"));
-        chkTriggerCam02->setFont(font3);
-
-        gridLayout_6->addWidget(chkTriggerCam02, 0, 0, 1, 1);
-
-        btnVCDPropertyCam02 = new QPushButton(groupBox_7);
-        btnVCDPropertyCam02->setObjectName(QString::fromUtf8("btnVCDPropertyCam02"));
-        btnVCDPropertyCam02->setFont(font3);
-        btnVCDPropertyCam02->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_6->addWidget(btnVCDPropertyCam02, 1, 0, 1, 1);
-
-        chkSaveImageCam02 = new QCheckBox(groupBox_7);
-        chkSaveImageCam02->setObjectName(QString::fromUtf8("chkSaveImageCam02"));
-        chkSaveImageCam02->setFont(font3);
-
-        gridLayout_6->addWidget(chkSaveImageCam02, 0, 1, 1, 1);
-
-        btnGrabImageCam02 = new QPushButton(groupBox_7);
-        btnGrabImageCam02->setObjectName(QString::fromUtf8("btnGrabImageCam02"));
-        btnGrabImageCam02->setFont(font3);
-        btnGrabImageCam02->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_6->addWidget(btnGrabImageCam02, 1, 1, 1, 1);
-
-        btnReadImageCam02 = new QPushButton(groupBox_7);
-        btnReadImageCam02->setObjectName(QString::fromUtf8("btnReadImageCam02"));
-        btnReadImageCam02->setFont(font3);
-        btnReadImageCam02->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_6->addWidget(btnReadImageCam02, 2, 0, 1, 1);
-
-
-        gridLayout_11->addLayout(gridLayout_6, 0, 0, 1, 1);
-
-        camera1 = new QLineEdit(groupBox_2);
-        camera1->setObjectName(QString::fromUtf8("camera1"));
-        camera1->setGeometry(QRect(642, 280, 91, 20));
-        reg_lab2 = new QLabel(groupBox_2);
-        reg_lab2->setObjectName(QString::fromUtf8("reg_lab2"));
-        reg_lab2->setGeometry(QRect(560, 280, 71, 16));
+        labShowImgCam03 = new CameraShot(groupBox_10);
+        labShowImgCam03->setObjectName(QString::fromUtf8("labShowImgCam03"));
+        labShowImgCam03->setGeometry(QRect(0, 20, 231, 221));
+        sizePolicy.setHeightForWidth(labShowImgCam03->sizePolicy().hasHeightForWidth());
+        labShowImgCam03->setSizePolicy(sizePolicy);
+        labShowImgCam03->setMinimumSize(QSize(20, 20));
+        labShowImgCam03->setFrameShape(QFrame::Panel);
+        labShowImgCam04 = new CameraShot(groupBox_10);
+        labShowImgCam04->setObjectName(QString::fromUtf8("labShowImgCam04"));
+        labShowImgCam04->setGeometry(QRect(250, 20, 251, 221));
+        sizePolicy.setHeightForWidth(labShowImgCam04->sizePolicy().hasHeightForWidth());
+        labShowImgCam04->setSizePolicy(sizePolicy);
+        labShowImgCam04->setMinimumSize(QSize(20, 20));
+        labShowImgCam04->setFrameShape(QFrame::Panel);
 
         gridLayout_21->addWidget(groupBox_2, 0, 1, 1, 1);
 
-        groupBox_4 = new QGroupBox(page_1);
-        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        sizePolicy.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
-        groupBox_4->setSizePolicy(sizePolicy);
-        groupBox_4->setMinimumSize(QSize(751, 436));
-        groupBox_20 = new QGroupBox(groupBox_4);
-        groupBox_20->setObjectName(QString::fromUtf8("groupBox_20"));
-        groupBox_20->setGeometry(QRect(550, 150, 190, 121));
-        sizePolicy.setHeightForWidth(groupBox_20->sizePolicy().hasHeightForWidth());
-        groupBox_20->setSizePolicy(sizePolicy);
-        groupBox_20->setMinimumSize(QSize(190, 121));
-        gridLayout_14 = new QGridLayout(groupBox_20);
-        gridLayout_14->setSpacing(6);
-        gridLayout_14->setContentsMargins(11, 11, 11, 11);
-        gridLayout_14->setObjectName(QString::fromUtf8("gridLayout_14"));
-        gridLayout_16 = new QGridLayout();
-        gridLayout_16->setSpacing(6);
-        gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
-        label_11 = new QLabel(groupBox_20);
+        groupBox = new QGroupBox(page_1);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy);
+        groupBox->setMinimumSize(QSize(751, 436));
+        labShowImgCam02 = new CameraShot(groupBox);
+        labShowImgCam02->setObjectName(QString::fromUtf8("labShowImgCam02"));
+        labShowImgCam02->setGeometry(QRect(10, 250, 201, 171));
+        sizePolicy.setHeightForWidth(labShowImgCam02->sizePolicy().hasHeightForWidth());
+        labShowImgCam02->setSizePolicy(sizePolicy);
+        labShowImgCam02->setMinimumSize(QSize(20, 20));
+        labShowImgCam02->setFrameShape(QFrame::Panel);
+        btnSaveSetting01 = new QPushButton(groupBox);
+        btnSaveSetting01->setObjectName(QString::fromUtf8("btnSaveSetting01"));
+        btnSaveSetting01->setGeometry(QRect(330, 200, 82, 29));
+        QFont font3;
+        font3.setPointSize(12);
+        btnSaveSetting01->setFont(font3);
+        btnSaveSetting01->setStyleSheet(QString::fromUtf8(""));
+        btnGrabImageCam01 = new QPushButton(groupBox);
+        btnGrabImageCam01->setObjectName(QString::fromUtf8("btnGrabImageCam01"));
+        btnGrabImageCam01->setGeometry(QRect(320, 50, 81, 31));
+        btnGrabImageCam01->setFont(font3);
+        btnGrabImageCam01->setStyleSheet(QString::fromUtf8(""));
+        btnOpenDevice = new QPushButton(groupBox);
+        btnOpenDevice->setObjectName(QString::fromUtf8("btnOpenDevice"));
+        btnOpenDevice->setGeometry(QRect(230, 20, 82, 29));
+        btnOpenDevice->setFont(font3);
+        btnOpenDevice->setStyleSheet(QString::fromUtf8(""));
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(240, 90, 51, 21));
+        label_2->setFont(font3);
+        exposure_time01 = new QLineEdit(groupBox);
+        exposure_time01->setObjectName(QString::fromUtf8("exposure_time01"));
+        exposure_time01->setGeometry(QRect(310, 90, 81, 21));
+        exposure_time01->setFont(font3);
+        labShowImgCam01 = new CameraShot(groupBox);
+        labShowImgCam01->setObjectName(QString::fromUtf8("labShowImgCam01"));
+        labShowImgCam01->setGeometry(QRect(10, 30, 201, 201));
+        sizePolicy.setHeightForWidth(labShowImgCam01->sizePolicy().hasHeightForWidth());
+        labShowImgCam01->setSizePolicy(sizePolicy);
+        labShowImgCam01->setMinimumSize(QSize(20, 20));
+        labShowImgCam01->setFrameShape(QFrame::Panel);
+        btnCloseDevice = new QPushButton(groupBox);
+        btnCloseDevice->setObjectName(QString::fromUtf8("btnCloseDevice"));
+        btnCloseDevice->setGeometry(QRect(320, 20, 82, 29));
+        btnCloseDevice->setFont(font3);
+        btnCloseDevice->setStyleSheet(QString::fromUtf8(""));
+        label_11 = new QLabel(groupBox);
         label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setGeometry(QRect(240, 120, 51, 21));
         label_11->setFont(font3);
-
-        gridLayout_16->addWidget(label_11, 0, 0, 1, 1);
-
-        edtTotalNumCam03 = new QLineEdit(groupBox_20);
-        edtTotalNumCam03->setObjectName(QString::fromUtf8("edtTotalNumCam03"));
-        edtTotalNumCam03->setFont(font3);
-
-        gridLayout_16->addWidget(edtTotalNumCam03, 0, 1, 1, 1);
-
-        label_12 = new QLabel(groupBox_20);
+        gain01 = new QLineEdit(groupBox);
+        gain01->setObjectName(QString::fromUtf8("gain01"));
+        gain01->setGeometry(QRect(310, 120, 81, 21));
+        gain01->setFont(font3);
+        btnGrabImageCam02 = new QPushButton(groupBox);
+        btnGrabImageCam02->setObjectName(QString::fromUtf8("btnGrabImageCam02"));
+        btnGrabImageCam02->setGeometry(QRect(340, 340, 81, 31));
+        btnGrabImageCam02->setFont(font3);
+        btnGrabImageCam02->setStyleSheet(QString::fromUtf8(""));
+        btnGetSetting = new QPushButton(groupBox);
+        btnGetSetting->setObjectName(QString::fromUtf8("btnGetSetting"));
+        btnGetSetting->setGeometry(QRect(230, 200, 82, 29));
+        btnGetSetting->setFont(font3);
+        btnGetSetting->setStyleSheet(QString::fromUtf8(""));
+        frame_rate01 = new QLineEdit(groupBox);
+        frame_rate01->setObjectName(QString::fromUtf8("frame_rate01"));
+        frame_rate01->setGeometry(QRect(310, 160, 81, 21));
+        frame_rate01->setFont(font3);
+        label_12 = new QLabel(groupBox);
         label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_12->setGeometry(QRect(240, 160, 51, 21));
         label_12->setFont(font3);
 
-        gridLayout_16->addWidget(label_12, 1, 0, 1, 1);
-
-        edtNGNumCam03 = new QLineEdit(groupBox_20);
-        edtNGNumCam03->setObjectName(QString::fromUtf8("edtNGNumCam03"));
-        edtNGNumCam03->setFont(font3);
-
-        gridLayout_16->addWidget(edtNGNumCam03, 1, 1, 1, 1);
-
-        label_26 = new QLabel(groupBox_20);
-        label_26->setObjectName(QString::fromUtf8("label_26"));
-        label_26->setFont(font3);
-
-        gridLayout_16->addWidget(label_26, 2, 0, 1, 1);
-
-        edtCurStateCam03 = new QLineEdit(groupBox_20);
-        edtCurStateCam03->setObjectName(QString::fromUtf8("edtCurStateCam03"));
-        edtCurStateCam03->setFont(font3);
-
-        gridLayout_16->addWidget(edtCurStateCam03, 2, 1, 1, 1);
-
-
-        gridLayout_14->addLayout(gridLayout_16, 0, 0, 1, 1);
-
-        groupBox_19 = new QGroupBox(groupBox_4);
-        groupBox_19->setObjectName(QString::fromUtf8("groupBox_19"));
-        groupBox_19->setGeometry(QRect(550, 20, 190, 121));
-        sizePolicy.setHeightForWidth(groupBox_19->sizePolicy().hasHeightForWidth());
-        groupBox_19->setSizePolicy(sizePolicy);
-        groupBox_19->setMinimumSize(QSize(190, 121));
-        gridLayout_12 = new QGridLayout(groupBox_19);
-        gridLayout_12->setSpacing(6);
-        gridLayout_12->setContentsMargins(11, 11, 11, 11);
-        gridLayout_12->setObjectName(QString::fromUtf8("gridLayout_12"));
-        gridLayout_7 = new QGridLayout();
-        gridLayout_7->setSpacing(6);
-        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
-        chkTriggerCam03 = new QCheckBox(groupBox_19);
-        chkTriggerCam03->setObjectName(QString::fromUtf8("chkTriggerCam03"));
-        chkTriggerCam03->setFont(font3);
-
-        gridLayout_7->addWidget(chkTriggerCam03, 0, 0, 1, 1);
-
-        btnVCDPropertyCam03 = new QPushButton(groupBox_19);
-        btnVCDPropertyCam03->setObjectName(QString::fromUtf8("btnVCDPropertyCam03"));
-        btnVCDPropertyCam03->setFont(font3);
-        btnVCDPropertyCam03->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_7->addWidget(btnVCDPropertyCam03, 1, 0, 1, 1);
-
-        chkSaveImageCam03 = new QCheckBox(groupBox_19);
-        chkSaveImageCam03->setObjectName(QString::fromUtf8("chkSaveImageCam03"));
-        chkSaveImageCam03->setFont(font3);
-
-        gridLayout_7->addWidget(chkSaveImageCam03, 0, 1, 1, 1);
-
-        btnGrabImageCam03 = new QPushButton(groupBox_19);
-        btnGrabImageCam03->setObjectName(QString::fromUtf8("btnGrabImageCam03"));
-        btnGrabImageCam03->setFont(font3);
-        btnGrabImageCam03->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_7->addWidget(btnGrabImageCam03, 1, 1, 1, 1);
-
-        btnReadImageCam03 = new QPushButton(groupBox_19);
-        btnReadImageCam03->setObjectName(QString::fromUtf8("btnReadImageCam03"));
-        btnReadImageCam03->setFont(font3);
-        btnReadImageCam03->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_7->addWidget(btnReadImageCam03, 2, 0, 1, 1);
-
-
-        gridLayout_12->addLayout(gridLayout_7, 0, 0, 1, 1);
-
-        groupBox_21 = new QGroupBox(groupBox_4);
-        groupBox_21->setObjectName(QString::fromUtf8("groupBox_21"));
-        groupBox_21->setGeometry(QRect(10, 20, 531, 407));
-        sizePolicy.setHeightForWidth(groupBox_21->sizePolicy().hasHeightForWidth());
-        groupBox_21->setSizePolicy(sizePolicy);
-        groupBox_21->setMinimumSize(QSize(531, 406));
-        gridLayout_19 = new QGridLayout(groupBox_21);
-        gridLayout_19->setSpacing(0);
-        gridLayout_19->setContentsMargins(11, 11, 11, 11);
-        gridLayout_19->setObjectName(QString::fromUtf8("gridLayout_19"));
-        gridLayout_19->setContentsMargins(0, 0, 0, 0);
-        labShowImgCam03 = new CameraShot(groupBox_21);
-        labShowImgCam03->setObjectName(QString::fromUtf8("labShowImgCam03"));
-        sizePolicy.setHeightForWidth(labShowImgCam03->sizePolicy().hasHeightForWidth());
-        labShowImgCam03->setSizePolicy(sizePolicy);
-        labShowImgCam03->setMinimumSize(QSize(529, 405));
-        labShowImgCam03->setFrameShape(QFrame::Panel);
-
-        gridLayout_19->addWidget(labShowImgCam03, 0, 0, 1, 1);
-
-        reg_lab3 = new QLabel(groupBox_4);
-        reg_lab3->setObjectName(QString::fromUtf8("reg_lab3"));
-        reg_lab3->setGeometry(QRect(560, 280, 71, 16));
-        camera2 = new QLineEdit(groupBox_4);
-        camera2->setObjectName(QString::fromUtf8("camera2"));
-        camera2->setGeometry(QRect(640, 280, 81, 20));
-
-        gridLayout_21->addWidget(groupBox_4, 2, 0, 1, 1);
+        gridLayout_21->addWidget(groupBox, 0, 0, 1, 1);
 
         groupBox_3 = new QGroupBox(page_1);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
         sizePolicy.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
         groupBox_3->setSizePolicy(sizePolicy);
         groupBox_3->setMinimumSize(QSize(751, 436));
-        groupBox_11 = new QGroupBox(groupBox_3);
-        groupBox_11->setObjectName(QString::fromUtf8("groupBox_11"));
-        groupBox_11->setGeometry(QRect(550, 20, 190, 121));
-        sizePolicy.setHeightForWidth(groupBox_11->sizePolicy().hasHeightForWidth());
-        groupBox_11->setSizePolicy(sizePolicy);
-        groupBox_11->setMinimumSize(QSize(190, 121));
-        gridLayout_13 = new QGridLayout(groupBox_11);
-        gridLayout_13->setSpacing(6);
-        gridLayout_13->setContentsMargins(11, 11, 11, 11);
-        gridLayout_13->setObjectName(QString::fromUtf8("gridLayout_13"));
-        gridLayout_9 = new QGridLayout();
-        gridLayout_9->setSpacing(6);
-        gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
-        chkTriggerCam04 = new QCheckBox(groupBox_11);
-        chkTriggerCam04->setObjectName(QString::fromUtf8("chkTriggerCam04"));
-        chkTriggerCam04->setFont(font3);
-
-        gridLayout_9->addWidget(chkTriggerCam04, 0, 0, 1, 1);
-
-        btnVCDPropertyCam04 = new QPushButton(groupBox_11);
-        btnVCDPropertyCam04->setObjectName(QString::fromUtf8("btnVCDPropertyCam04"));
-        btnVCDPropertyCam04->setFont(font3);
-        btnVCDPropertyCam04->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_9->addWidget(btnVCDPropertyCam04, 1, 0, 1, 1);
-
-        chkSaveImageCam04 = new QCheckBox(groupBox_11);
-        chkSaveImageCam04->setObjectName(QString::fromUtf8("chkSaveImageCam04"));
-        chkSaveImageCam04->setFont(font3);
-
-        gridLayout_9->addWidget(chkSaveImageCam04, 0, 1, 1, 1);
-
-        btnGrabImageCam04 = new QPushButton(groupBox_11);
-        btnGrabImageCam04->setObjectName(QString::fromUtf8("btnGrabImageCam04"));
-        btnGrabImageCam04->setFont(font3);
-        btnGrabImageCam04->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_9->addWidget(btnGrabImageCam04, 1, 1, 1, 1);
-
-        btnReadImageCam04 = new QPushButton(groupBox_11);
-        btnReadImageCam04->setObjectName(QString::fromUtf8("btnReadImageCam04"));
-        btnReadImageCam04->setFont(font3);
-        btnReadImageCam04->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_9->addWidget(btnReadImageCam04, 2, 0, 1, 1);
-
-        btnReadImageCam04_2 = new QPushButton(groupBox_11);
-        btnReadImageCam04_2->setObjectName(QString::fromUtf8("btnReadImageCam04_2"));
-        btnReadImageCam04_2->setFont(font3);
-        btnReadImageCam04_2->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_9->addWidget(btnReadImageCam04_2, 2, 1, 1, 1);
-
-
-        gridLayout_13->addLayout(gridLayout_9, 0, 0, 1, 1);
-
-        groupBox_12 = new QGroupBox(groupBox_3);
-        groupBox_12->setObjectName(QString::fromUtf8("groupBox_12"));
-        groupBox_12->setGeometry(QRect(550, 150, 190, 121));
-        sizePolicy.setHeightForWidth(groupBox_12->sizePolicy().hasHeightForWidth());
-        groupBox_12->setSizePolicy(sizePolicy);
-        groupBox_12->setMinimumSize(QSize(190, 121));
-        gridLayout_18 = new QGridLayout(groupBox_12);
-        gridLayout_18->setSpacing(6);
-        gridLayout_18->setContentsMargins(11, 11, 11, 11);
-        gridLayout_18->setObjectName(QString::fromUtf8("gridLayout_18"));
-        gridLayout_8 = new QGridLayout();
-        gridLayout_8->setSpacing(6);
-        gridLayout_8->setObjectName(QString::fromUtf8("gridLayout_8"));
-        edtTotalNumCam04 = new QLineEdit(groupBox_12);
-        edtTotalNumCam04->setObjectName(QString::fromUtf8("edtTotalNumCam04"));
-        edtTotalNumCam04->setFont(font3);
-
-        gridLayout_8->addWidget(edtTotalNumCam04, 0, 1, 1, 1);
-
-        edtCurStateCam04 = new QLineEdit(groupBox_12);
-        edtCurStateCam04->setObjectName(QString::fromUtf8("edtCurStateCam04"));
-        edtCurStateCam04->setFont(font3);
-
-        gridLayout_8->addWidget(edtCurStateCam04, 2, 1, 1, 1);
-
-        label_15 = new QLabel(groupBox_12);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setFont(font3);
-
-        gridLayout_8->addWidget(label_15, 2, 0, 1, 1);
-
-        label_13 = new QLabel(groupBox_12);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        label_13->setFont(font3);
-
-        gridLayout_8->addWidget(label_13, 0, 0, 1, 1);
-
-        edtNGNumCam04 = new QLineEdit(groupBox_12);
-        edtNGNumCam04->setObjectName(QString::fromUtf8("edtNGNumCam04"));
-        edtNGNumCam04->setFont(font3);
-
-        gridLayout_8->addWidget(edtNGNumCam04, 1, 1, 1, 1);
-
-        label_14 = new QLabel(groupBox_12);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setFont(font3);
-
-        gridLayout_8->addWidget(label_14, 1, 0, 1, 1);
-
-
-        gridLayout_18->addLayout(gridLayout_8, 0, 0, 1, 1);
-
         groupBox_22 = new QGroupBox(groupBox_3);
         groupBox_22->setObjectName(QString::fromUtf8("groupBox_22"));
         groupBox_22->setGeometry(QRect(10, 20, 531, 407));
         sizePolicy.setHeightForWidth(groupBox_22->sizePolicy().hasHeightForWidth());
         groupBox_22->setSizePolicy(sizePolicy);
         groupBox_22->setMinimumSize(QSize(531, 406));
-        gridLayout_44 = new QGridLayout(groupBox_22);
-        gridLayout_44->setSpacing(0);
-        gridLayout_44->setContentsMargins(11, 11, 11, 11);
-        gridLayout_44->setObjectName(QString::fromUtf8("gridLayout_44"));
-        gridLayout_44->setContentsMargins(0, 0, 0, 0);
-        labShowImgCam04 = new CameraShot(groupBox_22);
-        labShowImgCam04->setObjectName(QString::fromUtf8("labShowImgCam04"));
-        sizePolicy.setHeightForWidth(labShowImgCam04->sizePolicy().hasHeightForWidth());
-        labShowImgCam04->setSizePolicy(sizePolicy);
-        labShowImgCam04->setMinimumSize(QSize(529, 405));
-        labShowImgCam04->setFrameShape(QFrame::Panel);
-
-        gridLayout_44->addWidget(labShowImgCam04, 0, 0, 1, 1);
-
-        camera3 = new QLineEdit(groupBox_3);
-        camera3->setObjectName(QString::fromUtf8("camera3"));
-        camera3->setGeometry(QRect(642, 280, 91, 20));
-        reg_lab4 = new QLabel(groupBox_3);
-        reg_lab4->setObjectName(QString::fromUtf8("reg_lab4"));
-        reg_lab4->setGeometry(QRect(560, 280, 71, 16));
+        labShowImgCam09 = new CameraShot(groupBox_22);
+        labShowImgCam09->setObjectName(QString::fromUtf8("labShowImgCam09"));
+        labShowImgCam09->setGeometry(QRect(270, 20, 251, 221));
+        sizePolicy.setHeightForWidth(labShowImgCam09->sizePolicy().hasHeightForWidth());
+        labShowImgCam09->setSizePolicy(sizePolicy);
+        labShowImgCam09->setMinimumSize(QSize(20, 20));
+        labShowImgCam09->setFrameShape(QFrame::Panel);
+        labShowImgCam08 = new CameraShot(groupBox_22);
+        labShowImgCam08->setObjectName(QString::fromUtf8("labShowImgCam08"));
+        labShowImgCam08->setGeometry(QRect(20, 20, 231, 221));
+        sizePolicy.setHeightForWidth(labShowImgCam08->sizePolicy().hasHeightForWidth());
+        labShowImgCam08->setSizePolicy(sizePolicy);
+        labShowImgCam08->setMinimumSize(QSize(20, 20));
+        labShowImgCam08->setFrameShape(QFrame::Panel);
 
         gridLayout_21->addWidget(groupBox_3, 2, 1, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_21->addItem(verticalSpacer, 3, 1, 1, 1);
 
         stackedWidget->addWidget(page_1);
         page_2 = new QWidget();
@@ -1688,235 +1213,13 @@ public:
         gridLayout_45->setContentsMargins(11, 11, 11, 11);
         gridLayout_45->setObjectName(QString::fromUtf8("gridLayout_45"));
         gridLayout_45->setContentsMargins(0, 0, 0, 0);
-        Box_ProductModel = new QComboBox(layoutWidget);
-        Box_ProductModel->addItem(QString());
-        Box_ProductModel->addItem(QString());
-        Box_ProductModel->addItem(QString());
-        Box_ProductModel->addItem(QString());
-        Box_ProductModel->setObjectName(QString::fromUtf8("Box_ProductModel"));
-        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Minimum);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(Box_ProductModel->sizePolicy().hasHeightForWidth());
-        Box_ProductModel->setSizePolicy(sizePolicy5);
-
-        gridLayout_45->addWidget(Box_ProductModel, 13, 1, 1, 2);
-
-        label_21 = new QLabel(layoutWidget);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
-
-        gridLayout_45->addWidget(label_21, 3, 0, 1, 2);
-
-        label_25 = new QLabel(layoutWidget);
-        label_25->setObjectName(QString::fromUtf8("label_25"));
-
-        gridLayout_45->addWidget(label_25, 5, 0, 1, 2);
-
-        label_32 = new QLabel(layoutWidget);
-        label_32->setObjectName(QString::fromUtf8("label_32"));
-        sizePolicy.setHeightForWidth(label_32->sizePolicy().hasHeightForWidth());
-        label_32->setSizePolicy(sizePolicy);
-        label_32->setMinimumSize(QSize(105, 30));
-        label_32->setFont(font3);
-
-        gridLayout_45->addWidget(label_32, 2, 0, 1, 2);
-
-        label_22 = new QLabel(layoutWidget);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
-        sizePolicy.setHeightForWidth(label_22->sizePolicy().hasHeightForWidth());
-        label_22->setSizePolicy(sizePolicy);
-        label_22->setMinimumSize(QSize(0, 26));
-        label_22->setFont(font3);
-
-        gridLayout_45->addWidget(label_22, 11, 0, 1, 2);
-
-        label_28 = new QLabel(layoutWidget);
-        label_28->setObjectName(QString::fromUtf8("label_28"));
-        sizePolicy.setHeightForWidth(label_28->sizePolicy().hasHeightForWidth());
-        label_28->setSizePolicy(sizePolicy);
-        label_28->setMinimumSize(QSize(105, 30));
-        label_28->setFont(font3);
-
-        gridLayout_45->addWidget(label_28, 0, 0, 1, 2);
-
-        edtOuterMax = new QLineEdit(layoutWidget);
-        edtOuterMax->setObjectName(QString::fromUtf8("edtOuterMax"));
-        edtOuterMax->setEnabled(false);
-        sizePolicy.setHeightForWidth(edtOuterMax->sizePolicy().hasHeightForWidth());
-        edtOuterMax->setSizePolicy(sizePolicy);
-
-        gridLayout_45->addWidget(edtOuterMax, 6, 2, 1, 1);
-
-        label_27 = new QLabel(layoutWidget);
-        label_27->setObjectName(QString::fromUtf8("label_27"));
-
-        gridLayout_45->addWidget(label_27, 6, 0, 1, 2);
-
-        AP_CTP = new QLabel(layoutWidget);
-        AP_CTP->setObjectName(QString::fromUtf8("AP_CTP"));
-        sizePolicy.setHeightForWidth(AP_CTP->sizePolicy().hasHeightForWidth());
-        AP_CTP->setSizePolicy(sizePolicy);
-        AP_CTP->setMinimumSize(QSize(0, 26));
-        QFont font5;
-        font5.setPointSize(12);
-        font5.setBold(true);
-        font5.setWeight(75);
-        AP_CTP->setFont(font5);
-
-        gridLayout_45->addWidget(AP_CTP, 10, 2, 1, 1);
-
-        OK_PV = new QLineEdit(layoutWidget);
-        OK_PV->setObjectName(QString::fromUtf8("OK_PV"));
-        OK_PV->setEnabled(false);
-        sizePolicy.setHeightForWidth(OK_PV->sizePolicy().hasHeightForWidth());
-        OK_PV->setSizePolicy(sizePolicy);
-        OK_PV->setMinimumSize(QSize(68, 30));
-        OK_PV->setFont(font5);
-
-        gridLayout_45->addWidget(OK_PV, 0, 2, 1, 1);
-
-        label_23 = new QLabel(layoutWidget);
-        label_23->setObjectName(QString::fromUtf8("label_23"));
-        sizePolicy.setHeightForWidth(label_23->sizePolicy().hasHeightForWidth());
-        label_23->setSizePolicy(sizePolicy);
-        label_23->setFont(font3);
-
-        gridLayout_45->addWidget(label_23, 9, 0, 1, 2);
-
-        NG_count_PV = new QLineEdit(layoutWidget);
-        NG_count_PV->setObjectName(QString::fromUtf8("NG_count_PV"));
-        NG_count_PV->setEnabled(false);
-        sizePolicy.setHeightForWidth(NG_count_PV->sizePolicy().hasHeightForWidth());
-        NG_count_PV->setSizePolicy(sizePolicy);
-        NG_count_PV->setMinimumSize(QSize(68, 30));
-        NG_count_PV->setFont(font5);
-
-        gridLayout_45->addWidget(NG_count_PV, 1, 2, 1, 1);
-
-        edtInnerMax = new QLineEdit(layoutWidget);
-        edtInnerMax->setObjectName(QString::fromUtf8("edtInnerMax"));
-        edtInnerMax->setEnabled(false);
-        QSizePolicy sizePolicy6(QSizePolicy::Maximum, QSizePolicy::Minimum);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(edtInnerMax->sizePolicy().hasHeightForWidth());
-        edtInnerMax->setSizePolicy(sizePolicy6);
-
-        gridLayout_45->addWidget(edtInnerMax, 4, 2, 1, 1);
-
-        edtOuterMin = new QLineEdit(layoutWidget);
-        edtOuterMin->setObjectName(QString::fromUtf8("edtOuterMin"));
-        edtOuterMin->setEnabled(false);
-        sizePolicy.setHeightForWidth(edtOuterMin->sizePolicy().hasHeightForWidth());
-        edtOuterMin->setSizePolicy(sizePolicy);
-
-        gridLayout_45->addWidget(edtOuterMin, 5, 2, 1, 1);
-
-        label_24 = new QLabel(layoutWidget);
-        label_24->setObjectName(QString::fromUtf8("label_24"));
-
-        gridLayout_45->addWidget(label_24, 4, 0, 1, 2);
-
-        spinBoxGear = new QSpinBox(layoutWidget);
-        spinBoxGear->setObjectName(QString::fromUtf8("spinBoxGear"));
-        sizePolicy.setHeightForWidth(spinBoxGear->sizePolicy().hasHeightForWidth());
-        spinBoxGear->setSizePolicy(sizePolicy);
-        spinBoxGear->setFont(font3);
-
-        gridLayout_45->addWidget(spinBoxGear, 12, 2, 1, 1);
-
-        speedTime = new QLineEdit(layoutWidget);
-        speedTime->setObjectName(QString::fromUtf8("speedTime"));
-        speedTime->setEnabled(false);
-        sizePolicy.setHeightForWidth(speedTime->sizePolicy().hasHeightForWidth());
-        speedTime->setSizePolicy(sizePolicy);
-
-        gridLayout_45->addWidget(speedTime, 8, 2, 1, 1);
-
-        label_34 = new QLabel(layoutWidget);
-        label_34->setObjectName(QString::fromUtf8("label_34"));
-        label_34->setMinimumSize(QSize(40, 20));
-        label_34->setFont(font3);
-
-        gridLayout_45->addWidget(label_34, 12, 0, 1, 2);
-
-        FS_normal = new QLabel(layoutWidget);
-        FS_normal->setObjectName(QString::fromUtf8("FS_normal"));
-        sizePolicy.setHeightForWidth(FS_normal->sizePolicy().hasHeightForWidth());
-        FS_normal->setSizePolicy(sizePolicy);
-        FS_normal->setMinimumSize(QSize(0, 26));
-        FS_normal->setFont(font5);
-
-        gridLayout_45->addWidget(FS_normal, 11, 2, 1, 1);
-
-        label_16 = new QLabel(layoutWidget);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-        sizePolicy.setHeightForWidth(label_16->sizePolicy().hasHeightForWidth());
-        label_16->setSizePolicy(sizePolicy);
-        label_16->setMinimumSize(QSize(0, 26));
-        label_16->setFont(font3);
-
-        gridLayout_45->addWidget(label_16, 10, 0, 1, 2);
-
-        ComState_btn = new QToolButton(layoutWidget);
-        ComState_btn->setObjectName(QString::fromUtf8("ComState_btn"));
-        ComState_btn->setEnabled(false);
-        sizePolicy.setHeightForWidth(ComState_btn->sizePolicy().hasHeightForWidth());
-        ComState_btn->setSizePolicy(sizePolicy);
-        ComState_btn->setMinimumSize(QSize(68, 26));
-        ComState_btn->setAutoRaise(true);
-
-        gridLayout_45->addWidget(ComState_btn, 9, 2, 1, 1);
-
-        label = new QLabel(layoutWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout_45->addWidget(label, 13, 0, 1, 1);
-
-        label_31 = new QLabel(layoutWidget);
-        label_31->setObjectName(QString::fromUtf8("label_31"));
-        sizePolicy.setHeightForWidth(label_31->sizePolicy().hasHeightForWidth());
-        label_31->setSizePolicy(sizePolicy);
-        label_31->setMinimumSize(QSize(105, 30));
-        label_31->setFont(font3);
-
-        gridLayout_45->addWidget(label_31, 1, 0, 1, 2);
-
-        label_45 = new QLabel(layoutWidget);
-        label_45->setObjectName(QString::fromUtf8("label_45"));
-
-        gridLayout_45->addWidget(label_45, 8, 0, 1, 2);
-
-        TBC_count_PV = new QLineEdit(layoutWidget);
-        TBC_count_PV->setObjectName(QString::fromUtf8("TBC_count_PV"));
-        TBC_count_PV->setEnabled(false);
-        sizePolicy.setHeightForWidth(TBC_count_PV->sizePolicy().hasHeightForWidth());
-        TBC_count_PV->setSizePolicy(sizePolicy);
-        TBC_count_PV->setMinimumSize(QSize(68, 30));
-        TBC_count_PV->setFont(font5);
-
-        gridLayout_45->addWidget(TBC_count_PV, 2, 2, 1, 1);
-
         edtInnerMin = new QLineEdit(layoutWidget);
         edtInnerMin->setObjectName(QString::fromUtf8("edtInnerMin"));
         edtInnerMin->setEnabled(false);
         sizePolicy.setHeightForWidth(edtInnerMin->sizePolicy().hasHeightForWidth());
         edtInnerMin->setSizePolicy(sizePolicy);
 
-        gridLayout_45->addWidget(edtInnerMin, 3, 2, 1, 1);
-
-        edtWallMin = new QLineEdit(layoutWidget);
-        edtWallMin->setObjectName(QString::fromUtf8("edtWallMin"));
-        edtWallMin->setEnabled(false);
-        sizePolicy.setHeightForWidth(edtWallMin->sizePolicy().hasHeightForWidth());
-        edtWallMin->setSizePolicy(sizePolicy);
-
-        gridLayout_45->addWidget(edtWallMin, 7, 2, 1, 1);
-
-        label_48 = new QLabel(layoutWidget);
-        label_48->setObjectName(QString::fromUtf8("label_48"));
-
-        gridLayout_45->addWidget(label_48, 7, 0, 1, 2);
+        gridLayout_45->addWidget(edtInnerMin, 0, 0, 1, 1);
 
         layoutWidget1 = new QWidget(groupBox_23);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
@@ -1931,9 +1234,9 @@ public:
         sizePolicy.setHeightForWidth(actStop->sizePolicy().hasHeightForWidth());
         actStop->setSizePolicy(sizePolicy);
         actStop->setMinimumSize(QSize(159, 50));
-        QFont font6;
-        font6.setPointSize(16);
-        actStop->setFont(font6);
+        QFont font5;
+        font5.setPointSize(16);
+        actStop->setFont(font5);
 
         gridLayout_40->addWidget(actStop, 1, 0, 1, 1);
 
@@ -1942,27 +1245,9 @@ public:
         sizePolicy.setHeightForWidth(actStart->sizePolicy().hasHeightForWidth());
         actStart->setSizePolicy(sizePolicy);
         actStart->setMinimumSize(QSize(159, 50));
-        actStart->setFont(font6);
+        actStart->setFont(font5);
 
         gridLayout_40->addWidget(actStart, 0, 0, 1, 1);
-
-        System_error_switch_btn = new QToolButton(layoutWidget1);
-        System_error_switch_btn->setObjectName(QString::fromUtf8("System_error_switch_btn"));
-        sizePolicy.setHeightForWidth(System_error_switch_btn->sizePolicy().hasHeightForWidth());
-        System_error_switch_btn->setSizePolicy(sizePolicy);
-        System_error_switch_btn->setMinimumSize(QSize(159, 50));
-        System_error_switch_btn->setFont(font6);
-
-        gridLayout_40->addWidget(System_error_switch_btn, 2, 0, 1, 1);
-
-        btnDataClear = new QPushButton(layoutWidget1);
-        btnDataClear->setObjectName(QString::fromUtf8("btnDataClear"));
-        sizePolicy.setHeightForWidth(btnDataClear->sizePolicy().hasHeightForWidth());
-        btnDataClear->setSizePolicy(sizePolicy);
-        btnDataClear->setMinimumSize(QSize(159, 50));
-        btnDataClear->setFont(font6);
-
-        gridLayout_40->addWidget(btnDataClear, 3, 0, 1, 1);
 
         OnDisplayUi->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(OnDisplayUi);
@@ -1975,7 +1260,7 @@ public:
 
         retranslateUi(OnDisplayUi);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(OnDisplayUi);
@@ -1991,63 +1276,32 @@ public:
         btn_Main->setText(QCoreApplication::translate("OnDisplayUi", "\347\233\221\346\216\247", nullptr));
         label_10->setText(QString());
         label_Hint->setText(QString());
-        groupBox->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2721", nullptr));
-        groupBox_5->setTitle(QString());
-        label_3->setText(QCoreApplication::translate("OnDisplayUi", "\347\221\225\347\226\265\346\225\260", nullptr));
-        label_4->setText(QCoreApplication::translate("OnDisplayUi", "\345\275\223\345\211\215\347\212\266\346\200\201", nullptr));
-        label_2->setText(QCoreApplication::translate("OnDisplayUi", "\346\200\273\346\225\260", nullptr));
-        groupBox_9->setTitle(QString());
-        labShowImgCam01->setText(QCoreApplication::translate("OnDisplayUi", "cam01", nullptr));
-        groupBox_6->setTitle(QString());
-        chkTriggerCam01->setText(QCoreApplication::translate("OnDisplayUi", "\350\247\246\345\217\221", nullptr));
-        chkSaveImageCam01->setText(QCoreApplication::translate("OnDisplayUi", "\344\277\235\345\255\230", nullptr));
-        btnVCDPropertyCam01->setText(QCoreApplication::translate("OnDisplayUi", "\345\261\236\346\200\247", nullptr));
-        btnGrabImageCam01->setText(QCoreApplication::translate("OnDisplayUi", "\351\207\207\345\233\276", nullptr));
-        btnReadImageCam01->setText(QCoreApplication::translate("OnDisplayUi", "\350\257\273\345\233\276", nullptr));
-        reg_lab1->setText(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2721\350\256\241\346\225\260", nullptr));
-        groupBox_2->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2722", nullptr));
-        groupBox_8->setTitle(QString());
-        label_5->setText(QCoreApplication::translate("OnDisplayUi", "\346\200\273\346\225\260", nullptr));
-        label_6->setText(QCoreApplication::translate("OnDisplayUi", "\347\221\225\347\226\265\346\225\260", nullptr));
-        label_7->setText(QCoreApplication::translate("OnDisplayUi", "\345\275\223\345\211\215\347\212\266\346\200\201", nullptr));
-        groupBox_10->setTitle(QString());
-        labShowImgCam02->setText(QCoreApplication::translate("OnDisplayUi", "cam02", nullptr));
-        groupBox_7->setTitle(QString());
-        chkTriggerCam02->setText(QCoreApplication::translate("OnDisplayUi", "\350\247\246\345\217\221", nullptr));
-        btnVCDPropertyCam02->setText(QCoreApplication::translate("OnDisplayUi", "\345\261\236\346\200\247", nullptr));
-        chkSaveImageCam02->setText(QCoreApplication::translate("OnDisplayUi", "\344\277\235\345\255\230", nullptr));
-        btnGrabImageCam02->setText(QCoreApplication::translate("OnDisplayUi", "\351\207\207\345\233\276", nullptr));
-        btnReadImageCam02->setText(QCoreApplication::translate("OnDisplayUi", "\350\257\273\345\233\276", nullptr));
-        reg_lab2->setText(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2722\350\256\241\346\225\260", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2723", nullptr));
-        groupBox_20->setTitle(QString());
-        label_11->setText(QCoreApplication::translate("OnDisplayUi", "\346\200\273\346\225\260", nullptr));
-        label_12->setText(QCoreApplication::translate("OnDisplayUi", "\347\221\225\347\226\265\346\225\260", nullptr));
-        label_26->setText(QCoreApplication::translate("OnDisplayUi", "\345\275\223\345\211\215\347\212\266\346\200\201", nullptr));
-        groupBox_19->setTitle(QString());
-        chkTriggerCam03->setText(QCoreApplication::translate("OnDisplayUi", "\350\247\246\345\217\221", nullptr));
-        btnVCDPropertyCam03->setText(QCoreApplication::translate("OnDisplayUi", "\345\261\236\346\200\247", nullptr));
-        chkSaveImageCam03->setText(QCoreApplication::translate("OnDisplayUi", "\344\277\235\345\255\230", nullptr));
-        btnGrabImageCam03->setText(QCoreApplication::translate("OnDisplayUi", "\351\207\207\345\233\276", nullptr));
-        btnReadImageCam03->setText(QCoreApplication::translate("OnDisplayUi", "\350\257\273\345\233\276", nullptr));
         groupBox_21->setTitle(QString());
+        labShowImgCam05->setText(QCoreApplication::translate("OnDisplayUi", "cam05", nullptr));
+        labShowImgCam06->setText(QCoreApplication::translate("OnDisplayUi", "cam06", nullptr));
+        labShowImgCam07->setText(QCoreApplication::translate("OnDisplayUi", "cam07", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2722", nullptr));
+        groupBox_10->setTitle(QString());
         labShowImgCam03->setText(QCoreApplication::translate("OnDisplayUi", "cam03", nullptr));
-        reg_lab3->setText(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2723\350\256\241\346\225\260", nullptr));
-        groupBox_3->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2724", nullptr));
-        groupBox_11->setTitle(QString());
-        chkTriggerCam04->setText(QCoreApplication::translate("OnDisplayUi", "\350\247\246\345\217\221", nullptr));
-        btnVCDPropertyCam04->setText(QCoreApplication::translate("OnDisplayUi", "\345\261\236\346\200\247", nullptr));
-        chkSaveImageCam04->setText(QCoreApplication::translate("OnDisplayUi", "\344\277\235\345\255\230", nullptr));
-        btnGrabImageCam04->setText(QCoreApplication::translate("OnDisplayUi", "\351\207\207\345\233\276", nullptr));
-        btnReadImageCam04->setText(QCoreApplication::translate("OnDisplayUi", "\350\257\273\345\233\276", nullptr));
-        btnReadImageCam04_2->setText(QCoreApplication::translate("OnDisplayUi", "\346\211\271\345\233\276", nullptr));
-        groupBox_12->setTitle(QString());
-        label_15->setText(QCoreApplication::translate("OnDisplayUi", "\345\275\223\345\211\215\347\212\266\346\200\201", nullptr));
-        label_13->setText(QCoreApplication::translate("OnDisplayUi", "\346\200\273\346\225\260", nullptr));
-        label_14->setText(QCoreApplication::translate("OnDisplayUi", "\347\221\225\347\226\265\346\225\260", nullptr));
-        groupBox_22->setTitle(QString());
         labShowImgCam04->setText(QCoreApplication::translate("OnDisplayUi", "cam04", nullptr));
-        reg_lab4->setText(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2724\350\256\241\346\225\260", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2721", nullptr));
+        labShowImgCam02->setText(QCoreApplication::translate("OnDisplayUi", "cam02", nullptr));
+        btnSaveSetting01->setText(QCoreApplication::translate("OnDisplayUi", "\350\256\276\347\275\256\345\217\202\346\225\260", nullptr));
+        btnGrabImageCam01->setText(QCoreApplication::translate("OnDisplayUi", "\350\275\257\350\247\246\345\217\221", nullptr));
+        btnOpenDevice->setText(QCoreApplication::translate("OnDisplayUi", "\346\211\223\345\274\200", nullptr));
+        label_2->setText(QCoreApplication::translate("OnDisplayUi", "\346\233\235\345\205\211\347\216\207", nullptr));
+        labShowImgCam01->setText(QCoreApplication::translate("OnDisplayUi", "cam01", nullptr));
+        btnCloseDevice->setText(QCoreApplication::translate("OnDisplayUi", "\345\205\263\351\227\255", nullptr));
+        label_11->setText(QCoreApplication::translate("OnDisplayUi", "\345\242\236\347\233\212", nullptr));
+        btnGrabImageCam02->setText(QCoreApplication::translate("OnDisplayUi", "\350\275\257\350\247\246\345\217\221", nullptr));
+        btnGetSetting->setText(QCoreApplication::translate("OnDisplayUi", "\350\216\267\345\217\226\345\217\202\346\225\260", nullptr));
+        frame_rate01->setText(QString());
+        label_12->setText(QCoreApplication::translate("OnDisplayUi", "\345\270\247\347\216\207", nullptr));
+        groupBox_3->setTitle(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2724", nullptr));
+        groupBox_22->setTitle(QString());
+        labShowImgCam09->setText(QCoreApplication::translate("OnDisplayUi", "cam09", nullptr));
+        labShowImgCam08->setText(QCoreApplication::translate("OnDisplayUi", "cam08", nullptr));
         groupBox_13->setTitle(QCoreApplication::translate("OnDisplayUi", "\345\255\230\345\233\276\350\256\276\347\275\256", nullptr));
         label_17->setText(QCoreApplication::translate("OnDisplayUi", "\347\233\270\346\234\2721\344\277\235\345\255\230\350\267\257\345\276\204", nullptr));
         btnSavePathCam01->setText(QCoreApplication::translate("OnDisplayUi", "\346\211\223\345\274\200\347\233\256\345\275\225", nullptr));
@@ -2122,32 +1376,8 @@ public:
 
         label_42->setText(QCoreApplication::translate("OnDisplayUi", "\345\236\213\345\217\267", nullptr));
         groupBox_23->setTitle(QString());
-        Box_ProductModel->setItemText(0, QCoreApplication::translate("OnDisplayUi", "HG7.8X5.9X4.9", nullptr));
-        Box_ProductModel->setItemText(1, QCoreApplication::translate("OnDisplayUi", "WKQ8X5.9X5", nullptr));
-        Box_ProductModel->setItemText(2, QCoreApplication::translate("OnDisplayUi", "WK5.5X4.1X4.95", nullptr));
-        Box_ProductModel->setItemText(3, QCoreApplication::translate("OnDisplayUi", "WK3.2x2.6x3.3", nullptr));
-
-        label_21->setText(QCoreApplication::translate("OnDisplayUi", "\346\234\200\345\260\217\345\206\205\345\276\204", nullptr));
-        label_25->setText(QCoreApplication::translate("OnDisplayUi", "\346\234\200\345\260\217\345\244\226\345\276\204", nullptr));
-        label_32->setText(QCoreApplication::translate("OnDisplayUi", "TBC\347\273\237\350\256\241\346\225\260", nullptr));
-        label_22->setText(QCoreApplication::translate("OnDisplayUi", "\344\276\233\346\226\231\347\212\266\346\200\201\357\274\232", nullptr));
-        label_28->setText(QCoreApplication::translate("OnDisplayUi", "OK\347\273\237\350\256\241\346\200\273\346\225\260", nullptr));
-        label_27->setText(QCoreApplication::translate("OnDisplayUi", "\346\234\200\345\244\247\345\244\226\345\276\204", nullptr));
-        AP_CTP->setText(QString());
-        label_23->setText(QCoreApplication::translate("OnDisplayUi", "\351\200\232\344\277\241\347\212\266\346\200\201\357\274\232", nullptr));
-        label_24->setText(QCoreApplication::translate("OnDisplayUi", "\346\234\200\345\244\247\345\206\205\345\276\204", nullptr));
-        label_34->setText(QCoreApplication::translate("OnDisplayUi", "\347\221\225\347\226\265\347\255\211\347\272\247\357\274\232", nullptr));
-        FS_normal->setText(QString());
-        label_16->setText(QCoreApplication::translate("OnDisplayUi", "\346\260\224\345\216\213\357\274\232", nullptr));
-        ComState_btn->setText(QString());
-        label->setText(QCoreApplication::translate("OnDisplayUi", "\345\236\213\345\217\267\357\274\232", nullptr));
-        label_31->setText(QCoreApplication::translate("OnDisplayUi", "NG\347\273\237\350\256\241\346\225\260", nullptr));
-        label_45->setText(QCoreApplication::translate("OnDisplayUi", "\351\200\237\347\216\207\357\274\210pcs/min\357\274\211", nullptr));
-        label_48->setText(QCoreApplication::translate("OnDisplayUi", "\345\243\201\345\216\232", nullptr));
         actStop->setText(QCoreApplication::translate("OnDisplayUi", "\345\201\234\346\255\242", nullptr));
         actStart->setText(QCoreApplication::translate("OnDisplayUi", "\345\274\200\345\247\213", nullptr));
-        System_error_switch_btn->setText(QCoreApplication::translate("OnDisplayUi", "\350\247\243\351\231\244\346\212\245\350\255\246", nullptr));
-        btnDataClear->setText(QCoreApplication::translate("OnDisplayUi", "\346\225\260\346\215\256\346\270\205\351\233\266", nullptr));
         tbrRunningState->setWindowTitle(QCoreApplication::translate("OnDisplayUi", "toolBar_2", nullptr));
     } // retranslateUi
 

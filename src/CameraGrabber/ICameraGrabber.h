@@ -23,10 +23,16 @@ public:
     virtual ~ICameraGrabber(){}
 	void AttachMediator(std::weak_ptr<IMediator> mediator) { mediator_ = mediator;  }
 	bool IsStoped() const { return stop_; }
+	virtual void OpenDevice() = 0;
+	virtual void CloseDevice() = 0;
 	virtual void StartGrabbing() = 0;
 	virtual void StopGrabbing() = 0;
 	virtual void SoftTrigger() = 0;
 	virtual void SetId(USHORT id) = 0;
+	virtual float GetFloatValue(const char* what) const = 0;
+	virtual void SetFloatValue(const char* what, float fValue) = 0;
+	virtual UINT GetIntValue(const char* what) const = 0;
+	virtual void SetIntValue(const char* what, UINT iValue) = 0;
 };
 
 template<>

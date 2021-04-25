@@ -2,6 +2,7 @@
 
 #include <QLabel>
 #include <vector>
+#include <string>
 
 /* 缩放方向 */
 enum EmDirection
@@ -55,6 +56,7 @@ public:
 	std::vector<QRect> m_regionRect;
 	std::vector<QRect> m_showRoi;
 
+	QString frame_num_{ "frame number" };
 protected:
 	void paintEvent(QPaintEvent *event);
 	void mousePressEvent(QMouseEvent *ev);
@@ -73,6 +75,8 @@ private:
 
 	void softTrigger();
 	void openImage();
+
+	
 
 private:
 	bool m_bPainterPressed;        //是否正在绘制

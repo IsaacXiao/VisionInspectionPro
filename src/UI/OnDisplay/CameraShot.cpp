@@ -207,8 +207,8 @@ void CameraShot::paintEvent(QPaintEvent * event)
 	font4.setPixelSize(26);
 	painter.setPen(dashPen4);
 	painter.setFont(font4);
-	painter.drawText(10, 50, QStringLiteral("通讯状态: ") + m_commResult);
-	painter.drawText(10, 130, QStringLiteral("检测总数: ") + m_detectNum);
+	//painter.drawText(10, 50, QStringLiteral("通讯状态: ") + m_commResult);
+	//painter.drawText(10, 130, QStringLiteral("检测总数: ") + m_detectNum);
 	if (m_result == "OK")
 	{
 		painter.drawText(10, 90, QStringLiteral("检测结果: ") + m_result);
@@ -217,7 +217,7 @@ void CameraShot::paintEvent(QPaintEvent * event)
 	{
 		QPen dashPen5(Qt::red);
 		painter.setPen(dashPen5);
-		painter.drawText(10, 90, QStringLiteral("检测结果: ") + m_result);
+		painter.drawText(10, 90, frame_num_ + m_result);
 	}
 	
 

@@ -28,6 +28,8 @@ private:
 
 	FacadePtr facade_;
 
+    CameraGrabberPtr Camera(USHORT camera_id) { return facade_->Camera(camera_id); }
+
     Ui::OnDisplayUi *ui;
 
     QLabel *labCurState;  //状态栏，显示相机的一些初始化状态
@@ -61,9 +63,8 @@ private:
     std::array<QString, CAMERA_NUM> camera_counting{"-999","-999","-999","-999"};
 
     void InitFrame(); 
-    void InitStatisticsTab();
     void InitCamArea();
-    void InitStatusBar();
+    //void InitStatusBar();
 public slots :
     void OnNavBtnClick();
 	void OnStartBtnClick();
