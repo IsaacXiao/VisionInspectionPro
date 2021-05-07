@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>922</width>
+    <height>579</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QComboBox" name="list_devices">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>591</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="img_show">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>571</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Camera</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>251</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>初始化</string>
+    </property>
+    <widget class="QPushButton" name="enum_device">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>191</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>查找设备</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="open_device">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>打开设备</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="close_device">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>关闭设备</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>120</y>
+      <width>251</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>图像采集</string>
+    </property>
+    <widget class="QRadioButton" name="live_model">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>连续模式</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="trigger_model">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>20</y>
+       <width>89</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>触发模式</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="grab_start">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>开始采集</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="grab_stop">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>停止采集</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="is_soft_trigger">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>软触发</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="soft_trigger">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>软触发一次</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>250</y>
+      <width>241</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>图片保存</string>
+    </property>
+    <widget class="QPushButton" name="save_bmp">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>保存BMP</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_jpg">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>保存JPG</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_tiff">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>保存tiff</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_png">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>60</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>保存PNG</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>370</y>
+      <width>241</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>参数</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>31</y>
+       <width>54</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>曝光</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="exposure">
+     <property name="geometry">
+      <rect>
+       <x>81</x>
+       <y>31</y>
+       <width>133</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="gain">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>60</y>
+       <width>133</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>54</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>增益</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="frame_rate">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>90</y>
+       <width>133</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>54</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>帧率</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="get_setting">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>参数获取</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_setting">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>120</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>参数设置</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>922</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
