@@ -1,4 +1,4 @@
-#ifndef HIK_CAMERA_H
+﻿#ifndef HIK_CAMERA_H
 #define HIK_CAMERA_H
 
 #include "../ICameraGrabber.h"
@@ -17,6 +17,29 @@
 
 #include <conio.h>
 #include "MvCameraControl.h"
+
+/*!
+ * \class classname
+ *
+ * \brief 
+ * 
+ * 调用端使用方法
+ * 
+	for ( size_t i = 0; i < camera_number_; i++ )
+	{
+		ICameraGrabber *camera = new HikCamera;
+		//1.设置ID，枚举设备会在第一次调用时自动完成
+		camera->SetId(i);
+		//2. 保存中介者类的指针
+		camera->AttachMediator(...);
+	}
+	相机接口如函数名所示
+    void OpenDevice();
+	void StartGrabbing()
+ *
+ * \author XR
+ * \date ���� 2021
+ */
 
 
 namespace
@@ -67,19 +90,19 @@ namespace
 		std::weak_ptr<IMediator> mediator_;
 		UserData( USHORT camera_id, std::weak_ptr<IMediator> mediator ):camera_id_(camera_id), mediator_(mediator){}
 	};
-
+	//获取图像回调函数
 	void __stdcall ImageCallBackEx(unsigned char* pData, MV_FRAME_OUT_INFO_EX* pFrameInfo, void* pUser)
 	{
-		//�˴�����MV_CC_ConvertPixelType����ת�����ظ�ʽ��ConvertPixelType.cpp
+		//此处调用MV_CC_ConvertPixelType可以转换像素格式见ConvertPixelType.cpp
 		ImgTypeOrg img;
 		img.mat_ = Convert2Mat(pFrameInfo, pData);
 		img.num_ = pFrameInfo->nFrameNum;
 		UserData* user_data = (UserData*)pUser;
 		user_data->mediator_.lock()->StoreImage(user_data->camera_id_, std::move(img));
 		
-		//�������֡��Ϣ��ChunkData.cpp
+		//还需更多帧信息见ChunkData.cpp
 	}
-
+	//异常回调 
 	void __stdcall ExceptionCallBack(unsigned int nMsgType, void* pUser)
 	{
 		if (nMsgType == MV_EXCEPTION_DEV_DISCONNECT)
@@ -94,7 +117,7 @@ namespace
 	}
 }
 
-//�������ü�CamLBasicDemo.cpp
+//参数设置见CamLBasicDemo.cpp
 class HikCamera: public ICameraGrabber
 {
 	using CameraHandle = void*;
@@ -103,22 +126,25 @@ public:
 	~HikCamera();
 
 	static const char* Name() { return "HikCamera"; }
-
+	//1.设置ID，枚举设备会在第一次调用时自动完成
+	virtual void SetId(USHORT id) override;
+	//2.打开设备
 	virtual void OpenDevice() override;
 	virtual void CloseDevice() override;
 	virtual void StartGrabbing() override;
 	virtual void StopGrabbing() override;
 	virtual void SoftTrigger() override;
-	virtual void SetId(USHORT id) override;
+
 	virtual float GetFloatValue(const char* what) const override;
 	virtual void SetFloatValue(const char* what, float fValue) override;
 	virtual UINT GetIntValue(const char* what) const override;
 	virtual void SetIntValue(const char* what, UINT iValue) override;
+	virtual void SetMode(int mode);
 private:
 	MV_CC_DEVICE_INFO_LIST stDeviceList_;
+	bool is_enumed_{false};
 	CameraHandle handle_{nullptr};
 	UserData* user_data_{nullptr};
-	bool callback_registered_{ false };
 	void InitSettings();
 };
 

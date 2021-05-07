@@ -49,26 +49,6 @@ public:
 		}
 	}
 
-	void OpenDevice(USHORT camera_id)
-	{
-		system_->Part<CAMERAGRABBER>()[camera_id]->OpenDevice();
-	}
-
-	void CloseDevice(USHORT camera_id)
-	{
-		system_->Part<CAMERAGRABBER>()[camera_id]->CloseDevice();
-	}
-
-	float GetFloatValue(USHORT camera_id,const char* what) const
-	{
-		return system_->Part<CAMERAGRABBER>()[camera_id]->GetFloatValue(what);
-	}
-
-	void SetFloatValue(USHORT camera_id, const char* what,float value)
-	{
-		return system_->Part<CAMERAGRABBER>()[camera_id]->SetFloatValue(what,value);
-	}
-
 	CameraGrabberPtr Camera(USHORT camera_id)
 	{
 		return system_->Part<CAMERAGRABBER>()[camera_id];

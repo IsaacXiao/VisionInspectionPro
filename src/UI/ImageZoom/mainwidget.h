@@ -1,11 +1,11 @@
-#ifndef MAINWIDGET_H
+﻿#ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
 #include <QWidget>
 #include <QGraphicsView>    //视图类
 #include <QGraphicsScene>   //场景类
 #include <QGraphicsItem>    //图元类
-
+#include <QLabel>
 #include "pixitem.h"
 #include <math.h>
 
@@ -13,7 +13,7 @@ namespace Ui {
 class MainWidget;
 }
 
-class MainWidget : public QWidget
+class MainWidget : public QLabel
 {
     Q_OBJECT
 

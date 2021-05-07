@@ -9,7 +9,7 @@
 #include <QMessageBox>
 
 MainWidget::MainWidget(QWidget *parent) :
-    QWidget(parent),
+    QLabel(parent),
     ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
@@ -21,7 +21,7 @@ MainWidget::MainWidget(QWidget *parent) :
     m_graphicsScene->setSceneRect(-370, -250, 740, 500);     //限定场景对象的显示区域
     m_graphicsView->setScene(m_graphicsScene);          //将视图对象于场景相连
 
-    pixItem = new PixItem(new QPixmap(":/Image/bg1.jpg"));
+    pixItem = new PixItem(new QPixmap(":/Image/p4.jpg"));
     //将该图元对象添加到场景中，并设置此图元在场景中的位置为中心（0，0）
     m_graphicsScene->addItem(pixItem);
     pixItem->setPos(0,0);

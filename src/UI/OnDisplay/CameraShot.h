@@ -56,7 +56,8 @@ public:
 	std::vector<QRect> m_regionRect;
 	std::vector<QRect> m_showRoi;
 
-	QString frame_num_{ "frame number" };
+	QString frame_num_{ "" };
+	QString camera_id_{ "" };
 protected:
 	void paintEvent(QPaintEvent *event);
 	void mousePressEvent(QMouseEvent *ev);

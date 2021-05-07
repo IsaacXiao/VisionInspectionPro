@@ -128,8 +128,8 @@ void CameraShot::paintEvent(QPaintEvent * event)
 #if 1
 	QLabel::paintEvent(event);
 
-	if (m_backImage.isNull())
-		return;
+	//if (m_backImage.isNull())
+	//	return;
 
 	QPixmap rawImg = QPixmap::fromImage(m_backImage);
 	QString strPoint = QString("X:%0, Y:%1").arg(m_roiRect.x()).arg(m_roiRect.y());           //位置信息
@@ -204,7 +204,7 @@ void CameraShot::paintEvent(QPaintEvent * event)
 	
 	QPen dashPen4(Qt::darkGreen);
 	QFont font4;
-	font4.setPixelSize(26);
+	font4.setPixelSize(14);
 	painter.setPen(dashPen4);
 	painter.setFont(font4);
 	//painter.drawText(10, 50, QStringLiteral("通讯状态: ") + m_commResult);
@@ -217,6 +217,7 @@ void CameraShot::paintEvent(QPaintEvent * event)
 	{
 		QPen dashPen5(Qt::red);
 		painter.setPen(dashPen5);
+		painter.drawText(5, 34, camera_id_);
 		painter.drawText(10, 90, frame_num_ + m_result);
 	}
 	

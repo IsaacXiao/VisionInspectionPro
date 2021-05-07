@@ -8,11 +8,12 @@
 HikCamera::HikCamera(const STRING& cfg) :
 	ICameraGrabber(cfg)
 {
-	MV_CC_DestroyHandle(handle_);
+
 }
 
 HikCamera::~HikCamera()
 {
+	MV_CC_DestroyHandle(handle_);
 	GlobalLogger::Record("HikCamera", LOG_LEVEL::TRACK, "Destroyed");
 }
 
@@ -22,33 +23,26 @@ void HikCamera::OpenDevice()
 
 	InitSettings();
 
-	if (MV_OK != MV_CC_SetEnumValue(handle_, "TriggerMode", /*MV_TRIGGER_MODE_ON*/MV_TRIGGER_MODE_OFF)) throw CameraGrabberException("Set Trigger Mode fail");
+	if (MV_OK != MV_CC_SetEnumValue(handle_, "TriggerMode", trigger_mode_)) throw CameraGrabberException("Set Trigger Mode fail");
 }
 
 void HikCamera::CloseDevice()
 {
 	MV_CC_CloseDevice(handle_);
-	
-	callback_registered_ = false;
 }
 
 void HikCamera::StartGrabbing()
 {
 	user_data_ = new UserData(camera_id_, mediator_);
-	if (MV_OK != MV_CC_RegisterImageCallBackEx(handle_, ImageCallBackEx, (void*)user_data_)) throw CameraGrabberException("Register Image CallBack fail");
-	if (MV_OK != MV_CC_RegisterExceptionCallBack(handle_, ExceptionCallBack, (void*)user_data_)) throw CameraGrabberException("Register Image ExceptionCallBack fail");
-	//if (!callback_registered_)
-	//{
-	//	MV_CC_RegisterImageCallBackEx(handle_, ImageCallBackEx, (void*)user_data_);
-	//	MV_CC_RegisterExceptionCallBack(handle_, ExceptionCallBack, (void*)user_data_);
-	//	callback_registered_ = true;
-	//} 
-
-	auto nRet = MV_CC_StartGrabbing(handle_);
-	if (MV_OK != nRet)
+	if (MV_OK != MV_CC_RegisterImageCallBackEx(handle_, ImageCallBackEx, (void*)user_data_)); //throw CameraGrabberException("Register Image CallBack fail");
+	if (MV_OK != MV_CC_RegisterExceptionCallBack(handle_, ExceptionCallBack, (void*)user_data_)); //throw CameraGrabberException("Register Image ExceptionCallBack fail");
+	if (MV_OK != MV_CC_StartGrabbing(handle_))
 	{
-		printf("Get Trigger Mode fail! nRet [0x%x]\n", nRet);
-		throw CameraGrabberException("Start Grabbing fail!");
+		//throw CameraGrabberException("Start Grabbing fail!");
+	}
+	else
+	{
+		GlobalLogger::Record("HikCamera", LOG_LEVEL::TRACK, "camera " + to_string(camera_id_) + " StartGrabbing");
 	}
 }
 
@@ -58,17 +52,47 @@ void HikCamera::StopGrabbing()
 	DeletePtr(user_data_);
 }
 
+void HikCamera::SetMode(int mode)
+{
+	ICameraGrabber::SetMode(mode);
+	MV_CC_SetEnumValue(handle_, "TriggerMode", trigger_mode_);
+}
+
 void HikCamera::SoftTrigger()
 {
+	MV_CC_SetEnumValue(handle_, "TriggerSource", MV_TRIGGER_SOURCE_SOFTWARE);
 	MV_CC_SetCommandValue(handle_, "TriggerSoftware");
 }
 
 void HikCamera::SetId(USHORT id)
 {
 	memset(&stDeviceList_, 0, sizeof(MV_CC_DEVICE_INFO_LIST));
-	if (MV_OK != MV_CC_EnumDevices(MV_GIGE_DEVICE | MV_USB_DEVICE, &stDeviceList_)) throw CameraGrabberException("Enum Devices fail");
+	if (!is_enumed_)
+	{
+		if (MV_OK != MV_CC_EnumDevices(MV_GIGE_DEVICE | MV_USB_DEVICE, &stDeviceList_)) throw CameraGrabberException("Enum Devices fail");
 
-	// ch:选择设备并创建句柄 | Select device and create handle
+		for (USHORT i = 0; i < stDeviceList_.nDeviceNum; i++)
+		{
+			MV_CC_DEVICE_INFO* pDeviceInfo = stDeviceList_.pDeviceInfo[i];
+			assert(pDeviceInfo->nTLayerType == MV_GIGE_DEVICE);
+
+			int Ip1 = ((stDeviceList_.pDeviceInfo[i]->SpecialInfo.stGigEInfo.nCurrentIp & 0xff000000) >> 24);
+			int Ip2 = ((stDeviceList_.pDeviceInfo[i]->SpecialInfo.stGigEInfo.nCurrentIp & 0x00ff0000) >> 16);
+			int Ip3 = ((stDeviceList_.pDeviceInfo[i]->SpecialInfo.stGigEInfo.nCurrentIp & 0x0000ff00) >> 8);
+			int Ip4 = (stDeviceList_.pDeviceInfo[i]->SpecialInfo.stGigEInfo.nCurrentIp & 0x000000ff);
+
+			char strUserName[256] = { 0 };
+			sprintf_s(strUserName, "%s %s (%s)", pDeviceInfo->SpecialInfo.stGigEInfo.chManufacturerName,
+				pDeviceInfo->SpecialInfo.stGigEInfo.chModelName,
+				pDeviceInfo->SpecialInfo.stGigEInfo.chSerialNumber);
+			STRING&& Ip = to_string(Ip1) + "." + to_string(Ip2) + "." + to_string(Ip3) + "." + to_string(Ip4);
+			STRING&& id_serial = STRING(strUserName) + ":" + Ip;
+			id_serial_.emplace_back(id_serial);
+		}
+
+		is_enumed_ = true;
+	}
+	
 	if (MV_OK != MV_CC_CreateHandle(&handle_, stDeviceList_.pDeviceInfo[id])) throw CameraGrabberException("Create Handle fail");
 
 	camera_id_ = id;

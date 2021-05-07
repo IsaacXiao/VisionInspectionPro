@@ -6,6 +6,8 @@
 //#include <QChart>
 //using namespace QtCharts;
 
+#include <future>
+
 #include "ui_OnDisplay.h"
 #include "../Convert.h"
 
@@ -14,7 +16,6 @@
 
 class CameraShot;
 
-#include <array>
 
 class MainWnd : public QMainWindow, public IForDisplay
 {
@@ -48,19 +49,21 @@ private:
     QLabel *tredtTbaNum;
     QLabel *tredpercent;
 
-    //运行状态，OK数，NG数，待检数，合格率
-    QLineEdit *edtRunningState;
-    QLineEdit *edtOkNum;
-    QLineEdit *edtNgNum;
-    QLineEdit *edtTbaNum;
-    QLineEdit *edPercent;
 
-    //显示图像的Label对象
+   
     CameraShot* camra_shot_[CAMERA_NUM];
-	QPushButton * soft_trigger_[CAMERA_NUM];
-    // 相机触发选择框
-    QCheckBox* camara_trigger[CAMERA_NUM];
-    std::array<QString, CAMERA_NUM> camera_counting{"-999","-999","-999","-999"};
+
+    QPushButton* open_device_[CAMERA_NUM];
+    QPushButton* close_device_[CAMERA_NUM];
+    QPushButton* soft_trigger_[CAMERA_NUM];
+    QLineEdit* exposure_time_[CAMERA_NUM];
+    QLineEdit* gain_[CAMERA_NUM];
+    QLineEdit* frame_rate_[CAMERA_NUM];
+    QPushButton* get_setting_[CAMERA_NUM];
+    QPushButton* save_setting_[CAMERA_NUM];
+    QCheckBox* live_mode_[CAMERA_NUM];
+
+    //std::future<void> grab_done_;
 
     void InitFrame(); 
     void InitCamArea();
